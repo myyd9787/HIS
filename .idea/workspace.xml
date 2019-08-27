@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,7 +21,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="his02@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="his02@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="his02@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="his02: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileEditorManager">
@@ -42,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="343">
-              <caret line="439" column="13" selection-start-line="439" selection-start-column="13" selection-end-line="439" selection-end-column="13" />
+              <caret line="459" column="13" selection-start-line="459" selection-start-column="13" selection-end-line="459" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -218,7 +231,7 @@
       <updated>1566805428865</updated>
       <workItem from="1566805435309" duration="4318000" />
       <workItem from="1566810530345" duration="3736000" />
-      <workItem from="1566866895235" duration="270000" />
+      <workItem from="1566866895235" duration="557000" />
     </task>
     <task id="LOCAL-00001" summary="index">
       <created>1566809941162</created>
@@ -248,11 +261,18 @@
       <option name="project" value="LOCAL" />
       <updated>1566817019049</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="zl">
+      <created>1566867229562</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566867229562</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8324000" />
+    <option name="totallyTimeSpent" value="8611000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="0" width="1650" height="1041" extended-state="0" />
@@ -375,7 +395,7 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
-          <caret line="439" column="13" selection-start-line="439" selection-start-column="13" selection-end-line="439" selection-end-column="13" />
+          <caret line="459" column="13" selection-start-line="459" selection-start-column="13" selection-end-line="459" selection-end-column="13" />
         </state>
       </provider>
     </entry>
