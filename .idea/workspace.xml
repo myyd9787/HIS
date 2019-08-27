@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="" />
+    <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="zl">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_0_bin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/util/DBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/util/MD5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/commons-dbcp2-2.2.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/commons-pool2-2.5.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/mysql-connector-java-5.1.0-bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df6f3117-f5e9-40fc-80b8-81334d4513c5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df6f3117-f5e9-40fc-80b8-81334d4513c5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HIS.iml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,34 +46,26 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="his02@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="his02: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="basicflow: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="HIS" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.html">
+      <file leaf-file-name="DBUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="459" column="13" selection-start-line="459" selection-start-column="13" selection-end-line="459" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df6f3117-f5e9-40fc-80b8-81334d4513c5/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -82,6 +85,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/src/com/his/util/DBUtil.java" />
       </list>
     </option>
   </component>
@@ -101,8 +105,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="width" value="1650" />
+    <option name="x" value="33" />
+    <option name="y" value="1" />
+    <option name="width" value="1445" />
     <option name="height" value="1041" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -123,6 +128,40 @@
               <item name="HIS" type="462c0819:PsiDirectoryNode" />
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="documents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -137,12 +176,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/commons-logging-1.2.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\JAVA\Project\JavaProject\JavaWeb\HIS\web\WEB-INF" />
+      <recent name="G:\JAVA\Project\JavaProject\JavaWeb\HIS\src\com\his\util" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -231,7 +278,7 @@
       <updated>1566805428865</updated>
       <workItem from="1566805435309" duration="4318000" />
       <workItem from="1566810530345" duration="3736000" />
-      <workItem from="1566866895235" duration="557000" />
+      <workItem from="1566866895235" duration="8565000" />
     </task>
     <task id="LOCAL-00001" summary="index">
       <created>1566809941162</created>
@@ -268,43 +315,50 @@
       <option name="project" value="LOCAL" />
       <updated>1566867229562</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="zl">
+      <created>1566867530190</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566867530190</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8611000" />
+    <option name="totallyTimeSpent" value="16619000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="1650" height="1041" extended-state="0" />
+    <frame x="33" y="1" width="1445" height="1041" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5018208" side_tool="true" weight="0.3295711" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32960895" />
+      <window_info anchor="right" id="Maven Projects" order="2" />
+      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="设计师" order="5" />
+      <window_info anchor="right" auto_hide="true" id="Database" order="3" weight="0.201748" />
+      <window_info id="Structure" order="7" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" weight="0.31620112" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.3295711" />
+      <window_info anchor="bottom" id="Messages" order="4" visible="true" weight="0.3295711" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="0" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32849163" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50126743" side_tool="true" visible="true" weight="0.3295711" />
-      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32960895" />
-      <window_info anchor="right" id="Maven Projects" order="2" />
-      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49873257" visible="true" weight="0.3295711" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49817917" weight="0.3295711" />
       <window_info anchor="bottom" id="Run" order="10" weight="0.5318436" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32960895" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.498366" visible="true" weight="0.16096324" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49774265" visible="true" weight="0.18426803" />
       <window_info id="Web" order="4" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
-      <window_info id="设计师" order="5" />
-      <window_info anchor="right" auto_hide="true" id="Database" order="3" weight="0.20025349" />
-      <window_info id="Structure" order="7" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info id="UI Designer" order="1" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="2" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" weight="0.31620112" />
-      <window_info anchor="bottom" id="Messages" order="4" />
+      <window_info id="Favorites" order="2" sideWeight="0.50225735" side_tool="true" weight="0.18426803" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="1" weight="0.32849163" />
+      <window_info anchor="bottom" id="Database Console" order="1" sideWeight="0.49936628" weight="0.32844242" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
@@ -385,22 +439,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/checkapply.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="459" column="13" selection-start-line="459" selection-start-column="13" selection-end-line="459" selection-end-column="13" />
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/df6f3117-f5e9-40fc-80b8-81334d4513c5/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2171">
+          <caret line="515" column="13" selection-start-line="515" selection-start-column="13" selection-end-line="515" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/checkapply">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/expenseclass">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/drugstemplate">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/drugsdetailed">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/rule">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://df6f3117-f5e9-40fc-80b8-81334d4513c5/schema/his02/table/department">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="30" column="23" lean-forward="true" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -408,12 +521,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>HIS:war exploded</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -461,7 +573,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -469,6 +580,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>mysql-connector-java-5.1.0-bin</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
