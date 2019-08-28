@@ -6,11 +6,11 @@ public class Register {
     public int id;//id
     public String caseNumber;//病历号
     public String realName;//姓名
-    public int gender;//性别
+    public String gender;//性别
     public String idNumber;//身份证号
     public Date birthDate;//出生日期
     public int age;//年龄
-    public char ageType;//年龄
+    public String  ageType;//年龄类型
     public String homeAddress;//家庭住址
     public Date visitDate;//本次看诊日期
     public String Noon;//午别
@@ -18,7 +18,7 @@ public class Register {
     public int userId;//本次挂号医生ID
     public int registLeId;//本次挂号级别ID
     public int settleId;//结算类别ID
-    public char isBook;//病历本要否
+    public String isBook;//病历本要否
     public Date registTime;//挂号时间
     public int registerId;//挂号员ID
     public int visitState;//本次看诊状态/*1-已挂号2-医生接诊3-看诊结束4-已退号*/
@@ -26,7 +26,7 @@ public class Register {
     public Register() {
     }
 
-    public Register(String caseNumber,String realName, int gender, String idNumber, Date birthDate, int age, char ageType, String homeAddress, Date visitDate, String noon, int deptId, int userId, int registLeId, int settleId, char isBook, Date registTime, int registerId, int visitState) {
+    public Register(String caseNumber,String realName, String  gender, String idNumber, Date birthDate, int age, String  ageType, String homeAddress, Date visitDate, String noon, int deptId, int userId, int registLeId, int settleId, String isBook, Date registTime, int registerId, int visitState) {
         this.caseNumber = caseNumber;
         this.realName=realName;
         this.gender = gender;
@@ -55,7 +55,7 @@ public class Register {
         return caseNumber;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -81,7 +81,7 @@ public class Register {
 
     }
 
-    public char getAgeType() {
+    public String getAgeType() {
         return ageType;
     }
 
@@ -113,7 +113,7 @@ public class Register {
         return settleId;
     }
 
-    public char getIsBook() {
+    public String getIsBook() {
         return isBook;
     }
 
@@ -137,7 +137,7 @@ public class Register {
         this.caseNumber = caseNumber;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
@@ -153,7 +153,7 @@ public class Register {
         this.age = age;
     }
 
-    public void setAgeType(char ageType) {
+    public void setAgeType(String ageType) {
         this.ageType = ageType;
     }
 
@@ -185,7 +185,7 @@ public class Register {
         this.settleId = settleId;
     }
 
-    public void setIsBook(char isBook) {
+    public void setIsBook(String isBook) {
         this.isBook = isBook;
     }
 
