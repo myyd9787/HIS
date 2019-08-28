@@ -1,0 +1,8 @@
+#nav>li a:hover{
+	background: #ECF5FF;
+	color: #333333;
+}
+ul ul li:hover{
+	background: #ECF5FF;
+	/* color: #303133; */
+}
