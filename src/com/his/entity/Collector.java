@@ -5,7 +5,7 @@ public class Collector extends User{
     }
 
     public Collector( String userName, String passWord, String realName, int useType, int docTitleID, char isSchedulin, int deptNo, int registLeID, int delMark) {
-        super(userName, passWord, realName, useType, docTitleID, isSchedulin, deptNo, registLeID, delMark);
+
     }
     //收费
     //退费
