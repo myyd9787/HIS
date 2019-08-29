@@ -6,13 +6,16 @@ import java.math.BigDecimal;
  * 门诊医生
  */
 public class Doctor {
-/********门诊病历首页********/
+
+/********门诊病历********/
+
+    /********患者列表*******/
     //根据姓名查询患者
     public void getPatientByName(String name){
 
     }
 
-    //过往病史
+    /********病历首页*******/
     public void pastMedical(){
 
     }
