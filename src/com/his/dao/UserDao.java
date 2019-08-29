@@ -5,5 +5,6 @@ import com.his.entity.User;
 import java.sql.SQLException;
 
 public interface UserDao {
-    User login(String userName,String passWord) throws SQLException;
+   int save(User user) throws SQLException;
+    User getUserByUsername(String username,String pwd) throws SQLException;
 }
