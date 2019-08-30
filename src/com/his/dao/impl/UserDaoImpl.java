@@ -21,7 +21,7 @@ public class UserDaoImpl extends DBUtil implements UserDao {
            user.setRealName(rs.getString("RealName"));
            user.setUseType(rs.getInt("UseType"));
            user.setDocTitleID(rs.getInt("DocTitleID"));
-           user.setIsSchedulin(rs.getString("IsScheduling"));
+           user.setIsScheduling(rs.getString("IsScheduling"));
            user.setDeptNo(rs.getInt("DeptID"));
            user.setRegistLeID(rs.getInt("RegistLeID"));
            user.setDelMark(rs.getInt("DelMark("));

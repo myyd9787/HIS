@@ -32,6 +32,18 @@ public class ManagerServlet extends HttpServlet {
             String constantTypeJSON=JSON.toJSONString(constantTypeList);
             System.out.print(constantTypeJSON);
             out.print(constantTypeJSON);
+        }else if(method.equals("searchConstantList")){//执行模糊查询操作
+            String str=request.getParameter("title");
+            List<ConstantType> constantTypeList=managerBiz.getConstantTypeListByConstantTypeCode(str);
+            List<ConstantType> constantTypeList1=managerBiz.getConstantTypeListByConstantTypeName(str);
+            if(constantTypeList==null){
+                String constantTypeJSON=JSON.toJSONString(constantTypeList1);
+                out.print(constantTypeJSON);
+            }else{
+                String constantTypeJSON=JSON.toJSONString(constantTypeList);
+                out.print(constantTypeJSON);
+            }
+
         }
 
     }
