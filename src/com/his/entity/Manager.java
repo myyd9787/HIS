@@ -35,8 +35,8 @@ public class Manager extends User{
     }
 
     @Override
-    public String getIsSchedulin() {
-        return super.getIsSchedulin();
+    public String getIsScheduling() {
+        return super.getIsScheduling();
     }
 
     @Override
@@ -85,8 +85,8 @@ public class Manager extends User{
     }
 
     @Override
-    public void setIsSchedulin(String isSchedulin) {
-        super.setIsSchedulin(isSchedulin);
+    public void setIsScheduling(String isScheduling) {
+        super.setIsScheduling(isScheduling);
     }
 
     @Override

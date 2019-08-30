@@ -7,7 +7,7 @@ public class User {
         public String realName;//真实姓名
         public int useType;//用户类别   1-医院管理员/*2-挂号收费员3-门诊医生4-医技医生5-药房操作员6-财务管理员*/
         public int DocTitleID;//所在科室id
-        public String  isSchedulin;//所在科室id
+        public String  isScheduling;//所在科室id
         public int deptNo;//所在科室id
         public int registLeID;//挂号级别ID
         public int delMark;//删除标记 0或者1，1-正常；0-已删除
@@ -19,7 +19,7 @@ public class User {
         this.realName = realName;
         this.useType = useType;
         DocTitleID = docTitleID;
-        this.isSchedulin = isSchedulin;
+        this.isScheduling = isScheduling;
         this.deptNo = deptNo;
         this.registLeID = registLeID;
         this.delMark = delMark;
@@ -49,8 +49,8 @@ public class User {
         return DocTitleID;
     }
 
-    public String getIsSchedulin() {
-        return isSchedulin;
+    public String getIsScheduling() {
+        return isScheduling;
     }
 
     public int getDeptNo() {
@@ -89,8 +89,8 @@ public class User {
         DocTitleID = docTitleID;
     }
 
-    public void setIsSchedulin(String isSchedulin) {
-        this.isSchedulin = isSchedulin;
+    public void setIsScheduling(String isScheduling) {
+        this.isScheduling = isScheduling;
     }
 
     public void setDeptNo(int deptNo) {
