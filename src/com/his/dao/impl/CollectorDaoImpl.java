@@ -10,7 +10,7 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
     @Override
     //现场挂号，将挂号类对象存入数据库，并返回结果
     public int regist(Register register) {
-        String sql="INSERT INTO register (`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`BirthDate`,`Age`,`AgeType`,\n" +
+        String sql="INSERT INTO register (`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`BirthDate`,`Age`,`AgeType`," +
                 "`HomeAddress`,`VisitDate`,`Noon`,`DeptID`,`UserID`,`RegistLeID`,`SettleID`,`IsBook`," +
                 "`RegistTime`,`RegisterID`,`VisitState`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {

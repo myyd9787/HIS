@@ -7,10 +7,11 @@ import com.his.entity.User;
 import java.sql.SQLException;
 
 public class UserBizImpl implements UserBiz {
+
     @Override
     public User login(String userName, String passWord) {
         try {
-            return new UserDaoImpl().login(userName,passWord);
+            return new UserDaoImpl().getUserByUsername(userName, passWord);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

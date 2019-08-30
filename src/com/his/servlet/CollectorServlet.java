@@ -24,36 +24,36 @@ public class CollectorServlet extends HttpServlet {
         Date registTime=null;
         String method=request.getParameter("method");
         if(method.equals("regist")){//现场挂号
-            String caseNumber=request.getParameter("caseNumber");
-            String realName=request.getParameter("realName");
-            String  gender=request.getParameter("gender");
-            String idNumber=request.getParameter("idNumber");
+            String caseNumber=request.getParameter("CaseNumber");
+            String realName=request.getParameter("RealName");
+            String  gender=request.getParameter("Gender");
+            String idNumber=request.getParameter("IDnumber");
             try {
-                 birthDate=sdf.parse(request.getParameter("birthDate"));
+                 birthDate=sdf.parse(request.getParameter("BirthDate"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            int age=Integer.parseInt(request.getParameter("age"));
-            String ageType=request.getParameter("ageType");
-            String homeAdress=request.getParameter("homeAddress");
+            int age=Integer.parseInt(request.getParameter("Age"));
+            String ageType=request.getParameter("AgeType");
+            String homeAdress=request.getParameter("HomeAddress");
             try {
-                visitDate=sdf.parse(request.getParameter("visitDate"));
+                visitDate=sdf.parse(request.getParameter("VisitDate"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            String noon=request.getParameter("noon");
-            int deptId=Integer.parseInt(request.getParameter("deptId"));
-            int userId=Integer.parseInt(request.getParameter("userId"));
-            int registLeId=Integer.parseInt(request.getParameter("registLeId"));
-            int settleId=Integer.parseInt(request.getParameter("settleId"));
-            String isBook=request.getParameter("isBook");
+            String noon=request.getParameter("Noon");
+            int deptId=Integer.parseInt(request.getParameter("DeptID"));
+            int userId=Integer.parseInt(request.getParameter("UserID"));
+            int registLeId=Integer.parseInt(request.getParameter("RegistLeID"));
+            int settleId=Integer.parseInt(request.getParameter("SettleID"));
+            String isBook=request.getParameter("IsBook");
             try {
-                registTime=sdf.parse(request.getParameter("registTime"));
+                registTime=sdf.parse(request.getParameter("RegistTime"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            int registerId=Integer.parseInt(request.getParameter("registerId"));
-            int visitState=Integer.parseInt(request.getParameter("visitState"));
+            int registerId=Integer.parseInt(request.getParameter("RegisterID"));
+            int visitState=Integer.parseInt(request.getParameter("VisitState"));
             Register register=new Register(caseNumber,realName,gender,idNumber,birthDate,age,ageType,homeAdress,visitDate,noon,deptId,userId,registLeId,settleId,isBook,registTime,registerId,visitState);
             if(collectorBiz.regist(register)>0){//现场挂号成功
 
