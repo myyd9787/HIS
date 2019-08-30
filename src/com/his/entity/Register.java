@@ -10,7 +10,7 @@ public class Register {
     public String idNumber;//身份证号
     public Date birthDate;//出生日期
     public int age;//年龄
-    public String  ageType;//年龄类型
+    public String  ageType;//年龄单位(岁,月,天)
     public String homeAddress;//家庭住址
     public Date visitDate;//本次看诊日期
     public String Noon;//午别
