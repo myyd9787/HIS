@@ -27,7 +27,7 @@ public class DBUtil {
 		//配置文件配置（推荐）
 		Properties prop = new Properties();
 		try {
-			prop.load(DBUtil.class.getClassLoader().getResourceAsStream("/dbcp_config.properties"));
+			prop.load(DBUtil.class.getClassLoader().getResourceAsStream("dbcp_config.properties"));
 			dataSource = BasicDataSourceFactory.createDataSource(prop);
 		} catch (Exception e) {
 			e.printStackTrace();
