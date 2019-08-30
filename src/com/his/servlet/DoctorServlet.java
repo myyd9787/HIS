@@ -27,17 +27,17 @@ public class DoctorServlet extends HttpServlet {
 
         //未诊患者列表
         if (method.equals("state0")){
-            List<Register> register = doctorBiz.getRegisterByState(3);
+            List<Register> register = doctorBiz.getRegisterByState(0);
             String register0 = JSON.toJSONString(register);
-            System.out.println(register);
+            System.out.println(register0);
             out.print(register0);
         }
         //已诊患者列表
         else if (method.equals("state1")){
             List<Register> register = doctorBiz.getRegisterByState(1);
-            String register0 = JSON.toJSONString(register);
-            System.out.println(register);
-            out.print(register0);
+            String register1 = JSON.toJSONString(register);
+            System.out.println(register1);
+            out.print(register1);
         }
     }
 
