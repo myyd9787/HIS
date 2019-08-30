@@ -2,18 +2,18 @@ package com.his.entity;
 //常数类型类
 public class ConstantType {
     public int id;//id
-    public String ConstantTypeCode;//常数类别编码
-    public String ConstantTypeName;//常数类别名称
-    public int DelMark;//删除标记
+    public String constantTypeCode;//常数类别编码
+    public String constantTypeName;//常数类别名称
+    public int delMark;//删除标记
 
     public ConstantType() {
     }
 
     public ConstantType(int id, String constantTypeCode, String constantTypeName) {
         this.id = id;
-        ConstantTypeCode = constantTypeCode;
-        ConstantTypeName = constantTypeName;
-        DelMark = 1;
+        this.constantTypeCode = constantTypeCode;
+        this.constantTypeName = constantTypeName;
+        delMark = 1;
     }
 
     public int getId() {
@@ -25,26 +25,26 @@ public class ConstantType {
     }
 
     public String getConstantTypeCode() {
-        return ConstantTypeCode;
+        return constantTypeCode;
     }
 
     public void setConstantTypeCode(String constantTypeCode) {
-        ConstantTypeCode = constantTypeCode;
+        this.constantTypeCode = constantTypeCode;
     }
 
     public String getConstantTypeName() {
-        return ConstantTypeName;
+        return constantTypeName;
     }
 
     public void setConstantTypeName(String constantTypeName) {
-        ConstantTypeName = constantTypeName;
+        this.constantTypeName = constantTypeName;
     }
 
     public int getDelMark() {
-        return DelMark;
+        return delMark;
     }
 
     public void setDelMark(int delMark) {
-        DelMark = delMark;
+        this.delMark = delMark;
     }
 }
