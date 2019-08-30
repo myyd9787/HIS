@@ -13,7 +13,7 @@ public class DoctorDaoImpl extends DBUtil implements DoctorDao {
     //根据诊断状态查询患者
     @Override
     public List<Register> getRegisterByState(int state) throws SQLException {
-        String sql = "SELECT *" +
+        String sql = "SELECT `ID`,`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`Age`,`DeptID`,`UserID`,`RegistLeID`,`SettleID`,`RegisterID`,`VisitState`" +
                 "FROM `register`" +
                 "WHERE `VisitState` = ? ";
         rs = executeQuery(sql, state);
@@ -36,7 +36,7 @@ public class DoctorDaoImpl extends DBUtil implements DoctorDao {
     @Override
     //根据名字查询挂号患者
     public List<Register> getRegisterByName(String name) throws SQLException {
-        String sql = "SELECT *" +
+        String sql = "SELECT `ID`,`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`Age`,`DeptID`,`UserID`,`RegistLeID`,`SettleID`,`RegisterID`,`VisitState`" +
                 "FROM `register`" +
                 "WHERE `RealName` = ? ";
         rs = executeQuery(sql, name);
