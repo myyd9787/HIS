@@ -1,11 +1,8 @@
 package com.his.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
 import java.util.Objects;
 
 //科室类
-@Entity
 public class Department {
     int id;//id
     String deptCode;//科室编码
@@ -30,8 +27,6 @@ public class Department {
         this.delMark = 1;
     }
 
-    @javax.persistence.Id
-    @javax.persistence.Column(name = "ID")
     public int getId() {
         return id;
     }
@@ -40,8 +35,6 @@ public class Department {
         this.id = id;
     }
 
-    @javax.persistence.Basic
-    @javax.persistence.Column(name = "DeptCode")
     public String getDeptCode() {
         return deptCode;
     }
@@ -50,8 +43,6 @@ public class Department {
         this.deptCode = deptCode;
     }
 
-    @javax.persistence.Basic
-    @javax.persistence.Column(name = "DeptName")
     public String getDeptName() {
         return deptName;
     }
@@ -68,8 +59,6 @@ public class Department {
         this.deptCategoryID = deptCategoryID;
     }
 
-    @Basic
-    @javax.persistence.Column(name = "DeptType")
     public int getDeptType() {
         return deptType;
     }
@@ -78,8 +67,6 @@ public class Department {
         this.deptType = deptType;
     }
 
-    @Basic
-    @javax.persistence.Column(name = "DelMark")
     public int getDelMark() {
         return delMark;
     }
@@ -90,8 +77,6 @@ public class Department {
 
     private int deptCategoryId;
 
-    @Basic
-    @javax.persistence.Column(name = "DeptCategoryID")
     public int getDeptCategoryId() {
         return deptCategoryId;
     }
@@ -100,18 +85,7 @@ public class Department {
         this.deptCategoryId = deptCategoryId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Department that = (Department) o;
-        return id == that.id &&
-                deptType == that.deptType &&
-                delMark == that.delMark &&
-                deptCategoryId == that.deptCategoryId &&
-                Objects.equals(deptCode, that.deptCode) &&
-                Objects.equals(deptName, that.deptName);
-    }
+
 
     @Override
     public int hashCode() {
