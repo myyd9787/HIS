@@ -3,8 +3,10 @@ package com.his.util;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -27,7 +29,7 @@ public class DBUtil {
 		//配置文件配置（推荐）
 		Properties prop = new Properties();
 		try {
-			prop.load(DBUtil.class.getClassLoader().getResourceAsStream("/dbcp_config.properties"));
+			prop.load(DBUtil.class.getClassLoader().getResourceAsStream("dbcp_config.properties"));
 			dataSource = BasicDataSourceFactory.createDataSource(prop);
 		} catch (Exception e) {
 			e.printStackTrace();

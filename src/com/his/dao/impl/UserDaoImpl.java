@@ -14,7 +14,7 @@ public class UserDaoImpl extends DBUtil implements UserDao {
                 "DelMark)values(?,?,?,?,?,?,?,?.?)";
         try {
             return executeUpdate(sql,user.getUserName(),user.getPassWord(),user.getUseType(),user.getDocTitleID()
-            ,user.getIsSchedulin(),user.getDeptNo(),user.getRegistLeID(),user.getDelMark());
+            ,user.getIsScheduling(),user.getDeptNo(),user.getRegistLeID(),user.getDelMark());
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
@@ -23,8 +23,8 @@ public class UserDaoImpl extends DBUtil implements UserDao {
 
     @Override
     public User getUserByUsername(String username, String pwd) throws SQLException {
-        String sql = "select UserName,Password,RealName,UseType,DocTitleID,IsScheduling,DeptID,RegistLeID,DelMark" +
-                "from user where UserName=? and Password=?";
+        String sql = "SELECT `UserName`,`Password`,`RealName`,`UseType`,`DocTitleID`,`IsScheduling`,`DeptID`,`RegistLeID`,`DelMark`" +
+                "FROM `user`  WHERE UserName=? and Password=?";
         User user;
         try {
             rs = executeQuery(sql, username, pwd);
@@ -36,7 +36,7 @@ public class UserDaoImpl extends DBUtil implements UserDao {
                 user.setRealName(rs.getString("RealName"));
                 user.setUseType(rs.getInt("UseType"));
                 user.setDocTitleID(rs.getInt("DocTitleID"));
-                user.setIsSchedulin(rs.getString("IsScheduling"));
+                user.setIsScheduling(rs.getString("IsScheduling"));
                 user.setDeptNo(rs.getInt("DeptID"));
                 user.setDelMark(rs.getInt("DelMark"));
             }

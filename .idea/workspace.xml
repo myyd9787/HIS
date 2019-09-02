@@ -7,8 +7,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="zl">
+      <change afterPath="$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/entity/Prescription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/entity/PrescriptionDetailed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/fa-tuiYao.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/css/yaoguanli.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/faYao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/tuiYao.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_0_bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_0_bin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/entity/Collector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/entity/Collector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/dao/DrugsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/DrugsDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/dbcp_config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dbcp_config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/his/util/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/util/DBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/faYao.css" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,11 +72,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/index.html">
+      <file leaf-file-name="Register.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/his/entity/Register.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="420">
+              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrugsDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/his/dao/DrugsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrugsDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="26" column="71" lean-forward="true" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrugsServlet.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yaoGuanLi.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Drugs_moreSelect.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -68,8 +138,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>\n</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -82,6 +158,18 @@
         <option value="$PROJECT_DIR$/src/com/his/util/DBUtil.java" />
         <option value="$PROJECT_DIR$/documents/日报/20190827/范涛.txt" />
         <option value="$PROJECT_DIR$/src/com/his/entity/Collector.java" />
+        <option value="$PROJECT_DIR$/src/com/his/dbcp_config.properties" />
+        <option value="$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/his/dao/impl/ManagerDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/his/entity/PrescriptionDetailed.java" />
+        <option value="$PROJECT_DIR$/src/com/his/entity/Prescription.java" />
+        <option value="$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java" />
+        <option value="$PROJECT_DIR$/src/com/his/dao/DrugsDao.java" />
+        <option value="$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java" />
+        <option value="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" />
+        <option value="$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html" />
       </list>
     </option>
   </component>
@@ -108,44 +196,77 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="534" />
-    <option name="y" value="154" />
-    <option name="width" value="1286" />
-    <option name="height" value="778" />
+    <option name="x" value="163" />
+    <option name="y" value="74" />
+    <option name="width" value="1409" />
+    <option name="height" value="790" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="HISPITAl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HISPITAl" type="462c0819:PsiDirectoryNode" />
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HISPITAl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HISPITAl" type="462c0819:PsiDirectoryNode" />
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HISPITAl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HISPITAl" type="462c0819:PsiDirectoryNode" />
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HISPITAl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HISPITAl" type="462c0819:PsiDirectoryNode" />
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="layui" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="financial_mgt" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -159,7 +280,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/commons-logging-1.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.4.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -169,9 +290,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\suhang.java\suHang\HIS\web\css" />
+      <recent name="D:\suhang.java\suHang\HIS\web\pages" />
+      <recent name="D:\suhang.java\suHang\HIS\web\WEB-INF\lib" />
       <recent name="E:\HISPITAl\documents\日报\20190827" />
       <recent name="G:\JAVA\Project\JavaProject\JavaWeb\HIS\web\WEB-INF" />
-      <recent name="G:\JAVA\Project\JavaProject\JavaWeb\HIS\src\com\his\util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\HISPITAl\documents\日报\20190827" />
@@ -244,6 +367,24 @@
       <predefined_log_file id="Tomcat Manager" enabled="false" />
       <predefined_log_file id="Tomcat Host Manager" enabled="false" />
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55175" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -285,6 +426,15 @@
       <workItem from="1566900592387" duration="167000" />
       <workItem from="1566903946149" duration="182000" />
       <workItem from="1566964132192" duration="1295000" />
+      <workItem from="1567146287805" duration="2902000" />
+      <workItem from="1567215401791" duration="19000" />
+      <workItem from="1567385413582" duration="9000" />
+      <workItem from="1567385429355" duration="5000" />
+      <workItem from="1567385861659" duration="15000" />
+      <workItem from="1567385995713" duration="15524000" />
+      <workItem from="1567405593714" duration="54000" />
+      <workItem from="1567405675260" duration="42000" />
+      <workItem from="1567405775254" duration="4708000" />
     </task>
     <task id="LOCAL-00001" summary="index">
       <created>1566809941162</created>
@@ -335,15 +485,21 @@
       <option name="project" value="LOCAL" />
       <updated>1566900684315</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="zl">
+      <created>1567137700803</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1567137700803</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18263000" />
+    <option name="totallyTimeSpent" value="42599000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="546" y="131" width="1375" height="778" extended-state="0" />
-    <editor active="true" />
+    <frame x="363" y="112" width="1409" height="790" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5018208" side_tool="true" weight="0.3295711" />
@@ -356,28 +512,28 @@
       <window_info id="Structure" order="7" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" weight="0.31620112" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" visible="true" weight="0.11094225" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.3295711" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.32882884" />
+      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49871466" weight="0.32522798" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="0" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32849163" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.25835866" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49817917" weight="0.27027026" />
-      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.15165165" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.32960895" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.49774265" visible="true" weight="0.19352464" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49774265" visible="true" weight="0.18458118" />
       <window_info id="Web" order="4" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.26291794" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="2" sideWeight="0.50225735" side_tool="true" weight="0.18426803" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="1" sideWeight="0.49936628" weight="0.32844242" />
-      <window_info id="设计师" order="5" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="8" />
+      <window_info id="设计师" order="5" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="9" visible="true" weight="0.4383954" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,11 +571,50 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="vcs" />
     <MESSAGE value="index" />
-    <MESSAGE value="zl" />
     <MESSAGE value="范涛日报" />
-    <option name="LAST_COMMIT_MESSAGE" value="范涛日报" />
+    <MESSAGE value="zl" />
+    <option name="LAST_COMMIT_MESSAGE" value="zl" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/UserBizImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/his/com/his/DrugsBiz.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/his/DrugsBiz.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DrugsDao.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/CollectorDaoImpl.java" />
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2520">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dbcp_config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="31" column="95" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -555,8 +750,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state relative-caret-position="60">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -569,8 +764,229 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="46" column="17" lean-forward="true" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+        <state relative-caret-position="270">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dbcp_config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" selection-start-column="32" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/PrescriptionDetailed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+            <element signature="e#1281#1282#0" expanded="true" />
+            <element signature="e#1310#1311#0" expanded="true" />
+            <element signature="e#1354#1355#0" expanded="true" />
+            <element signature="e#1390#1391#0" expanded="true" />
+            <element signature="e#1419#1420#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="e#1520#1521#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/Prescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="22" />
+          <folding>
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#593#594#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#919#920#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#1065#1066#0" expanded="true" />
+            <element signature="e#1121#1122#0" expanded="true" />
+            <element signature="e#1164#1165#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1267#1268#0" expanded="true" />
+            <element signature="e#1323#1324#0" expanded="true" />
+            <element signature="e#1364#1365#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1467#1468#0" expanded="true" />
+            <element signature="e#1525#1526#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/servlet/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/ManagerBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/ManagerBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/ManagerDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/servlet/ManagerServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pages/financial_mgt/faYao.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2430" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/Drugs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/DrugsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="26" column="71" lean-forward="true" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/fa-tuiYao.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -585,6 +1001,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

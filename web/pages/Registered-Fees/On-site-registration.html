@@ -32,12 +32,8 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal layui-form layui-col-md12 we-search" id="form-member-add">
+	<form action="../../CollectorServlet?method=regist" method="post" class="form form-horizontal layui-form layui-col-md12 we-search" id="form-member-add">
 		<div class="row cl">
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>发票号：</label>
-			<div class="formControls col-xs-2 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="发票号" id="username" name="username">
-			</div>
 			<div class="formControls col-xs-2 col-sm-2">
 				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;挂号&nbsp;&nbsp;">
 			</div>
@@ -53,25 +49,31 @@
 		<div class="row cl">
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>病历号：</label>
 			<div class="formControls col-xs-2 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="输入病历号" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="输入病历号"  name="CaseNumber">
 			</div>
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>姓名：</label>
 			<div class="formControls col-xs-2 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="输入姓名" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="输入姓名"  name="CaseNumber">
 			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>性别：</label>
 			<div class="formControls col-xs-2 col-sm-1">
-				<select name="cateid">
-					<option>男</option>
-					<option>女</option>
+				<select name="Gender">
+					<option value="0">男</option>
+					<option value="1">女</option>
 				</select>
+			</div>
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>身份证号：</label>
+			<div class="formControls col-xs-2 col-sm-2">
+				<input type="text" class="input-text" value="" placeholder="身份证号"  name="IDnumber">
 			</div>
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>年龄：</label>
 			<div class="formControls col-xs-1 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="输入年龄" id="username" name="username">
+				<input type="text" class="input-text" value="" placeholder="输入年龄"  name="Age">
 			</div>
 			<div class="layui-input-inline">
-				<select name="cateid">
+				<select name="AgeType">
 					<option>岁</option>
 					<option>月</option>
 					<option>日</option>
@@ -81,97 +83,92 @@
 		<div class="row cl">
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>出生日期：</label>
 			<div class="formControls col-xs-2 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="出生日期" id="start" name="  ">
-			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>身份证号：</label>
-			<div class="formControls col-xs-2 col-sm-2">
-				<input type="text" class="input-text" value="" placeholder="身份证号" id=" " name=" ">
+				<input type="text" class="input-text" value="" placeholder="出生日期" id="start" name="BirthDate  ">
 			</div>
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>家庭住址：</label>
 			<div class="formControls col-xs-2 col-sm-2">
-				<input type="text" class="input-text" value="" placeholder="家庭住址" id=" " name="  ">
+				<input type="text" class="input-text" value="" placeholder="家庭住址" name="HomeAddress">
 			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>看诊日期：</label>
+			<div class="formControls col-xs-2 col-sm-1">
+				<input type="text" class="input-text" value="" placeholder="看诊日期日期" id="end" name="VisitDate">
+			</div>
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>午别：</label>
+			<div class="formControls col-xs-2 col-sm-1">
+				<div class="layui-input-inline">
+					<select name="Noon" >
+						<option>上午</option>
+						<option>下午</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>结算类别：</label>
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
-					<select name="cateid">
+					<select name="SettleID">
 						<option>1</option>
 						<option>市医保</option>
 						<option>省医保</option>
 					</select>
 				</div>
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>午别：</label>
-			<div class="formControls col-xs-2 col-sm-1">
-				<div class="layui-input-inline">
-					<select name="cateid" >
-						<option></option>
-					</select>
-				</div>
-			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>看诊日期：</label>
-			<div class="formControls col-xs-2 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="看诊日期日期" id="end" name="  ">
-			</div>
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>挂号科室：</label>
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
-					<select name="cateid" >
-						<option></option>
-					</select>
-				</div>
-			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>号别：</label>
-			<div class="formControls col-xs-2 col-sm-1">
-				<div class="layui-input-inline">
-					<select name="cateid" >
-						<option></option>
+					<select name="DeptID" >
+						<option>1</option>
+						<option>2</option>
 					</select>
 				</div>
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>挂号级别：</label>
+			<div class="formControls col-xs-2 col-sm-1">
+				<div class="layui-input-inline">
+					<select name="RegistLeID" >
+						<option>301</option>
+						<option >9</option>
+						<option >10</option>
+					</select>
+				</div>
+			</div>
 			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>看诊医生：</label>
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
-					<select name="cateid" >
-						<option></option>
+					<select name="UserID" >
+						<option>1</option>
+						<option>2</option>
 					</select>
 				</div>
 			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>初始号额：</label>
-			<div class="formControls col-xs-1 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="初始号额" id="" name="">
-			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>已用号额：</label>
-			<div class="formControls col-xs-1 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="已用号额" id="" name="">
-			</div>
 			<div>
-				<input type="checkbox" name="" title="病历本">
+				<input type="checkbox" name="IsBook" title="病历本">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>应收金额：</label>
-			<div class="formControls col-xs-1 col-sm-1">
-				<input type="text" class="input-text" value="" placeholder="0" id="" name="">
-			</div>
-			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>收费方式：</label>
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>看诊状态：</label>
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
-					<select name="cateid" >
-						<option>现金</option>
-						<option>医保卡</option>
-						<option>银行卡</option>
-						<option>信用卡</option>
-						<option>微信</option>
-						<option>支付宝</option>
-						<option>云闪付</option>
-						<option>其它</option>
+					<select name="VisitState" >
+						<option>1-已挂号</option>
+						<option>2-医生接诊</option>
+						<option>3-看诊结束</option>
+						<option>4-已退号</option>
 					</select>
 				</div>
+			</div>
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>挂号时间：</label>
+			<div class="formControls col-xs-2 col-sm-1">
+				<input type="text" class="input-text" value="" placeholder="挂号时间" name="RegistTime">
+			</div>
+			<label class="form-label col-xs-1 col-sm-1"><span class="c-red">*</span>挂号员id：</label>
+			<div class="formControls col-xs-2 col-sm-1">
+				<input type="text" class="input-text" value="" placeholder="挂号员id" name="RegisterID">
 			</div>
 		</div>
 	</form>
@@ -193,45 +190,7 @@
 <script type="text/javascript" src="../../lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
     $(function(){
-        $('.skin-minimal input').iCheck({
-            checkboxClass: 'icheckbox-blue',
-            radioClass: 'iradio-blue',
-            increaseArea: '20%'
-        });
 
-        $("#form-member-add").validate({
-            rules:{
-                username:{
-                    required:true,
-                    minlength:2,
-                    maxlength:16
-                },
-                sex:{
-                    required:true,
-                },
-                mobile:{
-                    required:true,
-                    isMobile:true,
-                },
-                email:{
-                    required:true,
-                    email:true,
-                },
-                uploadfile:{
-                    required:true,
-                },
-
-            },
-            onkeyup:false,
-            focusCleanup:true,
-            success:"valid",
-            submitHandler:function(form){
-                //$(form).ajaxSubmit();
-                var index = parent.layer.getFrameIndex(window.name);
-                //parent.$('.btn-refresh').click();
-                parent.layer.close(index);
-            }
-        });
     });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

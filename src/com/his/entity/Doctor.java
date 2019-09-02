@@ -10,8 +10,8 @@ public class Doctor {
 /********门诊病历********/
 
     /********患者列表*******/
-    //根据姓名查询患者
-    public void getPatientByName(String name){
+    //根据姓名查询挂号
+    public void getRegisterByName(){
 
     }
 
