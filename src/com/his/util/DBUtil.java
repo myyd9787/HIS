@@ -3,7 +3,6 @@ package com.his.util;
 import org.apache.commons.dbcp2.BasicDataSourceFactory;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
 

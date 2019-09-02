@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,9 +20,14 @@ import java.util.Date;
 @WebServlet("/CollectorServlet")
 public class CollectorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-             String method = request.getParameter("method");
-             PrintWriter out = response.getWriter();
-             CollectorBiz collectorbiz = new CollectorBizImpl();
+                request.setCharacterEncoding("utf-8");
+                response.setCharacterEncoding("utf-8");
+                response.setContentType("text/html;charset=utf-8");
+                DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                DateFormat hsm = new SimpleDateFormat("yyyy/MM/dd");
+                PrintWriter out = response.getWriter();
+                String method = request.getParameter("method");
+                CollectorBiz collectorbiz = new CollectorBizImpl();
              if(method.equals("regist")){//新增用户挂号信息
                  String casenumber = request.getParameter("CaseNumber");
                  String realname = request.getParameter("RealName");
@@ -38,15 +44,23 @@ public class CollectorServlet extends HttpServlet {
                  String registleid = request.getParameter("RegistLeID");
                  String setteid = request.getParameter("SettleID");
                  String isbook = request.getParameter("IsBook");
-                 String registtime = request.getParameter("RegistTime");
+                 String  registtime = request.getParameter("RegistTime");
                  String registerid = request.getParameter("RegisterID");
                  String visitstate = request.getParameter("VisitState");
-                 Collector collector = new Collector(casenumber,realname,gender,idnumber,birthdate,age
-                 ,agetype,homeaddress,visitdate,none,deptid,userid,registleid,setteid,isbook,registtime,registerid
-                 ,visitstate);
-                 if (collectorbiz.add(collector)>0){//新增成功
-                     System.out.println("新增成功");
-                     response.sendRedirect(request.getContextPath()+"/On-site-registration.html");
+                 Date birth = null;
+                 Date visit = null;
+                 Date regist = null;
+                 try {
+                     birth = sdf.parse(birthdate);
+                     visit = sdf.parse(visitdate);
+                     regist = sdf.parse(registtime);
+                     Collector collector = new Collector(casenumber,realname,gender,idnumber,birth,age,agetype,homeaddress,visit,none,deptid,userid,registleid,setteid,isbook,regist,registerid,visitstate);
+                     if (collectorbiz.add(collector)>0){//新增成功
+                         System.out.println("新增成功");
+                         response.sendRedirect(request.getContextPath()+"pages/Registered-Fees/On-site-registration.html");
+                     }
+                 } catch (ParseException e) {
+                     e.printStackTrace();
                  }
 
              }
