@@ -1,0 +1,35 @@
+.weadmin-nav{
+	border-bottom:none;
+}
+.weadmin-nav>a{
+	line-height: 30px!important;
+}
+#faY{
+	background: #EAF1F5;
+	height: 40px;
+	margin-bottom: 10px;
+	border-radius:5px ;
+	-webkit-user-select: none;
+}
+#faY span{
+	background: #A0CFFF;
+	display: inline-block;
+	height: 40px;
+	width: 70px;
+	color: #F9F3FF;
+	text-align: center;
+	line-height: 40px;
+	border-radius:5px ;
+	padding-left: 5px;
+	letter-spacing: 5px;
+}
+.layui-inline>input{
+	width: 240px!important;
+	border-radius:8px;
+	margin-right: 30px;
+}
+.layui-form>.layui-btn{
+	width: 80px;
+	padding-left:22px;
+	letter-spacing:7px;
+}
