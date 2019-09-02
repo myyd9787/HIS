@@ -19,26 +19,27 @@ public class UserServlet extends HttpServlet {
         if(method.equals("login")){//执行登录操作
             String userName=request.getParameter("username");
             String passWord=request.getParameter("password");
+            String usertype = request.getParameter("UserType");
             User user=userBiz.login(userName,passWord);
             if(user!=null){
-                switch (user.getUseType()){
-                    case 0://进入医院管理员界面
+                switch (usertype){
+                    case "0"://进入医院管理员界面
                         response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case 1://进入挂号收费员界面
-                        response.sendRedirect(request.getContextPath()+"");
+                    case "1"://进入挂号收费员界面
+                        response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case 2://进入门诊医生界面
-                        response.sendRedirect(request.getContextPath()+"");
+                    case "2"://进入门诊医生界面
+                        response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case 3://进入医技处理界面
-                        response.sendRedirect(request.getContextPath()+"");
+                    case "3"://进入医技处理界面
+                        response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case 4://进入药房操作员界面
-                        response.sendRedirect(request.getContextPath()+"");
+                    case "4"://进入药房操作员界面
+                        response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case 5://进入财务管理员界面
-                        response.sendRedirect(request.getContextPath()+"");
+                    case "5"://进入财务管理员界面
+                        response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
                 }
             }
