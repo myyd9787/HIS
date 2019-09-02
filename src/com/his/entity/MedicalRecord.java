@@ -5,6 +5,7 @@ import java.util.Objects;
 public class MedicalRecord {
     private int id; //ID主键
     private String caseNumber;  //病历号
+    private int registId;    //挂号ID
     private String readme;  //自述
     private String present; //现病史
     private String presentTreat;    //现病治疗
@@ -21,9 +22,10 @@ public class MedicalRecord {
     public MedicalRecord() {
     }
 
-    public MedicalRecord(String caseNumber, String readme, String present, String presentTreat, String history,
+    public MedicalRecord(String caseNumber, int registId, String readme, String present, String presentTreat, String history,
                          String allergy, String physique) {
         this.caseNumber = caseNumber;
+        this.registId = registId;
         this.readme = readme;
         this.present = present;
         this.presentTreat = presentTreat;
@@ -47,6 +49,10 @@ public class MedicalRecord {
     public void setCaseNumber(String caseNumber) {
         this.caseNumber = caseNumber;
     }
+
+    public void setRegistId(int registId) { this.registId = registId;}
+
+    public int getRegistId() { return registId;}
 
     public String getReadme() {
         return readme;
