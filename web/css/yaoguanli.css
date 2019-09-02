@@ -1,0 +1,13 @@
+.weadmin-block{
+	/* display: inline-block; */
+	position: absolute;
+	top: 54px;
+	left: 370px;
+	background: white;
+}
+.weadmin-nav{
+	border-bottom:none;
+}
+.weadmin-nav>a{
+	line-height: 30px!important;
+}

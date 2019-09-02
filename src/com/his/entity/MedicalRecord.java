@@ -3,20 +3,36 @@ package com.his.entity;
 import java.util.Objects;
 
 public class MedicalRecord {
-    private int id;
-    private String caseNumber;
-    private String readme;
-    private String present;
-    private String presentTreat;
-    private String history;
-    private String allergy;
-    private String physique;
+    private int id; //ID主键
+    private String caseNumber;  //病历号
+    private int registId;    //挂号ID
+    private String readme;  //自述
+    private String present; //现病史
+    private String presentTreat;    //现病治疗
+    private String history; //既往病史
+    private String allergy; //过敏史
+    private String physique;    //体格检查
     private String proposal;
     private String careful;
     private String checkResult;
     private String diagnosis;
     private String handling;
-    private Integer caseState;
+    private Integer caseState;  //病历状态
+
+    public MedicalRecord() {
+    }
+
+    public MedicalRecord(String caseNumber, int registId, String readme, String present, String presentTreat, String history,
+                         String allergy, String physique) {
+        this.caseNumber = caseNumber;
+        this.registId = registId;
+        this.readme = readme;
+        this.present = present;
+        this.presentTreat = presentTreat;
+        this.history = history;
+        this.allergy = allergy;
+        this.physique = physique;
+    }
 
     public int getId() {
         return id;
@@ -33,6 +49,10 @@ public class MedicalRecord {
     public void setCaseNumber(String caseNumber) {
         this.caseNumber = caseNumber;
     }
+
+    public void setRegistId(int registId) { this.registId = registId;}
+
+    public int getRegistId() { return registId;}
 
     public String getReadme() {
         return readme;
