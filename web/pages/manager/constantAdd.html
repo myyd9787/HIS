@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../lib/layui/layui.all.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/css/constant.css" />
+		<script src="../../lib/jquery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<form style="margin-left: 20px;" id="addForm" action="../../../ManagerServlet?method=add" method="post">
+			<input type="text" required lay-verify="required" placeholder="常数项类别编码" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantCode">
+			<input type="text" required lay-verify="required" placeholder="常数项类别名称" autocomplete="off" class="layui-input" style="margin-top: 20px;" name="constantName">
+			<button type="button" class="layui-btn" style="margin-top: 20px;" id="save">保存</button>
+			<button type="button" class="layui-btn" style="margin-top: 20px;margin-left: 30px;" id="cancel">取消</button>
+		</form>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			$("#save").click(function() {
+				$("#addForm").submit();
+				layer.msg("新增成功！",{icon:4});
+				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
+				parent.layer.close(index);
+			})
+		})
+		$(function() {
+			$("#cancel").click(function() {
+				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
+				parent.layer.close(index);
+			})
+		})
+//		layer.msg("开票成功!", {
+//			icon: 6,
+//			time: 500
+//		}, function() {
+//			parent.window.location.reload();
+//			var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+//			parent.layer.close(index);
+//		})
+	</script>
+
+</html>
