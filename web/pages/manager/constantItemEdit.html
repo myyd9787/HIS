@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../lib/layui/layui.all.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+		<!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/css/constant.css" />
+		<script src="../../lib/jquery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		
+		<table class="layui-table" lay-even lay-skin="nob" id="constantItmList" lay-filter="test">
+
+		</table>
+		<script type="text/html" id="barDemo">
+			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="edit" id="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del" id="del">删除</a>
+		</script>
+		<div id="popUpdateTest" class="layui-row" style="display:none;">
+			<form action="" method="post">
+				<input type="text" required lay-verify="required" placeholder="常数项编码" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemCode">
+				<input type="text" required lay-verify="required" placeholder="常数项名称" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemName">
+				<input type="text" required lay-verify="required" placeholder="常数项类别" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemType">
+				<button type="button" class="layui-btn" style="margin-top: 20px;" id="save">保存</button>
+				<button type="button" class="layui-btn" style="margin-top: 20px;margin-left: 30px;" id="cancel">取消</button>
+			</form>
+			
+		</div>
+		
+	</body>
+		<script >
+			layui.use('table', function() {
+				var $=layui.$;
+			var table = layui.table;
+			// console.log(constantTypeJSON);
+			var constant = table.render({
+				elem: '#constantItmList',
+				url: "../../../ManagerServlet?method=constantItemList",
+				page: true,
+				id: "test",
+				event: true,
+				parseData: function(res) { //res 即为原始返回的数据		    
+					return {
+						"code": 0, //解析接口状态
+						"msg": "", //解析提示文本
+						"count": res.length, //解析数据长度
+						"data": res //解析数据列表
+					};
+				},
+				cols: [
+					[{
+						field: 'id',
+						title: 'ID',
+						width: 180
+					}, {
+						field: 'contantCode',
+						title: '类别名称',
+						width: 180
+					}, {
+						field: 'constantName',
+						title: 'ID',
+						width: 80
+					},{
+						field: 'right',
+						title: '操作',
+						width: 180,
+						toolbar:"#barDemo"
+					}]
+				]
+			})
+			table.on('row(test)', function (obj) {
+			var data = obj.data;
+//			layer.alert(obj.tr);
+			$("#edit").click(function(){
+				layer.open({
+					type:1,
+					title:"修改常数项",
+					area:['200px', '150px'],
+					content:$("#popUpdateTest")
+				})
+			})
+//			layer.alert(JSON)
+//			if(obj.event==edit){//如果点击编辑按钮
+//				layer.open({
+//                      //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
+//                      type: 1,
+//                      title: "修改常数项",
+//                      area: ['420px', '330px'],
+//                      content: $("#popUpdateTest")//引用的弹出层的页面层的方式加载修改界面表单
+//                 });
+//
+//			}
+//			//监听弹出框表单提交，massage是修改界面的表单数据'submit(demo11),是修改按钮的绑定
+//			function updateConstant(){
+//				$
+//			}
+//			
+		})
+			})
+		$(function(){
+			$("#save").click(function() {
+				$("#addForm").submit();
+				layer.msg("修改成功！",{icon:4});
+				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
+				parent.layer.close(index);
+			})
+			$("#cancel").click(function() {
+				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
+				parent.layer.close(index);
+			})
+		})
+
+		</script>
+</html>
