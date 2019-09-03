@@ -9,8 +9,8 @@ public class ConstantType {
     public ConstantType() {
     }
 
-    public ConstantType(int id, String constantTypeCode, String constantTypeName) {
-        this.id = id;
+    public ConstantType( String constantTypeCode, String constantTypeName) {
+
         this.constantTypeCode = constantTypeCode;
         this.constantTypeName = constantTypeName;
         delMark = 1;
