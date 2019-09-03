@@ -16,44 +16,114 @@
 	<![endif]-->
 </head>
 <body>
-	<h2>患者查询</h2>
-	<div class="demoTable">
-		搜索病历号：
-		<div class="layui-inline">
-			<input class="layui-input" name="id" id="demoReload" autocomplete="off">
-		</div>
-		<button class="layui-btn" data-type="reload">搜索</button>
+<h2>患者查询</h2>
+<div class="demoTable">
+	搜索病历号：
+	<div class="layui-inline">
+		<input class="layui-input" name="id" id="demoReload" autocomplete="off">
 	</div>
-	<table class="layui-hide" id="test"></table>
+	<button class="layui-btn" data-type="reload">搜索</button>
+</div>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+		<button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+	</div>
+</script>
+
+<script type="text/html" id="barDemo">
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">退号</a>
+</script>
+
 <script src="../../lib/layui/layui.js" charset="utf-8"></script>
 <script src="../../static/js/eleDel.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
+<script>
     layui.use('table', function(){
         var table = layui.table;
 
         table.render({
             elem: '#test'
             ,url:'../../CollectorServlet?method=CollectorList'
-            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,toolbar: '#toolbarDemo'
+            ,title: '用户数据表'
             ,cols: [[
-                {type:'checkbox'},
-                {field:'CaseNumber', width:150, title: '病历号', sort: true}
-                ,{field:'RealName', width:80, title: '姓名'}
-                ,{field:'IDnumber', width:150, title: '身份证号'}
-                ,{field:'Age',width:80, title: '年龄'}
-                ,{field:'HomeAddress',width:150, title: '家庭住址'}
-                ,{field:'VisitDate', width:150, title: '看诊日期'}
-                ,{field:'DeptID',width:150, title: '看诊科室'}
-                ,{field:'VisitState', width:150, title: '看诊状态'}
-            ]],
-            page: true
-            ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'CaseNumber', title:'病历号', width:80, fixed: 'left', unresize: true, sort: true}
+                ,{field:'RealName', title:'姓名', width:80}
+                ,{field:'IDnumber', title:'身份证号', width:200}
+                ,{field:'Age', title:'年龄', width:80}
+                ,{field:'HomeAddress', title:'家庭住址', width:150}
+                ,{field:'VisitDate', title:'看诊日期', width:120}
+                ,{field:'DeptID', title:'看诊科室', width:100}
+                ,{field:'VisitState', title:'看诊状态', width:120}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+            ]]
+            ,page: true,
+            parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
                 return {
                     "code": 0, //解析接口状态
                     "msg": "", //解析提示文本
                     "count": res.length, //解析数据长度
                     "data": res //解析数据列表
                 };
+            }
+        });
+
+        //头工具栏事件
+        table.on('toolbar(test)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    break;
+            };
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    $.ajax({
+                        url:"../../CollectorServlet?method=delnumber",
+						data:{"CaseNumber":data.CaseNumber},
+                        type:"post",
+                        dataType:"JSON",
+                        success:function(data){
+                            if(data==null){
+                                layer.msg(data.CaseNumber);
+                                layer.msg("删除失败", {icon: 5});
+                            }else{
+                                layer.msg(data.CaseNumber)
+                                //删除这一行
+                                obj.del();
+                                //关闭弹窗
+                                layer.close(index);
+                                layer.msg("删除成功", {icon: 6});
+                                layer.closeAll();
+                                parent.location.reload();
+                                load();//删除完需要加载数据
+                            }
+                        },
+                        error:function(){
+                            alert(data);
+                        }
+                    });
+                    obj.del();
+                    layer.close(index);
+                });
             }
         });
         var $ = layui.$, active = {
