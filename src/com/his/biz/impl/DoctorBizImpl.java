@@ -3,6 +3,7 @@ package com.his.biz.impl;
 import com.his.biz.DoctorBiz;
 import com.his.dao.DoctorDao;
 import com.his.dao.impl.DoctorDaoImpl;
+import com.his.entity.MedicalRecord;
 import com.his.entity.Register;
 
 import java.sql.SQLException;
@@ -31,6 +32,17 @@ public class DoctorBizImpl implements DoctorBiz {
             e.printStackTrace();
             return null;
         }
+    }
 
+    //病历首页存入数据库
+    @Override
+    public int setMedicalRecord(MedicalRecord medicalRecord) {
+        DoctorDao doctorDao = new DoctorDaoImpl();
+        try {
+            return doctorDao.setMedicalRecord(medicalRecord);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }
