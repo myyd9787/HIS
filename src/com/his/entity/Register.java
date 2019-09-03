@@ -3,25 +3,25 @@ package com.his.entity;
 import java.util.Date;
 //病历类
 public class Register {
-    private int id;//id
-    private String caseNumber;//病历号
-    private String realName;//姓名
-    private String gender;//性别
-    private String idNumber;//身份证号
-    private Date birthDate;//出生日期
-    private int age;//年龄
-    private String  ageType;//年龄单位(岁,月,天)
-    private String homeAddress;//家庭住址
-    private Date visitDate;//本次看诊日期
-    private String noon;//午别
-    private int deptId;//本次挂号科室ID
-    private int userId;//本次挂号医生ID
-    private int registLeId;//本次挂号级别ID
-    private int settleId;//结算类别ID
-    private String isBook;//病历本要否
-    private Date registTime;//挂号时间
-    private int registerId;//挂号员ID
-    private int visitState;//本次看诊状态/*1-已挂号2-医生接诊3-看诊结束4-已退号*/
+    public int id;//id
+    public String caseNumber;//病历号
+    public String realName;//姓名
+    public String gender;//性别
+    public String idNumber;//身份证号
+    public Date birthDate;//出生日期
+    public int age;//年龄
+    public String  ageType;//年龄单位(岁,月,天)
+    public String homeAddress;//家庭住址
+    public Date visitDate;//本次看诊日期
+    public String noon;//午别
+    public int deptId;//本次挂号科室InD
+    public int userId;//本次挂号医生ID
+    public int registLeId;//本次挂号级别ID
+    public int settleId;//结算类别ID
+    public String isBook;//病历本要否
+    public Date registTime;//挂号时间
+    public int registerId;//挂号员ID
+    public int visitState;//本次看诊状态/*1-已挂号2-医生接诊3-看诊结束4-已退号*/
 
     public Register() {
     }

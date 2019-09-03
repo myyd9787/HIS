@@ -84,7 +84,7 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     @Override
     //查询所有常数项列表
     public List<ConstantItem> getConstantItemList() throws SQLException {
-        String sql="SELECT `ID`,`ConstantTypeID`,`ConstantCode`,`ConstantName` FROM `constantitem`";
+        String sql="SELECT `ID`,`ConstantTypeID`,`ConstantCode`,`ConstantName` FROM `constantitem` WHERE `DelMark`=1";
         rs=executeQuery(sql,null);
         List<ConstantItem> constantItemList= new ArrayList<ConstantItem>();
         ConstantItem constantItem=null;
@@ -108,6 +108,20 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     public int addConstantItem(ConstantItem constantItem) throws SQLException {
         String sql="INSERT INTO `constantitem` (`ConstantTypeID`,`ConstantCode`,`ConstantName`)VALUES(?,?,?)";
         return executeUpdate(sql,constantItem.getConstantTypeID(),constantItem.getContantCode(),constantItem.getConstantName());
+    }
+
+    @Override
+    //修改常数项
+    public int updateConstantItem(ConstantItem constantItem, int oldID) throws SQLException {
+        String sql="UPDATE `constantitem` SET `ConstantTypeID`=?,`ConstantCode`=?,`ConstantName`=? WHERE `ID`=?;";
+        return executeUpdate(sql,constantItem.getConstantTypeID(),constantItem.getContantCode(),constantItem.getConstantName(),oldID);
+    }
+
+    @Override
+    //删除常数项
+    public int delConstantItemById(int newId) throws SQLException {
+        String sql="UPDATE `constantitem` SET `DelMark`=0 WHERE `ID`=?";
+        return executeUpdate(sql,newId);
     }
 
     @Override
@@ -211,24 +225,96 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     }
 
     @Override
-    //3.1 查询所有用户信息
-    public List<User> getUserList() throws SQLException {
-        List<User> userList=new ArrayList<>();
-        User user=null;
-        String sql="SELECT `ID`,`UserName`,`RealName`,`UseType`,`DocTitleID`,`DeptID`,`RegistLeID` FROM `user`";
-        rs=executeQuery(sql);
-        while(rs.next()){
-            user=new User();
-            user.setId(rs.getInt("ID"));
-            user.setUserName(rs.getString("UserName"));
-            user.setRealName(rs.getString("RealName"));
-            user.setUseType(rs.getInt("UseType"));
-            user.setDocTitleID(rs.getInt("DocTitleID"));
-            user.setDeptNo(rs.getInt("DeptID"));
-            user.setRegistLeID(rs.getInt("RegistLeID"));
-            userList.add(user);
+    //通过用户的docTitleID获取constantItem
+    public ConstantItem getConstantItemByDocTitleID(int docTitleID) throws SQLException {
+        String sql="SELECT `ID`, `ConstantTypeID`,`ConstantCode`,`ConstantName` FROM `constantitem` WHERE `ID`=?" ;
+        ConstantItem constantItem=null;
+        rs=executeQuery(sql,docTitleID);
+        try {
+            if(rs.next()){
+                constantItem=new ConstantItem();
+                constantItem.setId(rs.getInt("ID"));
+                constantItem.setConstantTypeID(rs.getInt("ConstantTypeID"));
+                constantItem.setContantCode(rs.getString("ConstantCode"));
+                constantItem.setConstantName(rs.getString("ConstantName"));
+            }
+        } finally {
+            closeAll(conn,pstmt,rs);
         }
-        return userList;
+        return constantItem;
+    }
+
+    @Override
+    //通过用户的DeptID获取department
+    public Department getDepartmentByDeptNo(int deptNo) throws SQLException {
+        String sql="SELECT `ID`,`DeptCode`,`DeptName`,`DeptCategoryID`,`DeptType` FROM `department` WHERE `ID`=?";
+        Department department=null;
+        rs=executeQuery(sql,deptNo);
+        try {
+            if(rs.next()){
+                department=new Department();
+                department.setId(rs.getInt("ID"));
+                department.setDeptCode(rs.getString("DeptCode"));
+                department.setDeptName(rs.getString("DeptName"));
+                department.setDeptCategoryId(rs.getInt("DeptCategoryID"));
+                department.setDeptType(rs.getInt("DeptType"));
+            }
+        } finally {
+            closeAll(conn,pstmt,rs);
+
+        }
+        return department;
+    }
+
+    @Override
+    //通过用户的RegistLeID获取RegistLe对象
+    public RegistLevel getRegistLevelByRegistLeID(int registLeID) throws SQLException {
+        String sql="SELECT `ID`,`RegistCode`,`RegistName`,`SequenceNo`,`RegistFee`,`RegistQuota` FROM `registlevel` WHERE id=?";
+        RegistLevel registLevel=null;
+        rs=executeQuery(sql,registLeID);
+        try {
+            if(rs.next()){
+                registLevel=new RegistLevel();
+                registLevel.setId(rs.getInt("ID"));
+                registLevel.setRegistCode(rs.getString("RegistCode"));
+                registLevel.setRegistName(rs.getString("RegistName"));
+                registLevel.setSequenceNo(rs.getInt("SequenceNo"));
+                registLevel.setRegistFee(rs.getBigDecimal("RegistFee"));
+                registLevel.setRegistQuota(rs.getInt("RegistQuota"));
+            }
+        } finally {
+            closeAll(conn,pstmt,rs);
+
+        }
+        return null;
+    }
+
+    @Override
+    //3.1 查询所有用户信息
+    public List<UserDetail> getUserDetailList() throws SQLException {
+        List<UserDetail> userDetailList=new ArrayList<>();
+        UserDetail userDetail=null;
+        String sql="SELECT u.`ID`,u.`UserName`,u.`RealName`,u.`UseType`,`ConstantName`,`DeptName`,`RegistName`\n" +
+                "FROM `constantitem` c,`department` d,`user` u,`registlevel` r\n" +
+                "WHERE c.`ID`=u.`DocTitleID` AND d.`ID`=u.`DeptID` AND r.`ID`=u.`RegistLeID`";
+        rs=executeQuery(sql);
+        try {
+            while(rs.next()){
+                userDetail= new UserDetail();
+                userDetail.setId(rs.getInt("u.ID"));
+                userDetail.setUserNmae(rs.getString("u.UserName"));
+                userDetail.setRealName(rs.getString("u.RealName"));
+                userDetail.setUserType(rs.getInt("u.UseType"));
+                userDetail.setUserDocTitle(rs.getString("ConstantName"));
+                userDetail.setDept(rs.getString("DeptName"));
+                userDetail.setRegisterLe(rs.getString("RegistName"));
+                userDetailList.add(userDetail);
+            }
+        } finally {
+            closeAll(conn,pstmt,rs);
+
+        }
+        return userDetailList;
     }
 
     @Override

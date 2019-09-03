@@ -6,19 +6,19 @@ public class User {
         public String passWord;//密码
         public String realName;//真实姓名
         public int useType;//用户类别   1-医院管理员/*2-挂号收费员3-门诊医生4-医技医生5-药房操作员6-财务管理员*/
-        public int DocTitleID;//所在科室id
-        public String  isScheduling;//所在科室id
+        public int docTitleID;//医生职称id
+        public String  isScheduling;//是否参与排班
         public int deptNo;//所在科室id
         public int registLeID;//挂号级别ID
         public int delMark;//删除标记 0或者1，1-正常；0-已删除
     public User() {}//无参构造方法
 
-    public User( String userName, String passWord, String realName, int useType, int docTitleID, String isSchedulin, int deptNo, int registLeID, int delMark) {
+    public User( String userName, String passWord, String realName, int useType, int docTitleID, String isScheduling, int deptNo, int registLeID, int delMark) {
         this.userName = userName;
         this.passWord = passWord;
         this.realName = realName;
         this.useType = useType;
-        DocTitleID = docTitleID;
+        this.docTitleID = docTitleID;
         this.isScheduling = isScheduling;
         this.deptNo = deptNo;
         this.registLeID = registLeID;
@@ -46,7 +46,7 @@ public class User {
     }
 
     public int getDocTitleID() {
-        return DocTitleID;
+        return docTitleID;
     }
 
     public String getIsScheduling() {
@@ -86,7 +86,7 @@ public class User {
     }
 
     public void setDocTitleID(int docTitleID) {
-        DocTitleID = docTitleID;
+        this.docTitleID = docTitleID;
     }
 
     public void setIsScheduling(String isScheduling) {
