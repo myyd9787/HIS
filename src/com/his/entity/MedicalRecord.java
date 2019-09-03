@@ -22,8 +22,8 @@ public class MedicalRecord {
     public MedicalRecord() {
     }
 
-    public MedicalRecord(String caseNumber, int registId, String readme, String present, String presentTreat, String history,
-                         String allergy, String physique) {
+    public MedicalRecord(String caseNumber, int registId, String readme, String present, String presentTreat,
+                         String history, String allergy, String physique) {
         this.caseNumber = caseNumber;
         this.registId = registId;
         this.readme = readme;

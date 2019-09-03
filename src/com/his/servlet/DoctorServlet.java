@@ -41,15 +41,30 @@ public class DoctorServlet extends HttpServlet {
             out.print(register1);
         }
         //将病历首页存入数据库
-        else if (method.equals("medicalRecord")){
+        else if (method.equals("medicalRecord1")){
+            String caseNumber = getInitParameter("caseNumber");
+            int registId = Integer.parseInt(getInitParameter("registId"));
             String readMe = getInitParameter("readMe");
             String present = getInitParameter("present");
             String presentTreat = getInitParameter("presentTreat");
             String history = getInitParameter("history");
             String allergy = getInitParameter("allergy");
             String physique = getInitParameter("physique");
-//            MedicalRecord medicalRecord = new MedicalRecord(, readMe, present, presentTreat, history, allergy, physique);
-
+            MedicalRecord medicalRecord = new MedicalRecord(caseNumber, registId, readMe, present, presentTreat, history,
+                    allergy, physique);
+            medicalRecord.setCaseState(1);//暂存
+        }else if (method.equals("medicalRecord2")){
+            String caseNumber = getInitParameter("caseNumber");
+            int registId = Integer.parseInt(getInitParameter("registId"));
+            String readMe = getInitParameter("readMe");
+            String present = getInitParameter("present");
+            String presentTreat = getInitParameter("presentTreat");
+            String history = getInitParameter("history");
+            String allergy = getInitParameter("allergy");
+            String physique = getInitParameter("physique");
+            MedicalRecord medicalRecord = new MedicalRecord(caseNumber, registId, readMe, present, presentTreat, history,
+                    allergy, physique);
+            medicalRecord.setCaseState(2);//提交
         }
     }
 

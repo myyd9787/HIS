@@ -1,5 +1,6 @@
 package com.his.dao;
 
+import com.his.entity.MedicalRecord;
 import com.his.entity.Register;
 
 import java.sql.SQLException;
@@ -13,5 +14,6 @@ public interface DoctorDao {
     //根据姓名查询患者(可能重名)
     List<Register> getRegisterByName(String name) throws SQLException;
 
-    //根据
+    //将患者病历首页存入数据库
+    int setMedicalRecord(MedicalRecord medicalRecord) throws SQLException;
 }
