@@ -7,27 +7,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca1667c1-6acd-4497-97fe-e8ee5f4cbf4c" name="Default" comment="zl">
-      <change afterPath="$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/his/entity/Prescription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/his/entity/PrescriptionDetailed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-fileupload-1.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/fa-tuiYao.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/css/yaoguanli.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/faYao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/tuiYao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/dao/PatientDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/his/entity/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/layer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/default/icon-ext.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/default/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/default/loading-0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/default/loading-1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/default/loading-2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/lib/layer/2.4/skin/layer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pages/patient/checkpatient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/pages/patient/data_table.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_0_bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_0_bin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/biz/DrugsBiz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/dao/DrugsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/DrugsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/dbcp_config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/dbcp_config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/his/util/DBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/his/util/DBUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/faYao.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HIS.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,6 +33,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/xiangmu$checkpatient_html.ic" NAME="checkpatient.html Coverage Results" MODIFIED="1567496153931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -72,20 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Register.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/his/entity/Register.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DrugsDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/his/dao/DrugsDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
+            <state relative-caret-position="-8">
+              <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,41 +84,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrugsDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java">
+      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/his/entity/Patient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="26" column="71" lean-forward="true" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+            <state relative-caret-position="240">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#3467#3468#0" expanded="true" />
+                <element signature="e#3496#3497#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DrugsServlet.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java">
+      <file leaf-file-name="checkpatient.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/pages/patient/checkpatient.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+            <state relative-caret-position="185">
+              <caret line="233" column="29" lean-forward="true" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
+              <folding>
+                <element signature="e#8782#8931#0" />
+                <element signature="e#8989#9020#0" />
+                <element signature="e#9100#9309#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yaoGuanLi.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html">
+      <file leaf-file-name="data_table.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/pages/patient/data_table.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Drugs_moreSelect.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="240">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -170,6 +158,9 @@
         <option value="$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java" />
         <option value="$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java" />
         <option value="$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html" />
+        <option value="$PROJECT_DIR$/web/pages/patient/checkpatient.html" />
+        <option value="$PROJECT_DIR$/src/com/his/entity/Patient.java" />
+        <option value="$PROJECT_DIR$/web/pages/patient/data_table.json" />
       </list>
     </option>
   </component>
@@ -195,11 +186,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="163" />
-    <option name="y" value="74" />
-    <option name="width" value="1409" />
-    <option name="height" value="790" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="342" />
+    <option name="y" value="477" />
+    <option name="width" value="1410" />
+    <option name="height" value="668" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -209,64 +200,101 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
               <item name="biz" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="biz" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="his" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="his" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="HIS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HIS" type="462c0819:PsiDirectoryNode" />
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="financial_mgt" type="462c0819:PsiDirectoryNode" />
+              <item name="patient" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiangmu" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiangmu" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -280,24 +308,25 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/commons-io-2.4.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.0-bin.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hemu\IdeaProjects\xiangmu\web\WEB-INF\lib" />
+      <recent name="E:\HISPITAl\documents\日报\20190827" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\suhang.java\suHang\HIS\web\css" />
       <recent name="D:\suhang.java\suHang\HIS\web\pages" />
       <recent name="D:\suhang.java\suHang\HIS\web\WEB-INF\lib" />
       <recent name="E:\HISPITAl\documents\日报\20190827" />
       <recent name="G:\JAVA\Project\JavaProject\JavaWeb\HIS\web\WEB-INF" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\HISPITAl\documents\日报\20190827" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -312,7 +341,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.checkpatient.html">
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -370,6 +399,92 @@
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="55175" />
       </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="HIS:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="checkpatient.html" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" temporary="true" APPLICATION_SERVER_NAME="Tomcat 9.0.14" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/pages/patient/checkpatient.html" />
+      <deployment>
+        <artifact name="HIS:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="checkpatient_html_xiangmu" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60993" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -409,6 +524,15 @@
     <configuration default="true" type="Application" factoryName="应用程序">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Tomcat 9.0.2" />
+      <item itemvalue="Tomcat Server.checkpatient.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Tomcat Server.checkpatient.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -435,6 +559,7 @@
       <workItem from="1567405593714" duration="54000" />
       <workItem from="1567405675260" duration="42000" />
       <workItem from="1567405775254" duration="4708000" />
+      <workItem from="1567483598650" duration="6824000" />
     </task>
     <task id="LOCAL-00001" summary="index">
       <created>1566809941162</created>
@@ -496,44 +621,46 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42599000" />
+    <option name="totallyTimeSpent" value="49423000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="363" y="112" width="1409" height="790" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5018208" side_tool="true" weight="0.3295711" />
+      <window_info anchor="right" id="Palette" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5013405" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32960895" />
-      <window_info anchor="right" id="Maven Projects" order="2" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info id="Capture Tool" order="3" />
+      <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="0" />
-      <window_info anchor="right" auto_hide="true" id="Database" order="3" weight="0.201748" />
-      <window_info id="Structure" order="7" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" visible="true" weight="0.11094225" />
+      <window_info anchor="right" auto_hide="true" id="Database" order="4" weight="0.201748" />
+      <window_info id="Structure" order="8" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="11" sideWeight="0.49946353" weight="0.11032864" />
       <window_info anchor="bottom" id="TODO" order="14" weight="0.3295711" />
-      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49871466" weight="0.32522798" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info id="Image Layers" order="0" />
+      <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49871466" weight="0.32394367" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Image Layers" order="1" />
       <window_info anchor="bottom" id="Java Enterprise" order="5" weight="0.32849163" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Run" order="10" weight="0.25835866" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="bottom" id="Run" order="10" sideWeight="0.49865952" visible="true" weight="0.12328767" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49817917" weight="0.27027026" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32960895" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49774265" visible="true" weight="0.18458118" />
-      <window_info id="Web" order="4" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.26291794" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info id="Favorites" order="2" sideWeight="0.50225735" side_tool="true" weight="0.18426803" />
+      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32876712" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" sideWeight="0.49774265" visible="true" weight="0.19010417" />
+      <window_info id="Web" order="5" sideWeight="0.501634" side_tool="true" weight="0.17060086" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Favorites" order="3" sideWeight="0.50225735" side_tool="true" weight="0.18426803" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="1" sideWeight="0.49936628" weight="0.32844242" />
+      <window_info anchor="bottom" id="Find" order="9" weight="0.26291794" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="8" />
-      <window_info id="设计师" order="5" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info id="设计师" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,57 +712,10 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/UserBizImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/his/com/his/DrugsBiz.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/his/DrugsBiz.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DrugsDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/CollectorDaoImpl.java" />
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2520">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dbcp_config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="31" column="95" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documents/日报/20190827/范涛.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" lean-forward="true" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/util/DBUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documents/日报/20190827/范涛.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -769,13 +849,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/dbcp_config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" selection-start-column="32" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dbcp_config.properties" />
     <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -905,7 +979,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/entity/Drugs_moreSelect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
@@ -922,20 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/dao/DrugsDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/DrugsDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="71" lean-forward="true" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+        <state relative-caret-position="494">
+          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -952,19 +1016,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/entity/Register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="266">
           <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
         </state>
       </provider>
@@ -978,15 +1032,124 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/pages/financial_mgt/yaoGuanLi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="78" column="29" lean-forward="true" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+        <state relative-caret-position="1482">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/his/servlet/DrugsServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        <state relative-caret-position="171">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/CollectorBiz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/CollectorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/DoctorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/DrugsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/ManagerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/PatientDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DoctorBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/biz/impl/DrugsBizImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="29" column="57" selection-start-line="29" selection-start-column="57" selection-end-line="29" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/dao/impl/DoctorDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/his/entity/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="e#3467#3468#0" expanded="true" />
+            <element signature="e#3496#3497#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pages/patient/data_table.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pages/patient/checkpatient.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="233" column="29" lean-forward="true" selection-start-line="233" selection-start-column="29" selection-end-line="233" selection-end-column="29" />
+          <folding>
+            <element signature="e#8782#8931#0" />
+            <element signature="e#8989#9020#0" />
+            <element signature="e#9100#9309#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -996,7 +1159,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited />
+          <last-edited>HIS:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1049,6 +1212,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

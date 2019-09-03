@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>用户管理</title>
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="./static/css/font.css">
+		<link rel="stylesheet" href="./static/css/weadmin.css">
+		<script type="text/javascript" src="../../lib/layui/layui.all.js" charset="utf-8"></script>
+		<script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/css/constant.css" />
+		<script src="../../lib/jquery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+
+	<body>
+		<div id="top">
+
+			<form id="constantForm" action="../../../ManagerServlet?method=searchConstantList" method="post">
+				<input type="text" name="title" placeholder="请输入登录名或用户名" class="layui-input">
+			</form>
+			<button class="layui-btn layui-btn-radius" id="search">查询用户</button>
+			<button class="layui-btn layui-btn-radius" id="add">新增用户</button>
+			<!--<button class="layui-btn layui-btn-radius" id="constantItemEdit">常数项管理</button>-->
+		</div>
+		<div id="content">
+			<table class="layui-table" lay-even lay-skin="nob" id="constant">
+
+			</table>
+			<script type="text/html" id="barDemo">
+				<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="edit">编辑</a>
+				<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
+			</script>
+		</div>
+
+	</body>
+
+	<script>
+		function search() {
+			$("#constantForm").submit();
+		}
+
+		layui.use('table', function() {
+			var table = layui.table;
+			// console.log(constantTypeJSON);
+			var constant = table.render({
+				elem: '#constant',
+				url: "../../../ManagerServlet?method=userDetailList",
+				page: true,
+				id: "test",
+				event: true,
+				parseData: function(res) { //res 即为原始返回的数据		    
+					return {
+						"code": 0, //解析接口状态
+						"msg": "", //解析提示文本
+						"count": res.length, //解析数据长度
+						"data": res //解析数据列表
+					};
+				},
+				cols: [
+					[{
+						field: 'userNmae',
+						title: '登录名',
+						width: 180
+					}, {
+						field: 'realName',
+						title: '真实姓名',
+						width: 180
+					}, {
+						field: 'userType',
+						title: '用户类别',
+						width: 140
+					},{
+						field: 'userDocTitle',
+						title: '医生职称',
+						width: 140
+					},{
+						field: 'dept',
+						title: '所在科室',
+						width: 140
+					},{
+						field: 'registerLe',
+						title: '挂号级别',
+						width: 140
+					},{
+						field: 'right',
+						title: '操作',
+						width: 180,
+						toolbar:"#barDemo"
+					}]
+				]
+			})
+		})
+
+	</script>
+
 </html>
