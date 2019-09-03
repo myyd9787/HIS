@@ -111,9 +111,8 @@
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
 					<select name="SettleID">
-						<option  value="1">1</option>
-						<option value="市医保">市医保</option>
-						<option value="省医保">省医保</option>
+						<option value="1">市医保</option>
+						<option value="0">省医保</option>
 					</select>
 				</div>
 			</div>
@@ -153,8 +152,8 @@
 			<div class="formControls col-xs-2 col-sm-1">
 				<div class="layui-input-inline">
 					<select name="IsBook" >
-						<option value="是">是</option>
-						<option value="否">否</option>
+						<option value="1">是</option>
+						<option value="0">否</option>
 					</select>
 				</div>
 			</div>
@@ -225,6 +224,7 @@
                 BirthDate:{
                     required:true,
                 }
+
             }
         });
     });
