@@ -1,5 +1,6 @@
 package com.his.servlet;
 
+import com.alibaba.fastjson.JSON;
 import com.his.biz.CollectorBiz;
 import com.his.biz.impl.CollectorBizImpl;
 import com.his.entity.Collector;
@@ -10,12 +11,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @WebServlet("/CollectorServlet")
 public class CollectorServlet extends HttpServlet {
@@ -24,7 +27,6 @@ public class CollectorServlet extends HttpServlet {
                 response.setCharacterEncoding("utf-8");
                 response.setContentType("text/html;charset=utf-8");
                 DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                DateFormat hsm = new SimpleDateFormat("yyyy/MM/dd");
                 PrintWriter out = response.getWriter();
                 String method = request.getParameter("method");
                 CollectorBiz collectorbiz = new CollectorBizImpl();
@@ -62,10 +64,12 @@ public class CollectorServlet extends HttpServlet {
                  } catch (ParseException e) {
                      e.printStackTrace();
                  }
-
+             }else if(method.equals("CollectorList")){
+                 List<Collector> collectorList = collectorbiz.getCollectorList();
+                 String collectorJSON =JSON.toJSONStringWithDateFormat(collectorList,"yyyy-MM-dd HH-mm-ss");
+                 out.print(collectorJSON);
              }
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }

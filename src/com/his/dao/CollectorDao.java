@@ -13,4 +13,6 @@ public interface CollectorDao {
     //通过name获取值
     Collector getCollecttorBycollectname(String CaseNumber,String RealName)throws SQLException;
 
+    List<Collector>getCollectorList() throws SQLException;
+
 }

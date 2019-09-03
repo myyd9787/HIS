@@ -7,6 +7,8 @@ import com.his.util.DBUtil;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CollectorDaoImpl extends DBUtil implements CollectorDao {
     @Override
@@ -53,7 +55,7 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
                    collector.setRegistLeID(rs.getString("RegistLeID"));
                    collector.setSettleID(rs.getString("SettleID"));
                    collector.setIsBook(rs.getString("IsBook"));
-                   collector.setRegistTime(rs.getDate("RegisTime"));
+                   collector.setRegistTime(rs.getDate("RegistTime"));
                    collector.setRegistLeID(rs.getString("RegistLeID"));
                    collector.setVisitState(rs.getString("VisitState"));
 
@@ -62,5 +64,42 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
                closeAll(conn,pstmt,rs);
            }
         return collector;
+    }
+
+    @Override
+    public List<Collector> getCollectorList() throws SQLException {
+        List<Collector> collectorList    = new ArrayList<>();
+        String sql= "SELECT `CaseNumber`,`RealName`,`Gender`,`IDnumber`,`BirthDate`,`Age`,`AgeType`,"  +
+                "`HomeAddress`,`VisitDate`,`Noon`,`DeptID`,`UserID`,`RegistLeID`,`SettleID`,`IsBook`," +
+                "`RegistTime`,`RegisterID`,`VisitState` FROM `register` ";
+        try{
+            rs = executeQuery(sql);
+            Collector collector = null;
+            while(rs.next()){
+                collector = new Collector();
+                collector.setCaseNumber(rs.getString("CaseNumber"));
+                collector.setRealName(rs.getString("RealName"));
+                collector.setGender(rs.getString("Gender"));
+                collector.setIDnumber(rs.getString("IDnumber"));
+                collector.setBirthDate(rs.getDate("BirthDate"));
+                collector.setAge(rs.getString("Age"));
+                collector.setAgeType(rs.getString("AgeType"));
+                collector.setHomeAddress(rs.getString("HomeAddress"));
+                collector.setVisitDate(rs.getDate("VisitDate"));
+                collector.setNoon(rs.getString("Noon"));
+                collector.setDeptID(rs.getString("DeptID"));
+                collector.setUserID(rs.getString("UserID"));
+                collector.setRegistLeID(rs.getString("RegistLeID"));
+                collector.setSettleID(rs.getString("SettleID"));
+                collector.setIsBook(rs.getString("IsBook"));
+                collector.setRegistTime(rs.getDate("RegistTime"));
+                collector.setRegistLeID(rs.getString("RegistLeID"));
+                collector.setVisitState(rs.getString("VisitState"));
+                collectorList.add(collector);
+            }
+        }finally {
+            closeAll(conn,pstmt,rs);
+        }
+        return collectorList;
     }
 }
