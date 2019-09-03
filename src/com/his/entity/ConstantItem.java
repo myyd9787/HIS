@@ -10,8 +10,7 @@ public class ConstantItem {
     public ConstantItem() {
     }
 
-    public ConstantItem(int id, int constantTypeID, String contantCode, String constantName) {
-        this.id = id;
+    public ConstantItem( int constantTypeID, String contantCode, String constantName) {
         this.constantTypeID = constantTypeID;
         this.contantCode = contantCode;
         this.constantName = constantName;
