@@ -85,7 +85,7 @@ public class Manager extends User{
     }
 
     @Override
-    public void setIsScheduling(String isScheduling) {
+    public void setIsScheduling(String isSchedulin) {
         super.setIsScheduling(isScheduling);
     }
 

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class RegistLevel {
     public int id;//id
     public String registCode;//号别编码
-    public String RegistName;//号别名称
+    public String registName;//号别名称
     public int sequenceNo;//显示顺序号
     public BigDecimal registFee;//挂号费
     public int registQuota;//挂号限额
@@ -16,7 +16,7 @@ public class RegistLevel {
 
     public RegistLevel(String registCode, String registName, int sequenceNo, BigDecimal registFee, int registQuota) {
         this.registCode = registCode;
-        RegistName = registName;
+        this.registName = registName;
         this.sequenceNo = sequenceNo;
         this.registFee = registFee;
         this.registQuota = registQuota;
@@ -40,11 +40,11 @@ public class RegistLevel {
     }
 
     public String getRegistName() {
-        return RegistName;
+        return registName;
     }
 
     public void setRegistName(String registName) {
-        RegistName = registName;
+        this.registName = registName;
     }
 
     public int getSequenceNo() {

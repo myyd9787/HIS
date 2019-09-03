@@ -13,30 +13,43 @@
 	</head>
 
 	<body>
-		
+		<div id="">
+			
+		</div>
+
 		<table class="layui-table" lay-even lay-skin="nob" id="constantItmList" lay-filter="test">
 
 		</table>
 		<script type="text/html" id="barDemo">
-			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="edit" id="edit">编辑</a>
+			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="edit" id="edit" >编辑</a>
 			<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del" id="del">删除</a>
 		</script>
 		<div id="popUpdateTest" class="layui-row" style="display:none;">
-			<form action="" method="post">
-				<input type="text" required lay-verify="required" placeholder="常数项编码" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemCode">
+			<form action="../../../ManagerServlet?method=constantItemList_edit" method="post" id="constant_edit">
+				<div id="ipt" style="float: left;">
+					<input type="text" required lay-verify="required" placeholder="常数项编码" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemCode">
 				<input type="text" required lay-verify="required" placeholder="常数项名称" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemName">
 				<input type="text" required lay-verify="required" placeholder="常数项类别" autocomplete="off" class="layui-input" tyle="margin-top: 10px;" name="constantItemType">
-				<button type="button" class="layui-btn" style="margin-top: 20px;" id="save">保存</button>
-				<button type="button" class="layui-btn" style="margin-top: 20px;margin-left: 30px;" id="cancel">取消</button>
+				<input type="text" name="oldid" id="old" style="display: none;" />
+				</div>
+				
+				<div id="btn" style="margin-left: 20px;float: left;">
+					<button type="button" class="layui-btn"  id="save">保存</button>
+					<button type="button" class="layui-btn"  id="cancel">取消</button>
+				</div>
+
 			</form>
-			
+			<form action="../../../ManagerServlet?method=constantItem_del" method="post" id="constantItem_del">
+				<input type="text" name="newid" id="new" style="display: none;" />
+			</form>
+
 		</div>
-		
 	</body>
-		<script >
-			layui.use('table', function() {
-				var $=layui.$;
-			var table = layui.table;
+	<script>
+		var $;
+		layui.use(['jquery', 'table'], function() {
+			var $ = layui.jquery;
+			table = layui.table;
 			// console.log(constantTypeJSON);
 			var constant = table.render({
 				elem: '#constantItmList',
@@ -59,61 +72,90 @@
 						width: 180
 					}, {
 						field: 'contantCode',
-						title: '类别名称',
+						title: '类别编码',
 						width: 180
 					}, {
 						field: 'constantName',
-						title: 'ID',
+						title: '类别名称',
 						width: 80
-					},{
+					}, {
 						field: 'right',
 						title: '操作',
 						width: 180,
-						toolbar:"#barDemo"
+						toolbar: "#barDemo"
 					}]
 				]
-			})
-			table.on('row(test)', function (obj) {
-			var data = obj.data;
-//			layer.alert(obj.tr);
-			$("#edit").click(function(){
-				layer.open({
-					type:1,
-					title:"修改常数项",
-					area:['200px', '150px'],
-					content:$("#popUpdateTest")
+			});
+			table.on('tool(test)', function(obj) {
+				var data = obj.data;
+				if(obj.event === 'detail') {
+					layer.msg('ID：' + data.id + ' 的查看操作');
+				} else if(obj.event === 'del') {
+					layer.confirm('真的删除行么', function(index) {
+						$("#new").val(data.id);
+						$("#constantItem_del").submit();
+						layer.msg("删除成功！");
+						obj.del();
+						layer.close(index);
+						parent.layer.close(index);
+					});
+				} else if(obj.event === 'edit') {//跳转到编辑页面
+//					layer.alert(data.id)
+					layer.open({
+						type: 1,
+						skin: 'layui-layer-rim', //加上边框
+						area: ['400px', '250px'], //宽高
+						title: "常数项编辑",
+						content: $("#popUpdateTest")//跳转到新增页面
+					});
+					$("#old").val(data.id);
+				$("#save").click(function(){
+					$("#constant_edit").submit();
+					layer.msg("编辑成功！");
+					var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+					parent.layer.close(index);
 				})
-			})
-//			layer.alert(JSON)
-//			if(obj.event==edit){//如果点击编辑按钮
-//				layer.open({
-//                      //layer提供了5种层类型。可传入的值有：0（信息框，默认）1（页面层）2（iframe层）3（加载层）4（tips层）
-//                      type: 1,
-//                      title: "修改常数项",
-//                      area: ['420px', '330px'],
-//                      content: $("#popUpdateTest")//引用的弹出层的页面层的方式加载修改界面表单
-//                 });
+				$("#cancel").click(function(){
+					var index = layer.getFrameIndex(window.name); //获取窗口索引
+					layer.close(index);
+				})
+				}
+			});
+			//监听单行点击事件
+//			table.on('row(test)', function(obj) {
+//				var data = obj.data;
 //
-//			}
-//			//监听弹出框表单提交，massage是修改界面的表单数据'submit(demo11),是修改按钮的绑定
-//			function updateConstant(){
-//				$
-//			}
-//			
-		})
-			})
-		$(function(){
-			$("#save").click(function() {
-				$("#addForm").submit();
-				layer.msg("修改成功！",{icon:4});
-				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
-				parent.layer.close(index);
-			})
-			$("#cancel").click(function() {
-				var index = parent.layer.getFrameIndex(window.name);//获取窗口索引
-				parent.layer.close(index);
-			})
-		})
+//				//				layer.alert(JSON.stringify(data), {
+//				//					title: '当前行数据：'
+//				//				});
+//				//			
+//
+//			})
 
-		</script>
+		});
+//		$("#edit").click(function() {
+//			alert("123");
+//			layer.open({
+//				type: 2,
+//				skin: 'layui-layer-rim', //加上边框
+//				area: ['350px', '200px'], //宽高
+//				title: "新增常数类别",
+//				content: 'constantAdd.html' //跳转到新增页面
+//
+//			});
+//		});
+//		$(function() {
+//			$("#save").click(function() {
+//				$("#addForm").submit();
+//				layer.msg("保存成功！");
+//				var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+//				parent.layer.close(index);
+//			})
+//			$("#cancel").click(function() {
+//				var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+//				parent.layer.close(index);
+//			})
+//		})
+	</script>
+
 </html>
