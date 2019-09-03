@@ -34,6 +34,12 @@ public class MedicalRecord {
         this.physique = physique;
     }
 
+    public MedicalRecord(String checkResult, String diagnosis, String handling){
+        this.checkResult = checkResult;
+        this.diagnosis = diagnosis;
+        this.handling = handling;
+    }
+
     public int getId() {
         return id;
     }
