@@ -120,7 +120,7 @@ public class DoctorServlet extends HttpServlet {
             MedicalRecord medicalRecord = new MedicalRecord(checkResult, diagnosis, handling);
             medicalRecord.setCaseState(3);//诊毕
             if((doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0)
-                    &&(doctorBiz.changeRegisterState(registId)>0)){//同时修改register号的状态为诊毕
+                    &&(doctorBiz.changeRegisterState(registId)>0)){//同时修改register号的visitstate为诊毕
                 System.out.println("success!");
             }else {
                 System.out.println("fail!");
