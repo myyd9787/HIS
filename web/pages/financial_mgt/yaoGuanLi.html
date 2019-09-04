@@ -29,7 +29,7 @@
 					<a class="layui-btn layui-btn-sm" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);"
 					 title="刷新"><i class="layui-icon">&#xe9aa;</i></a>
 				</div>
-				<form class="layui-form layui-col-md12 we-search">
+				<form name="form" class="layui-form layui-col-md12 we-search" action="../../DrugsServlet?method=chaxun">
 					<div class="layui-inline">
 						<input type="text" name="username" placeholder="请输入药品助记码" autocomplete="off" class="layui-input">
 					</div>
@@ -37,15 +37,15 @@
 				</form>
 			</div>
 			<div class="weadmin-block">
-				<button class="layui-btn" onclick="WeAdminShow('添加用户','./add.html')"><i class="layui-icon"></i>新增药品</button>
+				<button class="layui-btn" onclick="WeAdminShow('添加用户','addGL.html',800,400)"><i class="layui-icon"></i>新增药品</button>
 			</div>
 			<table class="layui-hide" id="test" lay-filter="testReload" ></table>
 			
 			<script type="text/html" id="operateTpl">
-							<a title="编辑" onclick="WeAdminEdit('编辑','./edit.html', 2, 600, 400)" href="javascript:;">
+							<a title="编辑" onclick="WeAdminEdit('编辑','bianjiGL.html',{{d.id}}, 800, 400)">
 								<i class="layui-icon">&#xe642;</i>
 							</a>
-							<a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
+							<a title="删除" onclick="member_del(this,'要删除的id')" href="../../DrugsServlet?method=deleteDrugs">
 								<i class="layui-icon">&#xe640;</i>
 							</a>
 			</script>
@@ -59,13 +59,13 @@
 	layui.use('table',function(){
 	  var table = layui.table
 	     ,$ = layui.jquery;
-	  
 	  var tableIns =table.render({
 			elem: '#test',
 			cellMinWidth: 80,
 			skin: 'line',
 			cols: [[
 				{type:'checkbox'}
+                ,{field: 'id',title: 'ID',hide:true}
 				,{field: 'drugsCode',title: '药品编码'}
 				,{field: 'drugsName',title: '药品名称'}
 				,{field: 'drugsFormat',title: '药品规格'}
@@ -75,12 +75,13 @@
 				,{field: 'drugsTypeId',title: '药品类型'}
 				,{field: 'operate',title: '操作',toolbar: '#operateTpl',unresize: true}
 				]],
-			url: '../DrugsServlet?method=DrugsList',
+			url: '../../DrugsServlet?method=DrugsList',
 			id: 'testReload',
 			event: true,
 			page:true,
-			// limit:3
+			limit:5
 		});
+
 	  // 数据操作
 	  $('.demoTable .layui-btn').on('click', function(){
 	  	var categoryval=$('#demoReload').val();
@@ -98,9 +99,9 @@
 	  table.on('row(testReload)', function(obj){
 	    var data = obj.data;
 	    
-	    layer.alert(JSON.stringify(data), {
-	      title: '当前行数据：'
-	    });
+	    // layer.alert(JSON.stringify(data), {
+	    //   title: '当前行数据：'
+	    // });
 	    
 	    //标注选中样式
 	    obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
