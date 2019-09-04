@@ -17,21 +17,22 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
     }
 
     @Override
-    //刷新显示所有药品，分页显示
+    //刷新显示所有药品，渲染页面
     public List<Drugs> getDrugs(int drugsPage,int drugsLimit) throws SQLException {
         List<Drugs> drugsList = new ArrayList<>();
         Drugs drugs;
-        String sql = "select `DrugsCode`,`DrugsName`,`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`"
-                +"from `drugs` limit ?,?";
+        String sql = "select  id ,`DrugsCode`,`DrugsName`,`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`"
+                +"from `drugs` order by CreationDate desc limit ?,?";
         try {
             rs = executeQuery(sql,(drugsPage-1)*drugsLimit,drugsLimit);
             while (rs.next()){
                 drugs = new Drugs();
+                drugs.setId(rs.getInt("id"));
                 drugs.setDrugsCode(rs.getString("DrugsCode"));
                 drugs.setDrugsName(rs.getString("DrugsName"));
                 drugs.setDrugsFormat(rs.getString("DrugsFormat"));
                 drugs.setDrugsUnit(rs.getString("DrugsUnit"));
-                drugs.setDrugsPrice(rs.getBigDecimal("DrugsPrice"));
+                drugs.setDrugsPrice(rs.getDouble("DrugsPrice"));
                 drugs.setDrugsDosageId(rs.getInt("DrugsDosageID"));
                 drugs.setDrugsTypeId(rs.getInt("DrugsTypeID"));
                 drugsList.add(drugs);
@@ -48,7 +49,7 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
     //查询列数
     public int getCount() throws SQLException {
         int result = 0;
-        String sql = "select count(`ID`) from `drugs`";
+        String sql = "select count(id) from `drugs`";
         rs = executeQuery(sql,null);
         if (rs.next()){
             result = rs.getInt(1);
@@ -69,7 +70,7 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
             drugs.setDrugsName(rs.getString("DrugsName"));
             drugs.setDrugsFormat(rs.getString("DrugsFormat"));
             drugs.setDrugsUnit(rs.getString("DrugsUnit"));
-            drugs.setDrugsPrice(rs.getBigDecimal("DrugsPrice"));
+            drugs.setDrugsPrice(rs.getDouble("DrugsPrice"));
             drugs.setDrugsDosageId(rs.getInt("DrugsDosageID"));
             drugs.setDrugsTypeId(rs.getInt("DrugsTypeID"));
         }
@@ -81,8 +82,8 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
     //新增药品
     public int save(Drugs drugs) throws SQLException {
         String sql = "insert into `drugs`(`DrugsCode`,`DrugsName`,`MnemonicCode`,"
-                +"`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`)"
-                +"values(?,?,?,?,?,?,?,?)";
+                +"`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`,CreationDate)"
+                +"values(?,?,?,?,?,?,?,?,NOW())";
         return executeUpdate(sql,drugs.getDrugsCode(),drugs.getDrugsName(),drugs.getMnemonicCode(),
                 drugs.getDrugsFormat(),drugs.getDrugsUnit(),drugs.getDrugsPrice(),drugs.getDrugsDosageId(),drugs.getDrugsTypeId());
     }

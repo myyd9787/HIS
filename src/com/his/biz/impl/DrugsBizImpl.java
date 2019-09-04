@@ -11,10 +11,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DrugsBizImpl extends DBUtil implements DrugsBiz {
-    DrugsDao drugsDao = new DrugsDaoImpl();
+
     @Override
     //根据病历号和看诊时间查询所需的药品
     public List<Drugs> getFaYao(String caseNumber, Date visitDate) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.getFaYao(caseNumber,visitDate);
         } catch (SQLException e) {
@@ -26,6 +27,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //刷新显示所有药品，分页显示
     public List<Drugs> getDrugs(int drugsPage,int drugsLimit) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.getDrugs(drugsPage,drugsLimit);
         } catch (SQLException e) {
@@ -37,6 +39,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //查询列数
     public int getCount() {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.getCount();
         } catch (SQLException e) {
@@ -48,6 +51,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //根据药品助记码查询药品
     public Drugs getDrugsByCode(String mnemonicCode) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.getDrugsByCode(mnemonicCode);
         } catch (SQLException e) {
@@ -59,6 +63,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //新增药品
     public int save(Drugs drugs) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.save(drugs);
         } catch (SQLException e) {
@@ -70,6 +75,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //删除药品
     public int delete(int drugsID) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.delete(drugsID);
         } catch (SQLException e) {
@@ -81,6 +87,7 @@ public class DrugsBizImpl extends DBUtil implements DrugsBiz {
     @Override
     //编辑药品
     public int updata(Drugs drugs,int drugsID) {
+        DrugsDao drugsDao = new DrugsDaoImpl();
         try {
             return drugsDao.updata(drugs,drugsID);
         } catch (SQLException e) {
