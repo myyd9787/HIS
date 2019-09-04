@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,7 @@ public class DrugsServlet extends HttpServlet {
         DrugsBiz drugsBiz = new DrugsBizImpl();
         PrintWriter out = response.getWriter();
         String method = request.getParameter("method");
-        //多表查询返回数据
-        if(method.equals("DrugsList")){
+        if(method.equals("DrugsList")){   //药品管理—页面刷新显示的所有数据，分页显示
             List<Drugs> drugsList = new ArrayList<>();
             int page = request.getParameter("page")==null?1:Integer.parseInt(request.getParameter("page"));
             int limit = request.getParameter("limit")==null?1:Integer.parseInt(request.getParameter("limit"));
@@ -35,11 +35,42 @@ public class DrugsServlet extends HttpServlet {
             sb.append("{" +
                     "  \"code\": 0," +
                     "  \"msg\": \"\"," +
-                    "  \"count\": 1000," +
-                    "  \"data\": [{");
+                    "  \"count\":"+drugsBiz.getCount()+"," +
+                    "  \"data\": ");
             sb.append(drugsJSON);
             sb.append("}");
             out.print(sb);
+        }else if(method.equals("chaxun")){     //根据药品助记码查询药品
+            String username = request.getParameter("username");
+            Drugs drugs = drugsBiz.getDrugsByCode(username);
+            String drugsJSON = JSON.toJSONString(drugs);
+            out.print(drugsJSON);
+        }else if (method.equals("saveDrugs")){        //新增药品
+            String  drugsCode= request.getParameter("drugsCode");
+            String  drugsName= request.getParameter("drugsName");
+            String  mnemonicCode= request.getParameter("mnemonicCode");
+            String  drugsFormat= request.getParameter("drugsFormat");
+            Double drugsPrice= Double.parseDouble(request.getParameter("drugsPrice"));
+            String  drugsUnit= request.getParameter("drugsUnit");
+            Integer drugsDosageId= Integer.parseInt(request.getParameter("drugsDosageId"));
+            Integer drugsTypeId= Integer.parseInt(request.getParameter("drugsTypeId"));
+            Drugs drugs = new Drugs(drugsCode,drugsName,drugsFormat,drugsUnit,drugsDosageId,drugsTypeId,drugsPrice,mnemonicCode);
+            drugsBiz.save(drugs);
+        }else if (method.equals("updataDrugs")){           //编辑药品
+            int id =Integer.parseInt(request.getParameter("id")) ;
+            String  drugsCode= request.getParameter("drugsCode");
+            String  drugsName= request.getParameter("drugsName");
+            String  mnemonicCode= request.getParameter("mnemonicCode");
+            String  drugsFormat= request.getParameter("drugsFormat");
+            Double drugsPrice= Double.parseDouble(request.getParameter("drugsPrice"));
+            String  drugsUnit= request.getParameter("drugsUnit");
+            Integer drugsDosageId= Integer.parseInt(request.getParameter("drugsDosageId"));
+            Integer drugsTypeId= Integer.parseInt(request.getParameter("drugsTypeId"));
+            Drugs drugs = new Drugs(drugsCode,drugsName,drugsFormat,drugsUnit,drugsDosageId,drugsTypeId,drugsPrice,mnemonicCode);
+            int updata = drugsBiz.updata(drugs,id);
+        }else if(method.equals("deleteDrugs")){
+            int id =Integer.parseInt(request.getParameter("id")) ;
+            drugsBiz.delete(id);
         }
 
     }

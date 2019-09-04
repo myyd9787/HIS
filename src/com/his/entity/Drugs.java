@@ -13,12 +13,25 @@ public class Drugs {
     private String manufacturer;    //生产厂家
     private Integer drugsDosageId;    //药品剂型
     private Integer drugsTypeId;     //药品类型
-    private BigDecimal drugsPrice;    //药品单价
+    private Double drugsPrice;    //药品单价
     private String mnemonicCode;     //药品助记码
     private Timestamp creationDate;     //创建时间
     private Timestamp lastUpdateDate;     //最后修改时间
     private int delMark;   //删除标记
 
+    public Drugs() {
+    }
+
+    public Drugs(String drugsCode, String drugsName, String drugsFormat, String drugsUnit, Integer drugsDosageId, Integer drugsTypeId, Double drugsPrice, String mnemonicCode) {
+        this.drugsCode = drugsCode;
+        this.drugsName = drugsName;
+        this.drugsFormat = drugsFormat;
+        this.drugsUnit = drugsUnit;
+        this.drugsDosageId = drugsDosageId;
+        this.drugsTypeId = drugsTypeId;
+        this.drugsPrice = drugsPrice;
+        this.mnemonicCode = mnemonicCode;
+    }
 
     public int getId() {
         return id;
@@ -68,10 +81,10 @@ public class Drugs {
     public void setDrugsTypeId(Integer drugsTypeId) {
         this.drugsTypeId = drugsTypeId;
     }
-    public BigDecimal getDrugsPrice() {
+    public Double getDrugsPrice() {
         return drugsPrice;
     }
-    public void setDrugsPrice(BigDecimal drugsPrice) {
+    public void setDrugsPrice(Double drugsPrice) {
         this.drugsPrice = drugsPrice;
     }
     public String getMnemonicCode() {
