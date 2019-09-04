@@ -1,0 +1,22 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [{
+			"caseNumber": "01212124545",
+			"realName": "范涛",
+			"invoiceNum":"3322",
+            "age":"23",
+            "settleID":"医保",
+            "deptCode":"12",
+            "prescriptionState":"1",
+            "userID":"222",
+            "visitDate":"2019-07-07",
+            "name":"血细胞分析",
+            "num":"1",
+            "danwei":"次",
+            "price":"12",
+            "sum":"12",
+            "state":"4"
+		}]
+}

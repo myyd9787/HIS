@@ -5,6 +5,7 @@ import java.util.Date;
 
 //挂号收费员
 public class Collector {
+    public int   ID;//编号
     public String CaseNumber;//病历号
     public String RealName;//姓名
     public String Gender;//性别
@@ -49,7 +50,13 @@ public class Collector {
         this.RegisterID = RegisterID;
         this.VisitState = VisitState;
     }
+    public int getID() {
+        return ID;
+    }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     public String getCaseNumber() {
         return CaseNumber;
     }

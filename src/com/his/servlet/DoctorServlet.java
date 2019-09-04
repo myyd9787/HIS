@@ -41,31 +41,93 @@ public class DoctorServlet extends HttpServlet {
             out.print(register1);
         }
         //将病历首页存入数据库
-        else if (method.equals("medicalRecord1")){
-            String caseNumber = getInitParameter("caseNumber");
-            int registId = Integer.parseInt(getInitParameter("registId"));
-            String readMe = getInitParameter("readMe");
-            String present = getInitParameter("present");
-            String presentTreat = getInitParameter("presentTreat");
-            String history = getInitParameter("history");
-            String allergy = getInitParameter("allergy");
-            String physique = getInitParameter("physique");
+        //暂存1
+        else if (method.equals("medicalRecordSave1")){
+            String caseNumber = req.getParameter("caseNumber1");
+            int registId = Integer.parseInt(req.getParameter("registId1"));
+            String readMe = req.getParameter("readMe");
+            String present = req.getParameter("present");
+            String presentTreat = req.getParameter("presentTreat");
+            String history = req.getParameter("history");
+            String allergy = req.getParameter("allergy");
+            String physique = req.getParameter("physique");
             MedicalRecord medicalRecord = new MedicalRecord(caseNumber, registId, readMe, present, presentTreat, history,
                     allergy, physique);
             medicalRecord.setCaseState(1);//暂存
-        }else if (method.equals("medicalRecord2")){
-            String caseNumber = getInitParameter("caseNumber");
-            int registId = Integer.parseInt(getInitParameter("registId"));
-            String readMe = getInitParameter("readMe");
-            String present = getInitParameter("present");
-            String presentTreat = getInitParameter("presentTreat");
-            String history = getInitParameter("history");
-            String allergy = getInitParameter("allergy");
-            String physique = getInitParameter("physique");
+            if (doctorBiz.isExistMedicalRecord(caseNumber, registId)){
+                if (doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0){
+                    System.out.println("success!");
+                }else{
+                    System.out.println("fail!");
+                }
+            }else{
+                if(doctorBiz.setMedicalRecord(medicalRecord)>0){
+                    System.out.println("success!");
+                }else{
+                    System.out.println("fail!");
+                }
+            }
+
+        //提交1
+        }else if (method.equals("medicalRecordSubmit1")){
+            String caseNumber = req.getParameter("caseNumber1");
+            int registId = Integer.parseInt(req.getParameter("registId1"));
+            String readMe = req.getParameter("readMe");
+            String present = req.getParameter("present");
+            String presentTreat = req.getParameter("presentTreat");
+            String history = req.getParameter("history");
+            String allergy = req.getParameter("allergy");
+            String physique = req.getParameter("physique");
             MedicalRecord medicalRecord = new MedicalRecord(caseNumber, registId, readMe, present, presentTreat, history,
                     allergy, physique);
             medicalRecord.setCaseState(2);//提交
+            if (doctorBiz.isExistMedicalRecord(caseNumber, registId)){
+                if (doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0){
+                    System.out.println("success!");
+                }else{
+                    System.out.println("fail!");
+                }
+            }else{
+                if(doctorBiz.setMedicalRecord(medicalRecord)>0){
+                    System.out.println("success!");
+                }else{
+                    System.out.println("fail!");
+                }
+            }
         }
+        //暂存2
+        else if(method.equals("medicalRecordSave2")){
+            String caseNumber = req.getParameter("caseNumber2");
+            int registId = Integer.parseInt(req.getParameter("registId2"));
+            String checkResult = req.getParameter("checkResult");
+            String diagnosis = req.getParameter("diagnosis");
+            String handling = req.getParameter("handling");
+            MedicalRecord medicalRecord = new MedicalRecord(checkResult, diagnosis, handling);
+            medicalRecord.setCaseState(1);
+            if(doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0){
+                System.out.println("success!");
+            }else {
+                System.out.println("fail!");
+            }
+        }
+        //提交2
+        else if(method.equals("medicalRecordSubmit2")){
+            String caseNumber = req.getParameter("caseNumber2");
+            int registId = Integer.parseInt(req.getParameter("registId2"));
+            String checkResult = req.getParameter("checkResult");
+            String diagnosis = req.getParameter("diagnosis");
+            String handling = req.getParameter("handling");
+            MedicalRecord medicalRecord = new MedicalRecord(checkResult, diagnosis, handling);
+            medicalRecord.setCaseState(3);
+            if((doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0)
+                    &&(doctorBiz.changeRegisterState(registId)>0)){
+                System.out.println("success!");
+            }else {
+                System.out.println("fail!");
+            }
+        }
+//        else if(method.equals("")){}
+
     }
 
     @Override
