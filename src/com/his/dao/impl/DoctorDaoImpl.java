@@ -122,11 +122,11 @@ public class DoctorDaoImpl extends DBUtil implements DoctorDao {
                 medicalRecord.getCaseState(), caseNumber, registId);
     }
 
-    //根据ID改变register号的状态state
+    //根据ID改变register号的状态visitstate为诊毕
     @Override
     public int changeRegisterState(int registId) {
         String sql = "UPDATE `register` " +
-                "SET `VisitState` = 1 " +
+                "SET `VisitState` = 3 " +
                 "WHERE `ID` = ? ";
         try {
             return executeUpdate(sql, registId);
