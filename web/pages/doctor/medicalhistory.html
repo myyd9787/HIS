@@ -2,311 +2,435 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="../../lib/layui/css/layui.css"  media="all">
-	<link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.9/iconfont.css"/>
-	<link rel="stylesheet" type="text/css" href="../../lib/font-awesome-4.7.0/css/font-awesome.css"/>
+    <link rel="stylesheet" href="../../lib/layui/css/layui.css" media="all">
+    <link rel="stylesheet" type="text/css" href="../../lib/Hui-iconfont/1.0.9/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../../lib/font-awesome-4.7.0/css/font-awesome.css"/>
 </head>
 <style type="text/css">
-	input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color: #c2c2c2;}
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #c2c2c2; }
 </style>
 <body>
-    <div>
-        <aside class="layui-col-md4" >
-			<div style="padding: 5px; border: 1px solid lightgray;">
-			      <div class="layui-card">
-			        <div class="layui-card-header">患者列表<a style="float:right" class="layui-btn layui-btn-radius" id="btn-refresh"><i class="layui-icon">&#xe9aa;</i></a></div>
-			        <div class="layui-card-body">
-			        	<div class="demoTable">
-						  患者姓名：
-						  <div class="layui-inline">
-						    <input class="layui-input" name="category" id="demoReload" autocomplete="off">
-						  </div>
-						  <button class="layui-btn" style="float: right;" data-type="reload">搜索</button>
-						</div>
-						<!-- 未诊患者 -->
-			        	<table class="layui-hide" id="nameNo" lay-filter="testReload" ></table>
-						<!-- 已诊患者 -->
-						<table class="layui-table" lay-data="{ url:'data_table.json', id:'nameYes',}" lay-filter="test" >
-						  <thead>
-						    <tr>
-						      <th lay-data="{field:'registid', sort: true}">病历ID</th>
-						      <th lay-data="{field:'name'}">姓名</th>
-						      <th lay-data="{field:'age'}">年龄</th>
-						    </tr>
-						  </thead>
-						</table>
-			        </div>
-			      </div>
-			</div> 
-        </aside>
-        <section class="layui-col-md8" >
-			<div id="name">
-				<button type="button" class="layui-btn layui-btn-xs" disabled="disabled">患者姓名：</button>
-				<span>患者甲</span>
-			</div>
-			<div class="layui-tab layui-tab-card" style="margin-top: 0px;">
-			  <ul class="layui-tab-title">
-			    <li class="layui-this">病历首页</li>
-			    <li>检查申请</li>
-			    <li>检验申请</li>
-			    <li>门诊确诊</li>
-			    <li>处置申请</li>
-				<li>西药处方</li>
-				<li>中药处方</li>
-				<li>费用查询</li>
-			  </ul>
-			  <div class="layui-tab-content" >
-				  <!-- 病历首页 -->
-			    <div class="layui-tab-item layui-show">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-						<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont">&#xe706;清空</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="save()">&#xe61f;暂存</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="commit()">&#x1005;提交</button>
-					</div>
-					<form action="" method="post" id="medicalHis">
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">主诉</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入患者自述" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">现病史</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入患者现病史" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">现病治疗情况</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入患者现病治疗情况" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">既往病史</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入患者既往病史" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">过敏史</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入患者过敏史" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">体格检查</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入体格检查结果" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-					</form>
-				</div>
-				<!-- 检查申请 -->
-			    <div class="layui-tab-item">
-					<form action="" method="post" id="">
-						<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-							<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#xe61f;新增项目</button>
-							<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" onclick="">&#xe631;删除项目</button>
-							<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#x1005;提交项目</button>
-							<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" onclick="">&#xe706;作废项目</button>
-							<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#xe61f;存为模板</button>
-						</div>
-						<table class="layui-hide" id="checkReqTab" lay-filter="testReload" ></table>
-					</form>
-				</div>
-			    <div class="layui-tab-item">
-			    	<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#xe61f;新增项目</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" onclick="">&#xe631;删除项目</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#x1005;提交项目</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" onclick="">&#xe706;作废项目</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="">&#xe61f;存为模板</button>
-			    	</div>
-					<table class="layui-hide" id="examReqTab" lay-filter="testReload" ></table>
-			    </div>
-				<div class="layui-tab-item">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-						<button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont">&#xe706;清空</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="save()">&#xe61f;暂存</button>
-						<button type="button" class="layui-icon layui-btn layui-btn-xs" onclick="commit()">&#x1005;提交</button>
-					</div>
-					<form action="" method="post" id="setDiagnose" class="layui-form">
-						<div class="layui-form-item">
-						    <label class="layui-form-label">病历号</label>
-						    <div class="layui-input-block">
-						      <input type="text" name="title" required  lay-verify="required" placeholder="请输入病历号" autocomplete="off" class="layui-input">
-						    </div>
-						</div>
-						<div class="layui-form-item">
-						    <label class="layui-form-label">患者姓名</label>
-						    <div class="layui-input-block">
-						      <input type="text" name="title" required  lay-verify="required" placeholder="请输入患者姓名" autocomplete="off" class="layui-input">
-						    </div>
-						</div>
-						<div class="layui-form-item">
-						    <label class="layui-form-label">单选框</label>
-						    <div class="layui-input-block">
-						      <input type="radio" name="sex" value="男" title="男">
-						      <input type="radio" name="sex" value="女" title="女" checked >
-						    </div>
-						</div>
-						<div class="layui-form-item">
-						    <label class="layui-form-label">年龄</label>
-						    <div class="layui-input-block">
-						      <input type="text" name="title" required  lay-verify="required" placeholder="请输入患者年龄" autocomplete="off" class="layui-input">
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">检查结果</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入检查结果" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">诊断结果</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-						<div class="layui-form-item layui-form-text">
-						    <label class="layui-form-label">处理意见</label>
-						    <div class="layui-input-block">
-						      <textarea name="desc" placeholder="请输入处理意见" class="layui-textarea"></textarea>
-						    </div>
-						</div>
-					</form>
-				</div>
-				<div class="layui-tab-item">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-					
-					</div>
-				</div>
-				<div class="layui-tab-item">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-					
-					</div>
-				</div>
-				<div class="layui-tab-item">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-					
-					</div>
-				</div>
-				<div class="layui-tab-item">
-					<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-					
-					</div>
-				</div>
-			  </div>
-			</div>
-        </section>
-    </div>
+<div>
+    <aside class="layui-col-md4">
+        <div style="padding: 5px; border: 1px solid lightgray;">
+            <div class="layui-card">
+                <div class="layui-card-header">患者列表<a style="float:right" class="layui-btn layui-btn-radius" id="btn-refresh"><i class="layui-icon">&#xe9aa;</i></a></div>
+                <div class="layui-card-body">
+                    <div class="demoTable">
+                        患者姓名：
+                        <div class="layui-inline">
+                            <input class="layui-input" name="category" id="demoReload" autocomplete="off">
+                        </div>
+                        <button class="layui-btn" style="float: right;" data-type="reload" id="search">搜索</button>
+                    </div>
+                    <!-- 未诊患者 -->
+                    <table class="layui-hide" id="state0" lay-filter="stateTable"></table>
+                    <!-- 已诊患者 -->
+                    <table class="layui-hide" id="state1" lay-filter="stateTable"></table>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <section class="layui-col-md8">
+        <div id="name">
+            <button type="button" class="layui-btn layui-btn-xs">患者姓名：</button>
+            <span>患者甲</span>
+			
+        </div>
+        <div class="layui-tab layui-tab-card" style="margin-top: 0px;">
+            <ul class="layui-tab-title">
+                <li class="layui-this">病历首页</li>
+                <li>检查申请*</li>
+                <li>检验申请*</li>
+                <li>门诊确诊</li>
+                <li>处置申请*</li>
+                <li>西药处方*</li>
+                <li>中药处方*</li>
+                <li>费用查询</li>
+            </ul>
+            <div class="layui-tab-content">
+                <!-- 病历首页 -->
+                <div class="layui-tab-item layui-show">
+
+                    <form action="" method="post" id="medicalRecord1" name="medicalRecord" class="layui-form">
+                        <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+                            <button type="reset" class="layui-icon layui-btn layui-btn-xs Hui-iconfont reset" >&#xe706;清空</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save1" lay-submit>&#xe61f;暂存</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit1" lay-submit>&#x1005;提交</button>
+                        </div>
+						
+						<input type="text" name="registId1" class="registId" style="display: none;"/>
+						<input type="text" name="caseNumber1" class="caseNumber" style="display: none;"/>
+						
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">主诉</label>
+                            <div class="layui-input-block">
+                                <textarea name="readMe" placeholder="请输入患者自述" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">现病史</label>
+                            <div class="layui-input-block">
+                                <textarea name="present" placeholder="请输入患者现病史" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">现病治疗情况</label>
+                            <div class="layui-input-block">
+                                <textarea name="presentTreat" placeholder="请输入患者现病治疗情况" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">既往病史</label>
+                            <div class="layui-input-block">
+                                <textarea name="history" placeholder="请输入患者既往病史" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">过敏史</label>
+                            <div class="layui-input-block">
+                                <textarea name="allergy" placeholder="请输入患者过敏史" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">体格检查</label>
+                            <div class="layui-input-block">
+                                <textarea name="physique" placeholder="请输入体格检查结果" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 检查申请 -->
+                <div class="layui-tab-item">
+                    <form action="" method="post" id="">
+                        <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs" >&#xe61f;新增项目</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" >&#xe631;删除项目</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit2" lay-submit>&#x1005;提交项目</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" >&#xe706;作废项目</button>
+                            <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save2" lay-submit>&#xe61f;存为模板</button>
+                        </div>
+                        <table class="layui-hide" id="checkReqTab" lay-filter="testReload"></table>
+                    </form>
+                </div>
+                <!-- 检验申请 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs" >&#xe61f;新增项目</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" >&#xe631;删除项目</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit3" lay-submit>&#x1005;提交项目</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs Hui-iconfont" >&#xe706;作废项目</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save3" lay-submit>&#xe61f;存为模板</button>
+                    </div>
+                    <table class="layui-hide" id="examReqTab" lay-filter="testReload"></table>
+                </div>
+                <!-- 门诊确诊 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+                        <button type="reset" class="layui-icon layui-btn layui-btn-xs Hui-iconfont reset">&#xe706;清空</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save4" lay-submit>&#xe61f;暂存</button>
+                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit4" lay-submit>&#x1005;诊毕提交</button>
+                    </div>
+                    <form action="" method="post" id="medicalRecord2" class="layui-form">
+						<input type="text" name="registId2" class="registId" style="display: none;"/>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">病历号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="caseNumber2" required lay-verify="required" placeholder="请输入病历号" autocomplete="off" class="layui-input caseNumber">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">患者姓名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="realName" required lay-verify="required" placeholder="请输入患者姓名" autocomplete="off" class="layui-input realName">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">性别</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="sex" value="男" title="男">
+                                <input type="radio" name="sex" value="女" title="女" checked>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">年龄</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="age" required lay-verify="required" placeholder="请输入患者年龄" autocomplete="off" class="layui-input age">
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">检查结果</label>
+                            <div class="layui-input-block">
+                                <textarea name="checkResult" placeholder="请输入检查结果" class="layui-textarea checkResult"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">诊断结果</label>
+                            <div class="layui-input-block">
+                                <textarea name="diagnosis" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">处理意见</label>
+                            <div class="layui-input-block">
+                                <textarea name="handling" placeholder="请输入处理意见" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- 处置申请 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+						
+                    </div>
+                </div>
+                <!-- 西药处方 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+
+                    </div>
+                </div>
+                <!-- 中药处方 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+
+                    </div>
+                </div>
+                <!-- 费用查询 -->
+                <div class="layui-tab-item">
+                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 </body>
+<script src="../../lib/jquery/jquery-3.2.1.js" charset="utf-8"></script>
 <script src="../../lib/layui/layui.js" charset="utf-8"></script>
-<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+<!--<script src="../../lib/layui/layui.all.js" charset="utf-8"></script>-->
 <script>
-layui.use('table', function(){
-  var table = layui.table,
-      $ = layui.jquery;
-  
-  /************未诊患者列表***********/
-  var nameNo = table.render({
-		elem: '#nameNo',
-		cellMinWidth: 80,
-		skin: 'line',
-		// page: true,
-		url: 'data_table.json',
-		id: 'testReload',
-		event: true,
-		cols: [[
-			{field: 'registid',title: '病历ID'}//病历号ID
-			,{field: 'name',title: '姓名'}//姓名
-			,{field: 'age',title: '年龄'}//年龄
-			,{field: 'category',title: '分类',hide:true}
-			,{field: 'sort',title: '排序',hide:true}
-			]]
-	});
-  
-  $('.demoTable .layui-btn').on('click', function(){
-  	var categoryval=$('#demoReload').val();
-  	table.reload('testReload', {
-  		where: {
-            category: categoryval
-       }
-    });
-   });
-   // 刷新
-    $('#btn-refresh').on('click', function () {
-        tableIns.reload();
-    });
-/*  //监听行单击事件（单击事件为：rowDouble）
-  table.on('row(testReload)', function(obj){
-    var data = obj.data;
-    
-    layer.alert(JSON.stringify(data.registid), {
-      title: '当前行数据：'
-    });
-    
-    //标注选中样式
-    obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
-  	
-  }); */
-  
-  /************检查申请checkReqTab***********/
-  var checkReqTab = table.render({
-  		elem: '#checkReqTab',
-  		cellMinWidth: 80,
-  		skin: 'line',
-  		// page: true,
-  		url: 'data_table.json',
-  		// id: 'testReload',
-  		// event: true,
-		totalRow:true,
-  		cols: [[
-			{type: 'checkbox',totalRow:true},
-  			{field: 'registid',title: '病历ID'},//病历号ID
-			{field: 'name',title: '姓名'},//姓名
-  			{field: 'age',title: '年龄',totalRow:true},//年龄
-  			{field: 'category',title: '分类',hide:true},
-  			{field: 'sort',title: '排序',hide:true}
-  			]]
-  	});
-	
-	/************检验申请examReqTab***********/
-	var examReqTab = table.render({
-			elem: '#examReqTab',
-			cellMinWidth: 80,
-			skin: 'line',
-			// page: true,
-			url: 'data_table.json',
-			// id: 'testReload',
-			// event: true,
-			totalRow:true,
-			cols: [[
-				{type: 'checkbox',totalRow:true},
-				{field: 'registid',title: '病历ID'},//病历号ID
-				{field: 'name',title: '姓名'},//姓名
-				{field: 'age',title: '年龄',totalRow:true},//年龄
-				{field: 'category',title: '分类',hide:true},
-				{field: 'sort',title: '排序',hide:true}
-				]]
+    layui.use(['jquery', 'table', 'layer', 'element', 'form'], function () {
+        var $ = layui.jquery,
+            table = layui.table,    //表格
+            layer = layui.layer,    //提示弹窗
+            element = layui.element,    //选项卡依赖element模块
+			form = layui.form;
+        /************未诊患者列表***********/
+        var state0 = table.render({
+            elem: '#state0',
+            cellMinWidth: 80,
+            skin: 'line',
+            page: true,
+            limit: 10,
+            // page: true,
+            url: '../../DoctorServlet?method=state0',
+            // url:'data_table.json',
+            id: 'state0',
+            event: true,
+            parseData: function (res) {
+                return {
+                    'code': 0,
+                    'msg': '',
+                    'count': 1000,
+                    'data': res
+                }
+            },
+            cols: [[
+                {field: 'caseNumber', title: '病历号'}//病历号ID
+                , {field: 'realName', title: '姓名'}//姓名
+                , {field: 'age', title: '年龄'}//年龄
+            ]]
+
+        });
+
+        $('#search').click(function () {
+            table.reload('testReload', {
+                url: '../../DoctorServlet?method=search'
+            });
+        });
+
+        /************已诊患者列表***********/
+        var state1 = table.render({
+            elem: '#state1',
+            cellMinWidth: 80,
+            skin: 'line',
+            limit: 8,
+            // page: true,
+            url: '../../DoctorServlet?method=state1',
+            // url:'data_table.json',
+            id: 'state1',
+            event: true,
+            parseData: function (res) {
+                return {
+                    'code': 0,
+                    'msg': '',
+                    'count': 1000,
+                    'data': res
+                }
+            },
+            cols: [[
+                {field: 'caseNumber', title: '病历号'}//病历号ID
+                , {field: 'realName', title: '姓名'}//姓名
+                , {field: 'age', title: '年龄'}//年龄
+            ]]
+        });
+
+        $('.demoTable .layui-btn').on('click', function () {
+            var categoryval = $('#demoReload').val();
+            table.reload('stateTable', {
+                where: {
+                    category: categoryval
+                }
+            });
+        });
+        // 刷新
+        $('#btn-refresh').on('click', function () {
+            state0.reload();
+			state1.reload();;
+        });
+
+
+        //监听行单击事件（单击事件为：rowDouble）
+        table.on('row(stateTable)', function (obj) {
+            var data = obj.data;
+            console.log(JSON.stringify(data));
+            // layer.alert(JSON.stringify(data), {
+            //     title: '当前行数据：'
+            // });
+            $('.caseNumber').val(data.caseNumber);//获取到选定患者的病历号到表单中, 方便提交到数据库
+			$('.registId').val(data.id);//挂号id
+			$('.realName').val(data.realName);//姓名
+			$('.age').val(data.age);//年龄
+			
+			// console.log($('#caseNumber').val());
+			// console.log($('#registId').val());
+			
+            $('#name>span').empty();
+            $('#name>span').text("患者姓名：" + data.realName + "  /年龄：" + data.age + "  /性别" +data.gender+ "  /病历号" + data.caseNumber);
+            //标注选中样式
+            obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+
+        });
+
+        /************检查申请checkReqTab***********/
+        var checkReqTab = table.render({
+            elem: '#checkReqTab',
+            cellMinWidth: 80,
+            skin: 'line',
+            // page: true,
+            url: 'data_table.json',
+            // id: 'testReload',
+            // event: true,
+            // totalRow:true,
+            cols: [[
+                {type: 'checkbox', totalRow: true},
+                {field: 'caseNumber', title: '病历号'},//病历号ID
+                {field: 'realName', title: '姓名'},//姓名
+                {field: 'age', title: '年龄', totalRow: true},//年龄
+                {field: 'category', title: '分类', hide: true},
+                {field: 'sort', title: '排序', hide: true}
+            ]]
+        });
+
+        /************检验申请examReqTab***********/
+        var examReqTab = table.render({
+            elem: '#examReqTab',
+            cellMinWidth: 80,
+            skin: 'line',
+            // page: true,
+            url: 'data_table.json',
+            // id: 'testReload',
+            // event: true,
+            // totalRow:true,
+            cols: [[
+                {type: 'checkbox', totalRow: true},
+                {field: 'caseNumber', title: '病历号'},//病历号ID
+                {field: 'name', title: '姓名'},//姓名
+                {field: 'age', title: '年龄', totalRow: true},//年龄
+                {field: 'category', title: '分类', hide: true},
+                {field: 'sort', title: '排序', hide: true}
+            ]]
+        });
+
+        //监听提交
+        form.on('submit(save1)', function(data){
+			$.ajax({
+				type:'post',
+				url:'../../DoctorServlet?method=medicalRecordSave1',
+				data:$('#medicalRecord1').serialize(),
+				success:function(){
+					layer.msg('暂存成功');
+				},
+				error:function(){
+					layer.msg('暂存失败');
+				}
+			})
+			console.log(JSON.stringify(data.field));
+            return false;//不跳转
+        });
+		
+		form.on('submit(submit1)', function(data){
+			$.ajax({
+				type:'post',
+				url:'../../DoctorServlet?method=medicalRecordSubmit1',
+				data:$('#medicalRecord1').serialize(),
+				success:function(){
+					layer.msg('提交成功');
+				},
+				error:function(){
+					layer.msg('提交失败');
+				}
+			})
+			console.log(JSON.stringify(data.field));
+		    return false;//不跳转
 		});
-});
+		
+		form.on('submit(save4)', function(data){
+			$.ajax({
+				type:'post',
+				url:'../../DoctorServlet?method=medicalRecordSave2',
+				data:$('#medicalRecord2').serialize(),
+				success:function(){
+					layer.msg('暂存成功');
+				},
+				error:function(){
+					layer.msg('暂存失败');
+				}
+			})
+			console.log(JSON.stringify(data.field));
+		    return false;//不跳转
+		});
+		
+		form.on('submit(submit4)', function(data){
+			$.ajax({
+				type:'post',
+				url:'../../DoctorServlet?method=medicalRecordSubmit2',
+				data:$('#medicalRecord2').serialize(),
+				success:function(){
+					layer.msg('提交成功');
+				},
+				error:function(){
+					layer.msg('提交失败');
+				}
+			})
+			console.log(JSON.stringify(data.field));
+		    return false;//不跳转
+		});
+		// form.on('submit(submit)',function(data){
+		// 	document.medicalRecord.action = '../../DoctorServlet?method=medicalRecord2';
+		// 	console.log(JSON.stringify(data.field));
+		// 	return false;//不跳转
+		// });
 
-layui.use('element', function(){
-  var element = layui.element;
-  
-  //…
-});
+    });
+	
+$(function(){
+	$('.reset').click(function(){
+		layer.msg('清除成功');
+	});
+})
 
-layui.use('layer', function(){
-	var layer = layui.layer;
-});
-function save(){
-	layer.msg('暂存成功');
-}
-function commit(){
-	layer.msg('提交成功');
-}
 </script>
 </html>

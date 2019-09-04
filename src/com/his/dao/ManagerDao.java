@@ -14,11 +14,16 @@ public interface ManagerDao {
     //1.1.2模糊查询所有符合条件的常数类别 当查询条件为constantTypeName时
     List<ConstantType> getConstantTypeListByConstantTypeName(String constantTypeCode) throws SQLException;
     //1.2 新增常数类别
+
     int addConstantType(ConstantType constantType) throws SQLException;
     //1.3 查询常数项列表
     List<ConstantItem> getConstantItemList() throws SQLException;
     //1.4 新增常数项
     int addConstantItem(ConstantItem constantItem) throws SQLException;
+    //修改常数项
+    int updateConstantItem(ConstantItem constantItem,int oldID) throws SQLException;
+    //删除常数项
+    int delConstantItemById(int newId) throws SQLException;
     //批量删除常数项 把选中项的id作为数组传入
     int delConstantItem(int [] ids) throws SQLException;
     //科室管理
@@ -35,8 +40,14 @@ public interface ManagerDao {
     //2.4 批量删除科室
     int delDepartments(int [] ids) throws SQLException;
     //用户管理
+    //通过用户的docTitleID获取constantItem对象
+    ConstantItem  getConstantItemByDocTitleID(int docTitleID) throws SQLException;
+    //通过用户的DeptID获取department对象
+    Department getDepartmentByDeptNo(int deptNo) throws SQLException;
+    //通过用户的RegistLeID获取RegistLe对象
+    RegistLevel getRegistLevelByRegistLeID(int registLeID) throws SQLException;
     //3.1 查询所有用户信息
-    List<User> getUserList() throws SQLException;
+    List<UserDetail> getUserDetailList() throws SQLException;
     //3.1.2 根据登陆名称查询用户信息
     List<User> getUserListByUserName(String userName) throws SQLException;
     //3.1.3 根据姓名查询用户信息
