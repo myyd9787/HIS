@@ -19,6 +19,19 @@ public class Drugs {
     private Timestamp lastUpdateDate;     //最后修改时间
     private int delMark;   //删除标记
 
+    public Drugs() {
+    }
+
+    public Drugs(String drugsCode, String drugsName, String drugsFormat, String drugsUnit, Integer drugsDosageId, Integer drugsTypeId, Double drugsPrice, String mnemonicCode) {
+        this.drugsCode = drugsCode;
+        this.drugsName = drugsName;
+        this.drugsFormat = drugsFormat;
+        this.drugsUnit = drugsUnit;
+        this.drugsDosageId = drugsDosageId;
+        this.drugsTypeId = drugsTypeId;
+        this.drugsPrice = drugsPrice;
+        this.mnemonicCode = mnemonicCode;
+    }
 
     public int getId() {
         return id;

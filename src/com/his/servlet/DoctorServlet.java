@@ -28,18 +28,40 @@ public class DoctorServlet extends HttpServlet {
 
         //查询未诊患者列表
         if (method.equals("state0")){
-            List<Register> register = doctorBiz.getRegisterByState(0);
-            String register0 = JSON.toJSONString(register);
-            System.out.println(register0);
-            out.print(register0);
+            //页码
+            int page = req.getParameter("page") == null ? 1 : Integer.parseInt(req.getParameter("page"));
+            //页大小
+            int limit = req.getParameter("limit") == null ? 1 : Integer.parseInt(req.getParameter("limit"));
+            //姓名
+            String name = req.getParameter("category");
+            if (name != null){
+                List<Register> register = doctorBiz.getRegisterByName(name, page, limit);
+                String register0 = JSON.toJSONString(register);
+                System.out.println(register0);
+                out.print(register0);
+            }else{
+                List<Register> register = doctorBiz.getRegisterByState(0, page, limit);
+                String register0 = JSON.toJSONString(register);
+                System.out.println(register0);
+                out.print(register0);
+            }
+
         }
         //查询已诊患者列表
         else if (method.equals("state1")){
-            List<Register> register = doctorBiz.getRegisterByState(1);
+            int page = req.getParameter("page") == null ? 1 : Integer.parseInt(req.getParameter("page"));
+            int limit = req.getParameter("limit") == null ? 1 : Integer.parseInt(req.getParameter("limit"));
+            List<Register> register = doctorBiz.getRegisterByState(2, page, limit);
             String register1 = JSON.toJSONString(register);
             System.out.println(register1);
             out.print(register1);
         }
+        //        else if(method.equals("search")){
+//            List<Register> register = doctorBiz.getRegisterByName();
+//            String register0 = JSON.toJSONString(register);
+//            System.out.println(register0);
+//            out.print(register0);
+//        }
         //将病历首页存入数据库
         //暂存1
         else if (method.equals("medicalRecordSave1")){
@@ -126,7 +148,7 @@ public class DoctorServlet extends HttpServlet {
                 System.out.println("fail!");
             }
         }
-//        else if(method.equals("")){}
+
 
     }
 
