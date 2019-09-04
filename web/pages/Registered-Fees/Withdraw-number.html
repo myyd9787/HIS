@@ -95,7 +95,7 @@
             var data = obj.data;
             //console.log(obj)
             if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
+                layer.confirm('确定退号么', function(index){
                     $.ajax({
                         url:"../../CollectorServlet?method=delnumber",
 						data:{"CaseNumber":data.CaseNumber},
