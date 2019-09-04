@@ -103,7 +103,7 @@ public class DoctorServlet extends HttpServlet {
             String diagnosis = req.getParameter("diagnosis");
             String handling = req.getParameter("handling");
             MedicalRecord medicalRecord = new MedicalRecord(checkResult, diagnosis, handling);
-            medicalRecord.setCaseState(1);
+            medicalRecord.setCaseState(1);//暂存
             if(doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0){
                 System.out.println("success!");
             }else {
@@ -118,9 +118,9 @@ public class DoctorServlet extends HttpServlet {
             String diagnosis = req.getParameter("diagnosis");
             String handling = req.getParameter("handling");
             MedicalRecord medicalRecord = new MedicalRecord(checkResult, diagnosis, handling);
-            medicalRecord.setCaseState(3);
+            medicalRecord.setCaseState(3);//诊毕
             if((doctorBiz.updateMedicalRecord(medicalRecord, caseNumber, registId)>0)
-                    &&(doctorBiz.changeRegisterState(registId)>0)){
+                    &&(doctorBiz.changeRegisterState(registId)>0)){//同时修改register号的状态为诊毕
                 System.out.println("success!");
             }else {
                 System.out.println("fail!");
