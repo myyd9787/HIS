@@ -13,12 +13,13 @@ public class DoctorDaoImpl extends DBUtil implements DoctorDao {
 
     //根据诊断状态查询患者
     @Override
-    public List<Register> getRegisterByState(int state) throws SQLException {
+    public List<Register> getRegisterByState(int state, int currentPage, int pageSize) throws SQLException {
         String sql = "SELECT `ID`,`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`Age`,`DeptID`,`UserID`,`RegistLeID`," +
                 "`SettleID`,`VisitState`" +
                 "FROM `register`" +
-                "WHERE `VisitState` = ? ";
-        rs = executeQuery(sql, state);
+                "WHERE `VisitState` = ? " +
+                "LIMIT ?, ?";
+        rs = executeQuery(sql, state, (currentPage-1)*pageSize, pageSize);
         List<Register> registerList = new ArrayList<>();
         Register register = null;
         try {
@@ -45,12 +46,13 @@ public class DoctorDaoImpl extends DBUtil implements DoctorDao {
 
     @Override
     //根据名字查询挂号患者
-    public List<Register> getRegisterByName(String name) throws SQLException {
+    public List<Register> getRegisterByName(String name, int currentPage, int pageSize) throws SQLException {
         String sql = "SELECT `ID`,`CaseNumber`,`RealName`,`Gender`,`IDnumber`,`Age`,`DeptID`,`UserID`,`RegistLeID`," +
                 "`SettleID`,`VisitState`" +
                 "FROM `register`" +
-                "WHERE `RealName` = ? ";
-        rs = executeQuery(sql, name);
+                "WHERE `RealName` = ? " +
+                "LIMIT ?, ?";
+        rs = executeQuery(sql, name, (currentPage-1)*pageSize, pageSize);
         List<Register> registerList = new ArrayList<>();
         Register register = null;
         try {

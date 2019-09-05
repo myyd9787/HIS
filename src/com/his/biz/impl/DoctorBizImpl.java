@@ -12,10 +12,10 @@ import java.util.List;
 public class DoctorBizImpl implements DoctorBiz {
     //根据诊断状态查询患者
     @Override
-    public List<Register> getRegisterByState(int state) {
+    public List<Register> getRegisterByState(int state, int currentPage, int pageSize) {
         DoctorDao doctorDao = new DoctorDaoImpl();
         try {
-            return doctorDao.getRegisterByState(state);
+            return doctorDao.getRegisterByState(state, currentPage, pageSize);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -24,10 +24,10 @@ public class DoctorBizImpl implements DoctorBiz {
 
     //根据姓名查询患者(可能重名)
     @Override
-    public List<Register> getRegisterByName(String name) {
+    public List<Register> getRegisterByName(String name, int currentPage, int pageSize) {
         DoctorDao doctorDao = new DoctorDaoImpl();
         try {
-            return doctorDao.getRegisterByName(name);
+            return doctorDao.getRegisterByName(name, currentPage, pageSize);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

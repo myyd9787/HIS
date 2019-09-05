@@ -104,7 +104,7 @@
 									</div>
 								</div>
 							</form>
-							<table class="layui-hide" id="test2"></table>
+							<table class="layui-hide" id="test2" lay-filter="testReload2"></table>
 						</div>
 					</div>
 				</div>
@@ -231,19 +231,25 @@
 					obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
 
 				});
-				var table2 = table.render({
-                    elem: '#test2'
-                    ,url: 'data_table.json' //数据接口
-                    ,cols: [[ //表头
-                        {field: 'name', title: '检验名称', fixed: 'left'}
-                        ,{field: 'position', title: '检验部位'}
-                        ,{field: 'num', title: '数量'}
-                        ,{field: 'danwei', title: '单位'}
-                        ,{field: 'price', title:'单价'}
-                        ,{field: 'sum', title: '总金额'}
-                        ,{field: 'state', title: '状态'}
-                    ]]
-                });
+				function loadcheck(caseNumber) {
+                    var table2 = table.render({
+                        elem: '#test2'
+                        ,url: '../../PatientServlet?method=plist2&caseNumber='+caseNumber //数据接口
+                        ,cols: [[ //表头
+                            {field: 'name', title: '检验名称', fixed: 'left'}
+                            ,{field: 'position', title: '检验部位'}
+                            ,{field: 'num', title: '数量'}
+                            ,{field: 'danwei', title: '单位'}
+                            ,{field: 'price', title:'单价'}
+                            ,{field: 'sum', title: '总金额'}
+                            ,{field: 'state', title: '状态'}
+                        ]],
+                        id: 'testReload2',
+                        event: true,
+                        page:true,
+                        limit:5
+                    });
+                }
 			});
 		</script>
 	</body>

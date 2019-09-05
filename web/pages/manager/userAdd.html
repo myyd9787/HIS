@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>用户新增</title>
+		<!--<script type="text/javascript" src="../../lib/layui/layui.all.js" charset="utf-8"></script>-->
+		<script type="text/javascript" src="../../lib/layui/layui.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../../lib/css/constant.css" />
+		<script src="../../lib/jquery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="userAdd_body">
+			<form class="layui-form" method="post">
+				<div class="layui-form-item">
+					<label for="username" class="layui-form-label">
+                  		<span class="we-red">*</span>登录名
+              		</label>
+              		<div class="layui-input-inline">
+                  		<input type="text" id="username" name="userName" required="" lay-verify="required"
+                  			autocomplete="off" class="layui-input">
+              		</div>
+				</div>
+				<div class="layui-form-item">
+		            <label for="L_pass" class="layui-form-label">
+		                <span class="we-red">*</span>密码
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="password" id="L_pass" name="password" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="realName" class="layui-form-label">
+		                <span class="we-red">*</span>真实姓名
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="realName" name="realName" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="deptNo" class="layui-form-label">
+		                <span class="we-red">*</span>所在科室id
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="deptNo" name="deptNo" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="userType" class="layui-form-label">
+		                <span class="we-red">*</span>用户类别id(1-6)
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="userType" name="userTypeId" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="docTitleId" class="layui-form-label">
+		                <span class="we-red">*</span>医生职称id
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="docTitleId" name="docTitleId" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="registLevelId" class="layui-form-label">
+		                <span class="we-red">*</span>挂号级别id
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="registLevelId" name="registLevelId" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		            <label for="IsScheduling" class="layui-form-label">
+		                <span class="we-red">*</span>是否参与排班(0:不参与，1:参与)
+		            </label>
+		            <div class="layui-input-inline">
+		                <input type="text" id="IsScheduling" name="IsScheduling" required="" lay-verify="pass"
+		                autocomplete="off" class="layui-input">
+		            </div>
+          		</div>
+          		<div class="layui-form-item">
+		              	<label for="sub" class="layui-form-label"></label>
+		              	<button  id="sub" class="layui-btn" lay-filter="add" lay-submit>提交</button>
+		              	<label for="can" class="layui-form-label"></label>
+		              	<button  id="can" class="layui-btn" lay-filter="cancel" >取消</button>
+          		</div>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		layui.use(['jquery','form','layer'], function(){
+			var $ = layui.jquery,
+            form = layui.form,
+          	layer = layui.layer;
+          	form.render();
+          	 //监听提交
+          form.on('submit(add)', function(data){
+            console.log(data);
+            //发异步，把数据提交给後台
+            $.ajax( {
+     			url: "../../ManagerServlet?method=addUser", // 要提交的URL路径
+     			type:"post", // 发送请求的方式
+     			data:  data.field, // 要发送到服务器的数据
+     			dataType:"text",// 指定传输的数据格式
+			    success:function(result) {// 请求成功后要执行的代码
+			    	layer.alert("操作成功", {icon: 6},function () {
+		                // 获得frame索引
+		                var index = parent.layer.getFrameIndex(window.name);
+		                //关闭当前frame
+		                parent.layer.close(index);
+		                window.parent.location.reload();//新增成功后刷新父界面
+		            });
+				 },
+			    "error":  function(){// 请求失败后要执行的代码
+			    	layer.alert("内部发生异常", {
+			    	      title: '操作提示'
+			    	});
+				}
+			} );            
+            return false;
+          });
+		})
+	</script>
+
+</html>

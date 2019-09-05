@@ -13,7 +13,7 @@ public class User {
         public int delMark;//删除标记 0或者1，1-正常；0-已删除
     public User() {}//无参构造方法
 
-    public User( String userName, String passWord, String realName, int useType, int docTitleID, String isScheduling, int deptNo, int registLeID, int delMark) {
+    public User( String userName, String passWord, String realName, int useType, int docTitleID, String isScheduling, int deptNo, int registLeID) {
         this.userName = userName;
         this.passWord = passWord;
         this.realName = realName;
@@ -22,7 +22,7 @@ public class User {
         this.isScheduling = isScheduling;
         this.deptNo = deptNo;
         this.registLeID = registLeID;
-        this.delMark = delMark;
+        this.delMark = 1;
     }
 
     public int getId() {

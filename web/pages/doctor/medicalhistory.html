@@ -8,6 +8,10 @@
 </head>
 <style type="text/css">
     input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #c2c2c2; }
+	.demoTable{margin-bottom: 10px;}
+	.layui-table-view{margin: 0 0 10px 0;}
+	form>.layui-bg-green{margin-bottom: 10px;}
+	
 </style>
 <body>
 <div>
@@ -24,8 +28,10 @@
                         <button class="layui-btn" style="float: right;" data-type="reload" id="search">搜索</button>
                     </div>
                     <!-- 未诊患者 -->
+					<button type="button" class="layui-btn layui-btn-fluid layui-btn-disabled layui-bg-green">未诊患者列表</button>
                     <table class="layui-hide" id="state0" lay-filter="stateTable"></table>
                     <!-- 已诊患者 -->
+					<button type="button" class="layui-btn layui-btn-fluid layui-btn-disabled layui-bg-green" >已诊患者列表</button>
                     <table class="layui-hide" id="state1" lay-filter="stateTable"></table>
                 </div>
             </div>
@@ -65,37 +71,37 @@
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">主诉</label>
                             <div class="layui-input-block">
-                                <textarea name="readMe" placeholder="请输入患者自述" class="layui-textarea"></textarea>
+                                <textarea name="readMe" placeholder="请输入患者自述" class="layui-textarea" lay-verify="required" ></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">现病史</label>
                             <div class="layui-input-block">
-                                <textarea name="present" placeholder="请输入患者现病史" class="layui-textarea"></textarea>
+                                <textarea name="present" placeholder="请输入患者现病史" class="layui-textarea" lay-verify="required" ></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">现病治疗情况</label>
                             <div class="layui-input-block">
-                                <textarea name="presentTreat" placeholder="请输入患者现病治疗情况" class="layui-textarea"></textarea>
+                                <textarea name="presentTreat" placeholder="请输入患者现病治疗情况" class="layui-textarea" lay-verify="required" ></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">既往病史</label>
                             <div class="layui-input-block">
-                                <textarea name="history" placeholder="请输入患者既往病史" class="layui-textarea"></textarea>
+                                <textarea name="history" placeholder="请输入患者既往病史" class="layui-textarea" lay-verify="required" ></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">过敏史</label>
                             <div class="layui-input-block">
-                                <textarea name="allergy" placeholder="请输入患者过敏史" class="layui-textarea"></textarea>
+                                <textarea name="allergy" placeholder="请输入患者过敏史" class="layui-textarea" lay-verify="required"></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">体格检查</label>
                             <div class="layui-input-block">
-                                <textarea name="physique" placeholder="请输入体格检查结果" class="layui-textarea"></textarea>
+                                <textarea name="physique" placeholder="请输入体格检查结果" class="layui-textarea" lay-verify="required"></textarea>
                             </div>
                         </div>
                     </form>
@@ -126,12 +132,13 @@
                 </div>
                 <!-- 门诊确诊 -->
                 <div class="layui-tab-item">
-                    <div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
-                        <button type="reset" class="layui-icon layui-btn layui-btn-xs Hui-iconfont reset">&#xe706;清空</button>
-                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save4" lay-submit>&#xe61f;暂存</button>
-                        <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit4" lay-submit>&#x1005;诊毕提交</button>
-                    </div>
+                    
                     <form action="" method="post" id="medicalRecord2" class="layui-form">
+						<div class="layui-bg-green" style="height: 22px;display: flex;justify-content: space-around;">
+						    <button type="reset" class="layui-icon layui-btn layui-btn-xs Hui-iconfont reset">&#xe706;清空</button>
+						    <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="save4" lay-submit>&#xe61f;暂存</button>
+						    <button type="button" class="layui-icon layui-btn layui-btn-xs" lay-filter="submit4" lay-submit>&#x1005;诊毕提交</button>
+						</div>
 						<input type="text" name="registId2" class="registId" style="display: none;"/>
                         <div class="layui-form-item">
                             <label class="layui-form-label">病历号</label>
@@ -161,19 +168,19 @@
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">检查结果</label>
                             <div class="layui-input-block">
-                                <textarea name="checkResult" placeholder="请输入检查结果" class="layui-textarea checkResult"></textarea>
+                                <textarea name="checkResult" lay-verify="required" placeholder="请输入检查结果" class="layui-textarea checkResult"></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">诊断结果</label>
                             <div class="layui-input-block">
-                                <textarea name="diagnosis" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
+                                <textarea name="diagnosis" lay-verify="required" placeholder="请输入诊断结果" class="layui-textarea"></textarea>
                             </div>
                         </div>
                         <div class="layui-form-item layui-form-text">
                             <label class="layui-form-label">处理意见</label>
                             <div class="layui-input-block">
-                                <textarea name="handling" placeholder="请输入处理意见" class="layui-textarea"></textarea>
+                                <textarea name="handling" lay-verify="required" placeholder="请输入处理意见" class="layui-textarea"></textarea>
                             </div>
                         </div>
                     </form>
@@ -219,36 +226,40 @@
 			form = layui.form;
         /************未诊患者列表***********/
         var state0 = table.render({
+			title: '未诊患者',
             elem: '#state0',
             cellMinWidth: 80,
             skin: 'line',
+			height: 475,
             page: true,
-            limit: 10,
-            // page: true,
-            url: '../../DoctorServlet?method=state0',
-            // url:'data_table.json',
             id: 'state0',
             event: true,
+			url: '../../DoctorServlet?method=state0',
             parseData: function (res) {
                 return {
                     'code': 0,
                     'msg': '',
-                    'count': 1000,
+                    'count': 100,
                     'data': res
                 }
             },
             cols: [[
-                {field: 'caseNumber', title: '病历号'}//病历号ID
-                , {field: 'realName', title: '姓名'}//姓名
-                , {field: 'age', title: '年龄'}//年龄
-            ]]
+                {field: 'caseNumber', title: '病历号', width: '25%', sort: true }//病历号ID
+                , {field: 'realName', title: '姓名', width: '25%'}//姓名
+                , {field: 'age', title: '年龄', width: '25%'}//年龄
+				, {field: 'gender', title: '性别', width: '25%'}
+				
+            ]],
+			done: function(res, curr, count){
+				$("[data-field='gender']").children().each(function(){
+					if($(this).text()=='0'){
+						$(this).text('男')
+					}else if($(this).text()=='1'){
+						$(this).text('女')
+					}
+				})
+			}
 
-        });
-
-        $('#search').click(function () {
-            table.reload('testReload', {
-                url: '../../DoctorServlet?method=search'
-            });
         });
 
         /************已诊患者列表***********/
@@ -256,12 +267,11 @@
             elem: '#state1',
             cellMinWidth: 80,
             skin: 'line',
-            limit: 8,
-            // page: true,
-            url: '../../DoctorServlet?method=state1',
-            // url:'data_table.json',
+			height: 475,
+			page: true,
             id: 'state1',
             event: true,
+			url: '../../DoctorServlet?method=state1',
             parseData: function (res) {
                 return {
                     'code': 0,
@@ -273,22 +283,33 @@
             cols: [[
                 {field: 'caseNumber', title: '病历号'}//病历号ID
                 , {field: 'realName', title: '姓名'}//姓名
-                , {field: 'age', title: '年龄'}//年龄
-            ]]
+                , {field: 'age', title: '年龄'},//年龄
+				, {field: 'gender', title: '性别', width: '25%'}
+            ]],
+			done: function(res, curr, count){
+				$("[data-field='gender']").children().each(function(){
+					if($(this).text()=='0'){
+						$(this).text('男')
+					}else if($(this).text()=='1'){
+						$(this).text('女')
+					}
+				})
+			}
         });
 
+		//搜索
         $('.demoTable .layui-btn').on('click', function () {
             var categoryval = $('#demoReload').val();
-            table.reload('stateTable', {
+            table.reload('state0', {
                 where: {
                     category: categoryval
-                }
+                },
             });
         });
         // 刷新
         $('#btn-refresh').on('click', function () {
             state0.reload();
-			state1.reload();;
+			state1.reload();
         });
 
 
@@ -308,7 +329,7 @@
 			// console.log($('#registId').val());
 			
             $('#name>span').empty();
-            $('#name>span').text("患者姓名：" + data.realName + "  /年龄：" + data.age + "  /性别" +data.gender+ "  /病历号" + data.caseNumber);
+            $('#name>span').text("患者姓名：" + data.realName + "  /年龄：" + data.age + "  /性别：" +(data.gender==0?"男":"女")+ "  /病历号" + data.caseNumber);
             //标注选中样式
             obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
 

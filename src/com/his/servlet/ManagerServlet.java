@@ -3,10 +3,7 @@ package com.his.servlet;
 import com.alibaba.fastjson.JSON;
 import com.his.biz.ManagerBiz;
 import com.his.biz.impl.ManagerBizImpl;
-import com.his.entity.ConstantItem;
-import com.his.entity.ConstantType;
-import com.his.entity.Manager;
-import com.his.entity.UserDetail;
+import com.his.entity.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,25 +26,20 @@ public class ManagerServlet extends HttpServlet {
 
         PrintWriter out=response.getWriter();
         if(method.equals("constantList")){//获取常数项列表
-            List<ConstantType> constantTypeList=managerBiz.getConstantTypeList();
-
-            String constantTypeJSON=JSON.toJSONString(constantTypeList);
-//            System.out.print(constantTypeJSON);
-            out.print(constantTypeJSON);
-        }else if(method.equals("searchConstantList")){//执行模糊查询操作
-            String str=request.getParameter("title");
-            List<ConstantType> constantTypeList=managerBiz.getConstantTypeListByConstantTypeCode(str);
-            List<ConstantType> constantTypeList1=managerBiz.getConstantTypeListByConstantTypeName(str);
-            if(method.equals("search")){
-                if(constantTypeList==null){
-                    String constantTypeJSON=JSON.toJSONString(constantTypeList1);
-                    out.print(constantTypeJSON);
-                }else{
-                    String constantTypeJSON=JSON.toJSONString(constantTypeList);
-                    out.print(constantTypeJSON);
-                }
-
+            String constantName=request.getParameter("category");
+            if(constantName!=null){//执行模糊查询
+                List<ConstantType> constantTypeList=managerBiz.getConstantTypeListByConstantTypeName(constantName);
+                String constantTypeJSON=JSON.toJSONString(constantTypeList);
+                out.print(constantTypeJSON);
+            }else{//如果查询条件为空,则默认获取所有常数项信息
+                List<ConstantType> constantTypeList=managerBiz.getConstantTypeList();
+                String constantTypeJSON=JSON.toJSONString(constantTypeList);
+                out.print(constantTypeJSON);
             }
+
+
+
+//            System.out.print(constantTypeJSON);
 
         }else if(method.equals("add")){//执行新增操作
             String constantCode=request.getParameter("constantCode");
@@ -64,10 +56,20 @@ public class ManagerServlet extends HttpServlet {
            String constantItemListJSON=JSON.toJSONString(constantItemList);
            out.print(constantItemListJSON);
         }else if(method.equals("userDetailList")){//获取前端需要显示的用户信息
-            List<UserDetail> userDetailList=managerBiz.getUserDetailList();
+            String userName=request.getParameter("category");
+
+            if(userName!=null){
+                List<UserDetail> userDetailList=managerBiz.getUserDetailListByUserName(userName);
+                String userDetailListJSON=JSON.toJSONString(userDetailList);
+                out.print(userDetailListJSON);
+
+            }else{
+                List<UserDetail> userDetailList=managerBiz.getUserDetailList();
+                String userDetailListJSON=JSON.toJSONString(userDetailList);
+                out.print(userDetailListJSON);
+            }
 //            System.out.print(userDetailList);
-            String userDetailListJSON=JSON.toJSONString(userDetailList);
-            out.print(userDetailListJSON);
+
         }else if(method.equals("constantItemList_edit")){//常数项编辑
             int oldId=Integer.parseInt(request.getParameter("oldid"));
             String constantItemCode=request.getParameter("constantItemCode");
@@ -85,6 +87,21 @@ public class ManagerServlet extends HttpServlet {
 
             }else{//删除失败
 
+            }
+        }else if(method.equals("addUser")){//新增用户
+            String userName=request.getParameter("userName");
+            String password=request.getParameter("password");
+            String realName=request.getParameter("realName");
+            int deptNo=Integer.parseInt(request.getParameter("deptNo"));
+            int userTypeId=Integer.parseInt(request.getParameter("userTypeId"));
+            int docTitleId=Integer.parseInt(request.getParameter("docTitleId"));
+            int registLevelId=Integer.parseInt(request.getParameter("registLevelId"));
+            String IsScheduling=request.getParameter("IsScheduling");
+            User user=new User(userName,password,realName,userTypeId,docTitleId,IsScheduling,deptNo,registLevelId);
+            if(managerBiz.addUser(user)>0){//新增成功
+                out.print("success");
+            }else{
+                out.print("error");
             }
         }
 
