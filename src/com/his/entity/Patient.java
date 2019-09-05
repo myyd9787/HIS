@@ -5,7 +5,7 @@ import java.util.Date;
 public class Patient {
     public String caseNumber;//病历号
     public String realName;//姓名
-    public String invoiceNum;//发票号
+    public int invoiceNum;//发票号
     public int age;//年龄
     public int settleID;//结算类别
     public int deptID;//挂号科室ID
@@ -21,7 +21,7 @@ public class Patient {
     public int state;//状态
     public Patient(){
     }
-    public Patient(String caseNumber, String realName, String invoiceNum, int age, int settleID, int deptID, int prescriptionState, Date visitDate, int userID, String name, int num, String position, int price, int sum, int state){
+    public Patient(String caseNumber, String realName, int invoiceNum, int age, int settleID, int deptID, int prescriptionState, Date visitDate, int userID, String name, int num, String danwei,String position, int price, int sum, int state){
         this.caseNumber=caseNumber;
         this.realName=realName;
         this.invoiceNum=invoiceNum;
@@ -33,6 +33,7 @@ public class Patient {
         this.userID=userID;
         this.name=name;
         this.num=num;
+        this.danwei=danwei;
         this.position=position;
         this.price=price;
         this.sum=sum;
@@ -103,11 +104,11 @@ public class Patient {
         this.realName = realName;
     }
 
-    public String getInvoiceNum() {
+    public int getInvoiceNum() {
         return invoiceNum;
     }
 
-    public void setInvoiceNum(String invoiceNum) {
+    public void setInvoiceNum(int invoiceNum) {
         this.invoiceNum = invoiceNum;
     }
 
@@ -157,6 +158,9 @@ public class Patient {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+    public void setDanwei(String danwei){
+        this.danwei=danwei;
     }
     public String getDanwei() {
         return danwei;
