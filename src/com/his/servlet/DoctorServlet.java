@@ -34,13 +34,13 @@ public class DoctorServlet extends HttpServlet {
             int limit = req.getParameter("limit") == null ? 1 : Integer.parseInt(req.getParameter("limit"));
             //姓名
             String name = req.getParameter("category");
-            if (name != null){
+            if ((name != null)&&(!name.equals(""))){
                 List<Register> register = doctorBiz.getRegisterByName(name, page, limit);
                 String register0 = JSON.toJSONString(register);
                 System.out.println(register0);
                 out.print(register0);
             }else{
-                List<Register> register = doctorBiz.getRegisterByState(0, page, limit);
+                List<Register> register = doctorBiz.getRegisterByState(1, page, limit);
                 String register0 = JSON.toJSONString(register);
                 System.out.println(register0);
                 out.print(register0);
@@ -51,7 +51,7 @@ public class DoctorServlet extends HttpServlet {
         else if (method.equals("state1")){
             int page = req.getParameter("page") == null ? 1 : Integer.parseInt(req.getParameter("page"));
             int limit = req.getParameter("limit") == null ? 1 : Integer.parseInt(req.getParameter("limit"));
-            List<Register> register = doctorBiz.getRegisterByState(2, page, limit);
+            List<Register> register = doctorBiz.getRegisterByState(3, page, limit);
             String register1 = JSON.toJSONString(register);
             System.out.println(register1);
             out.print(register1);
