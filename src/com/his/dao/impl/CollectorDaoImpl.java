@@ -110,7 +110,7 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
                 "`HomeAddress`,`VisitDate`,`Noon`,`DeptID`,`UserID`,`RegistLeID`,`SettleID`,`IsBook`," +
                 "`RegistTime`,`RegisterID`,`VisitState` FROM `register` limit ?,?";
         try{
-            rs = executeQuery(sql);
+            rs = executeQuery(sql,(currentPage-1)*pageSize,pageSize);
             Collector collector = null;
             while(rs.next()){
                 collector = new Collector();
@@ -157,7 +157,7 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
     }
 
     @Override//删除
-    public int delCollectorById(int id) throws Exception {
+    public int delCollectorById(String id) throws Exception {
         String sql = "delete from register where CaseNumber = ? ";
         return  executeUpdate(sql,id);
     }

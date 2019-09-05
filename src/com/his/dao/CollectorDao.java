@@ -19,6 +19,6 @@ public interface CollectorDao {
     //总记录数
     int getCollectorCount()throws SQLException;
     //删除挂号信息
-    int delCollectorById(int id)throws Exception;
+    int delCollectorById(String id)throws Exception;
 
 }

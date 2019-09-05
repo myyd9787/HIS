@@ -11,9 +11,9 @@ public interface CollectorBiz {
     //不带分页
     List<Collector> getCollectorList();
     //带分页的用户列表
-    List<Collector>getCollectorListByPage(int currentPage,int pageSize) ;
+    List<Collector> getCollectorListByPage(int currentPage,int pageSize) ;
     //总记录数
     int getCollectorCount();
     //删除数据
-    int delCollectorById(int id);
+    int delCollectorById(String id);
 }
