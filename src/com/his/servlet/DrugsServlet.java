@@ -56,7 +56,12 @@ public class DrugsServlet extends HttpServlet {
             Integer drugsTypeId= Integer.parseInt(request.getParameter("drugsTypeId"));
             Drugs drugs = new Drugs(drugsCode,drugsName,drugsFormat,drugsUnit,drugsDosageId,drugsTypeId,drugsPrice,mnemonicCode);
             drugsBiz.save(drugs);
-        }else if (method.equals("updataDrugs")){           //编辑药品
+        }else if (method.equals("updataID")){     //通过ID渲染单条数据
+            int id =Integer.parseInt(request.getParameter("id")) ;
+            Drugs drugs = drugsBiz.getDrugsByid(id);
+            String drugsJSON = JSON.toJSONStringWithDateFormat(drugs,"yyyy/MM/dd HH:mm:ss");
+            out.print(drugsJSON);
+        } else if (method.equals("updataDrugs")){           //编辑药品
             int id =Integer.parseInt(request.getParameter("id")) ;
             String  drugsCode= request.getParameter("drugsCode");
             String  drugsName= request.getParameter("drugsName");
@@ -68,9 +73,17 @@ public class DrugsServlet extends HttpServlet {
             Integer drugsTypeId= Integer.parseInt(request.getParameter("drugsTypeId"));
             Drugs drugs = new Drugs(drugsCode,drugsName,drugsFormat,drugsUnit,drugsDosageId,drugsTypeId,drugsPrice,mnemonicCode);
             int updata = drugsBiz.updata(drugs,id);
-        }else if(method.equals("deleteDrugs")){
+            if (updata>0){
+                out.print("操作成功");
+            }else {
+                out.print("操作失败");
+            }
+        }else if(method.equals("del")){     //删除药品
             int id =Integer.parseInt(request.getParameter("id")) ;
-            drugsBiz.delete(id);
+            int deleteID = drugsBiz.delete(id);
+            if (deleteID>0){
+                out.print("success");
+            }
         }
 
     }

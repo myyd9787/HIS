@@ -38,14 +38,14 @@
 			</div>
 			<div class="weadmin-block">
 				<button class="layui-btn" onclick="WeAdminShow('添加用户','addGL.html',800,400)"><i class="layui-icon"></i>新增药品</button>
+				<button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
 			</div>
 			<table class="layui-hide" id="test" lay-filter="testReload" ></table>
-			
 			<script type="text/html" id="operateTpl">
 							<a title="编辑" onclick="WeAdminEdit('编辑','bianjiGL.html',{{d.id}}, 800, 400)">
 								<i class="layui-icon">&#xe642;</i>
 							</a>
-							<a title="删除" onclick="member_del(this,'要删除的id')" href="../../DrugsServlet?method=deleteDrugs">
+							<a title="删除" onclick="member_del(this,{{d.id}},'DrugsServlet')" href="javascript:;">
 								<i class="layui-icon">&#xe640;</i>
 							</a>
 			</script>
@@ -81,6 +81,7 @@
 			page:true,
 			limit:5
 		});
+
 
 	  // 数据操作
 	  $('.demoTable .layui-btn').on('click', function(){

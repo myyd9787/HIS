@@ -2,8 +2,10 @@ package com.his.biz;
 
 import com.his.entity.ConstantItem;
 import com.his.entity.ConstantType;
+import com.his.entity.User;
 import com.his.entity.UserDetail;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface ManagerBiz {
@@ -24,8 +26,12 @@ public interface ManagerBiz {
     List<ConstantItem> getConstantItemList();
     //科室管理
     //用户管理
+    //3.2 新增用户
+    int addUser(User user)  ;
     //获取前台需要显示的所有用户详细信息
     public List<UserDetail> getUserDetailList();
+    //模糊查询前台需要显示的所有用户详细信息
+    List<UserDetail> getUserDetailListByUserName(String userName);
     //挂号级别管理
     //结算类别管理
     //诊断目录管理

@@ -22,7 +22,7 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
         List<Drugs> drugsList = new ArrayList<>();
         Drugs drugs;
         String sql = "select  id ,`DrugsCode`,`DrugsName`,`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`"
-                +"from `drugs` order by CreationDate desc limit ?,?";
+                +"from `drugs` where `DelMark`=1 order by CreationDate desc limit ?,?";
         try {
             rs = executeQuery(sql,(drugsPage-1)*drugsLimit,drugsLimit);
             while (rs.next()){
@@ -91,17 +91,44 @@ public class DrugsDaoImpl extends DBUtil implements DrugsDao {
     @Override
     //删除药品
     public int delete(int drugsID) throws SQLException {
-        String sql = "delete from `drugs` where `ID`=?";
+        String sql = "UPDATE  `drugs`  SET `DelMark`=0 WHERE `ID`=?";
         return executeUpdate(sql,drugsID);
     }
 
     @Override
+    //批量删除
+    public int moreDelete() throws SQLException {
+        return 0;
+    }
+
+    //编辑前的渲染
+    @Override
+    public Drugs getDrugsByid(int drugsID) throws SQLException {
+        Drugs drugs = null;
+        String sql = "select `DrugsCode`,`DrugsName`,`DrugsFormat`,`DrugsUnit`,`DrugsPrice`,`DrugsDosageID`,`DrugsTypeID`,`MnemonicCode`"
+                               +"from `drugs` where id=?";
+        rs = executeQuery(sql,drugsID);
+        if (rs.next()){
+            drugs = new Drugs();
+            drugs.setDrugsCode(rs.getString("DrugsCode"));
+            drugs.setDrugsName(rs.getString("DrugsName"));
+            drugs.setDrugsFormat(rs.getString("DrugsFormat"));
+            drugs.setDrugsUnit(rs.getString("DrugsUnit"));
+            drugs.setDrugsPrice(rs.getDouble("DrugsPrice"));
+            drugs.setDrugsDosageId(rs.getInt("DrugsDosageID"));
+            drugs.setDrugsTypeId(rs.getInt("DrugsTypeID"));
+            drugs.setMnemonicCode(rs.getString("MnemonicCode"));
+        }
+        closeAll(conn,pstmt,rs);
+        return drugs;
+    }
+
+    @Override
     //编辑药品
-    public int updata(Drugs drugs,int drugsID) throws SQLException {
-        String sql = "updata `drugs` set `DrugsCode`=?,`DrugsName`=?,`MnemonicCode`=?,"
-                       +"`DrugsFormat`=?,`DrugsUnit`=?,`DrugsPrice`=?,`DrugsDosageID`=?,`DrugsTypeID`=?"
-                        +"where `ID`=?";
+    public int updata(Drugs drugs,int id) throws SQLException {
+        String sql = "update `drugs` set `DrugsCode`=?,`DrugsName`=?,`MnemonicCode`=?,"
+                       +"`DrugsFormat`=?,`DrugsUnit`=?,`DrugsPrice`=?,`DrugsDosageID`=?,`DrugsTypeID`=? where id=?";
         return executeUpdate(sql,drugs.getDrugsCode(),drugs.getDrugsName(),drugs.getMnemonicCode(),
-                drugs.getDrugsFormat(),drugs.getDrugsUnit(),drugs.getDrugsPrice(),drugs.getDrugsDosageId(),drugs.getDrugsTypeId(),drugsID);
+                drugs.getDrugsFormat(),drugs.getDrugsUnit(),drugs.getDrugsPrice(),drugs.getDrugsDosageId(),drugs.getDrugsTypeId(),id);
     }
 }

@@ -5,7 +5,7 @@ public class Manager extends User{
     }
 
     public Manager(String userName, String passWord, String realName, int useType, int docTitleID, String isSchedulin, int deptNo, int registLeID, int delMark) {
-        super(userName, passWord, realName, useType, docTitleID, isSchedulin, deptNo, registLeID, delMark);
+        super(userName, passWord, realName, useType, docTitleID, isSchedulin, deptNo, registLeID);
     }
     public String getUserName(){return super.getUserName();}
 

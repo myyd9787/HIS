@@ -14,26 +14,31 @@
 		<link rel="stylesheet" type="text/css" href="../../lib/css/constant.css" />
 		<script src="../../lib/jquery/jquery-3.2.1.js" type="text/javascript" charset="utf-8"></script>
 
+		
 	</head>
 
 	<body>
 		<div id="top">
 
-			<form id="constantForm" action="../../../ManagerServlet?method=searchConstantList" method="post">
-				<input type="text" name="title" placeholder="请输入常数类别编码或名称" class="layui-input">
-			</form>
-			<button class="layui-btn layui-btn-radius" id="search">常数类别查询</button>
-			<button class="layui-btn layui-btn-radius" id="add">新增常数类别</button>
-			<button class="layui-btn layui-btn-radius" id="constantItemEdit">常数项管理</button>
+			<div>
+				<input id="input_search" type="text" name="title" placeholder="请输入常数类别编码或名称" class="layui-input" style="margin-top: 20px;">
+				<button class="layui-btn layui-btn-radius" id="search" lay-filter="submit1" data-type="reload" lay-submit>常数类别查询</button>
+			</div>
+
+			<div id="button">
+				<button class="layui-btn layui-btn-radius" id="add">新增常数类别</button>
+				<button class="layui-btn layui-btn-radius" id="constantItemEdit">常数项管理</button>
+			</div>
+
 		</div>
 		<div id="content">
 			<table class="layui-table" lay-even lay-skin="nob" id="constant">
 
 			</table>
-			<script type="text/html" id="barDemo">
-				
+			<!--<script type="text/html" id="barDemo">
+
 				<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
-			</script>
+			</script>-->
 		</div>
 
 	</body>
@@ -43,53 +48,74 @@
 			$("#constantForm").submit();
 		}
 
-		layui.use('table', function() {
-			var table = layui.table;
-			// console.log(constantTypeJSON);
-			var constant = table.render({
-				elem: '#constant',
-				url: "../../../ManagerServlet?method=constantList",
-				page: true,
-				id: "test",
-				event: true,
-				parseData: function(res) { //res 即为原始返回的数据		    
-					return {
-						"code": 0, //解析接口状态
-						"msg": "", //解析提示文本
-						"count": res.length, //解析数据长度
-						"data": res //解析数据列表
-					};
-				},
-				cols: [
-					[{
-						field: 'constantTypeCode',
-						title: '类别编码',
-						width: 180
-					}, {
-						field: 'constantTypeName',
-						title: '类别名称',
-						width: 180
-					}, {
-						field: 'id',
-						title: 'ID',
-						width: 80
-					},{
-						field: 'right',
-						title: '操作',
-						width: 180,
-						toolbar:"#barDemo"
-					}]
-				]
-			})
-
-			$("#search").click(function() {
-				search();
-				alert("1");
-				table.reload("test", {
-					url: '../../../ManagerServlet?method=search'
+		layui.use(['table', 'jquery', 'form'], function() {
+			var table = layui.table,
+				$ = layui.jquery;
+				// console.log(constantTypeJSON);
+				var constant = table.render({
+					elem: '#constant',
+					url: "../../../ManagerServlet?method=constantList",
+					page: true,
+					id: "test",
+					event: true,
+					parseData: function(res) { //res 即为原始返回的数据		    
+						return {
+							"code": 0, //解析接口状态
+							"msg": "", //解析提示文本
+							"count": res.length, //解析数据长度
+							"data": res //解析数据列表
+						};
+					},
+					cols: [
+						[{
+							field: 'constantTypeCode',
+							title: '类别编码',
+							width: 180
+						}, {
+							field: 'constantTypeName',
+							title: '类别名称',
+							width: 180
+						}, {
+							field: 'id',
+							title: 'ID',
+							width: 80
+						}]
+					]
+				})
+			//搜索
+			$('#search').on('click', function() {
+				var categoryval = $('#input_search').val();
+				//				alert(categoryval);
+				table.reload('test', {
+					where: {
+						category: categoryval
+					},
 				});
+			});
+			form.on('submit(submit1)', function(data) {
+				$.ajax({
+					type: 'post',
+					url: '../../../ManagerServlet?method=search',
+					data: $('#constantForm').serialize(),
+					success: function() {
+						layer.msg('提交成功');
+					},
+					error: function() {
+						layer.msg('提交失败');
+					}
+				})
+				console.log(JSON.stringify(data.field));
+				return false; //不跳转
+			});
 
-			})
+			//			$("#search").click(function() {
+			//				search();
+			//				alert("1");
+			//				table.reload("test", {
+			//					url: '../../../ManagerServlet?method=search'
+			//				});
+			//
+			//			})
 
 		})
 		$("#add").click(function() {
@@ -102,14 +128,14 @@
 
 			});
 		})
-		$("#constantItemEdit").click(function(){
-			
+		$("#constantItemEdit").click(function() {
+
 			layer.open({
 				type: 2,
 				skin: 'layui-layer-rim', //加上边框
 				area: ['700px', '300px'], //宽高
 				title: "常数项管理",
-				content: 'constantItemEdit.html' //跳转到新增页面
+				content: 'constantItemEdit.html' //跳转到常数项管理界面
 
 			});
 		})

@@ -13,7 +13,7 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     @Override
     //查询所有常数类别
     public List<ConstantType> getConstantTypeList() throws SQLException {
-        String sql="SELECT `ID`,`ConstantTypeCode`,`ConstantTypeName`,`DelMark` FROM constanttype";
+        String sql="SELECT `ID`,`ConstantTypeCode`,`ConstantTypeName`,`DelMark` FROM constanttype order by id desc";
         rs=executeQuery(sql,null);
         List<ConstantType> constantTypeList= new ArrayList<ConstantType>();
         ConstantType constantType=null;
@@ -294,9 +294,9 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     public List<UserDetail> getUserDetailList() throws SQLException {
         List<UserDetail> userDetailList=new ArrayList<>();
         UserDetail userDetail=null;
-        String sql="SELECT u.`ID`,u.`UserName`,u.`RealName`,u.`UseType`,`ConstantName`,`DeptName`,`RegistName`\n" +
-                "FROM `constantitem` c,`department` d,`user` u,`registlevel` r\n" +
-                "WHERE c.`ID`=u.`DocTitleID` AND d.`ID`=u.`DeptID` AND r.`ID`=u.`RegistLeID`";
+        String sql="SELECT u.`ID`,u.`UserName`,u.`RealName`,u.`UseType`,`ConstantName`,`DeptName`,`RegistName` " +
+                "FROM `constantitem` c,`department` d,`user` u,`registlevel` r " +
+                "WHERE c.`ID`=u.`DocTitleID` AND d.`ID`=u.`DeptID` AND r.`ID`=u.`RegistLeID` AND u.delmark=1";
         rs=executeQuery(sql);
         try {
             while(rs.next()){
@@ -319,23 +319,25 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
 
     @Override
     //3.1.2 根据登陆名称查询用户信息
-    public List<User> getUserListByUserName(String userName) throws SQLException {
-        List<User> userList=new ArrayList<>();
-        User user=null;
-        String sql="SELECT `ID`,`UserName`,`RealName`,`UseType`,`DocTitleID`,`DeptID`,`RegistLeID` FROM `user` where UserName LIKE '%?%'";
-        rs=executeQuery(sql,userName);
+    public List<UserDetail> getUserDetailListByUserName(String userName) throws SQLException {
+        List<UserDetail> userDetailList=new ArrayList<>();
+        UserDetail userDetail=null;
+        String sql="SELECT u.`ID`,u.`UserName`,u.`RealName`,u.`UseType`,`ConstantName`,`DeptName`,`RegistName` " +
+                " FROM `constantitem` c,`department` d,`user` u,`registlevel` r " +
+                " WHERE c.`ID`=u.`DocTitleID` AND d.`ID`=u.`DeptID` AND r.`ID`=u.`RegistLeID` AND u.delmark=1 AND (`UserName` LIKE ? OR `RealName` LIKE ?)";
+        rs=executeQuery(sql,"%"+userName+"%","%"+userName+"%");
         while(rs.next()){
-            user=new User();
-            user.setId(rs.getInt("ID"));
-            user.setUserName(rs.getString("UserName"));
-            user.setRealName(rs.getString("RealName"));
-            user.setUseType(rs.getInt("UseType"));
-            user.setDocTitleID(rs.getInt("DocTitleID"));
-            user.setDeptNo(rs.getInt("DeptID"));
-            user.setRegistLeID(rs.getInt("RegistLeID"));
-            userList.add(user);
+            userDetail= new UserDetail();
+            userDetail.setId(rs.getInt("u.ID"));
+            userDetail.setUserNmae(rs.getString("u.UserName"));
+            userDetail.setRealName(rs.getString("u.RealName"));
+            userDetail.setUserType(rs.getInt("u.UseType"));
+            userDetail.setUserDocTitle(rs.getString("ConstantName"));
+            userDetail.setDept(rs.getString("DeptName"));
+            userDetail.setRegisterLe(rs.getString("RegistName"));
+            userDetailList.add(userDetail);
         }
-        return userList;
+        return userDetailList;
     }
 
     @Override
@@ -343,8 +345,8 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     public List<User> getUserListByRealName(String realName) throws SQLException {
         List<User> userList=new ArrayList<>();
         User user=null;
-        String sql="SELECT `ID`,`UserName`,`RealName`,`UseType`,`DocTitleID`,`DeptID`,`RegistLeID` FROM `user` where RealName LIKE '%?%'";
-        rs=executeQuery(sql,realName);
+        String sql="SELECT `ID`,`UserName`,`RealName`,`UseType`,`DocTitleID`,`DeptID`,`RegistLeID` FROM `user` where RealName LIKE ?";
+        rs=executeQuery(sql,"%"+realName+"%");
         while(rs.next()){
             user=new User();
             user.setId(rs.getInt("ID"));
