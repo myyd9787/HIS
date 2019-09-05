@@ -14,31 +14,31 @@
 <div id="xinzeng">
 	<span>编辑药品:</span><br>
 	<form  method="post" class="layui-form">
-		<input type="hidden" name="id" id="dataId" value="" />
+		<input type="hidden" name="id" id="dataId"/>
 		<table border="0" cellspacing="" cellpadding="">
 			<tr>
 				<td>药品编码:</td>
-				<td><input type="text" name="drugsCode" value="" /></td>
+				<td><input type="text" id="drugsCode" name="drugsCode" /></td>
 				<td>药品名称:</td>
-				<td><input type="text" name="drugsName" value="" /></td>
+				<td><input type="text" id="drugsName" name="drugsName" /></td>
 			</tr>
 			<tr>
 				<td>药品助记码:</td>
-				<td><input type="text" name="mnemonicCode" value="" /></td>
+				<td><input type="text" id="mnemonicCode" name="mnemonicCode"/></td>
 				<td>药品规格:</td>
-				<td><input type="text" name="drugsFormat" value="" /></td>
+				<td><input type="text" id="drugsFormat" name="drugsFormat" /></td>
 			</tr>
 			<tr>
 				<td>药品单位:</td>
-				<td><input type="text" name="drugsUnit" value="" /></td>
+				<td><input type="text" id="drugsUnit" name="drugsUnit" /></td>
 				<td>药品单价:</td>
-				<td><input type="text" name="drugsPrice" value="" /></td>
+				<td><input type="text" id="drugsPrice" name="drugsPrice" /></td>
 			</tr>
 			<tr>
 				<td>药品剂型:</td>
-				<td><input type="text" name="drugsDosageId" value="" /></td>
+				<td><input type="text" id="drugsDosageId" name="drugsDosageId" /></td>
 				<td>药品类型:</td>
-				<td><input type="text" name="drugsTypeId" value="" /></td>
+				<td><input type="text" id="drugsTypeId" name="drugsTypeId" /></td>
 			</tr>
 			<tr></tr>
 			<tr>
@@ -64,22 +64,20 @@
         form.render();
         //修改，请求到全部信息
         $.ajax({
-            "url" : "../../DrugsServlet?method=updataDrugs", // 要提交的URL路径
+            "url" : "../../DrugsServlet?method=updataID", // 要提交的URL路径
             "type" :  "post",// 发送请求的方式
             "data": "id="+$("#dataId").val(),// 要发送到服务器的数据
             "dataType" :  "JSON",// 指定传输的数据格式
             "success": function(result) { // 请求成功后要执行的代码
-                $("#username").val(result.username);
-                $("#L_email").val(result.email);
-                $("#phone").val(result.phone);
+                $("#drugsCode").val(result.drugsCode);
+                $("#drugsName").val(result.drugsName);
+                $("#drugsFormat").val(result.drugsFormat);
+                $("#drugsUnit").val(result.drugsUnit);
+                $("#drugsPrice").val(result.drugsPrice);
+                $("#drugsDosageId").val(result.drugsDosageId);
+                $("#drugsTypeId").val(result.drugsTypeId);
+                $("#mnemonicCode").val(result.mnemonicCode);
 
-            //     ,{field: 'drugsCode',title: '药品编码'}
-            // ,{field: 'drugsName',title: '药品名称'}
-            // ,{field: 'drugsFormat',title: '药品规格'}
-            // ,{field: 'drugsUnit',title: '药品单位'}
-            // ,{field: 'drugsPrice',title: '药品单价'}
-            // ,{field: 'drugsDosageId',title: '药品剂型'}
-            // ,{field: 'drugsTypeId',title: '药品类型'}
             },
             "error" : function() {// 请求失败后要执行的代码
                 layer.alert("内部发生异常", {
@@ -97,6 +95,9 @@
                             "data":  data.field, // 要发送到服务器的数据
                             "dataType":"text",// 指定传输的数据格式
                             "success":function(result) {// 请求成功后要执行的代码
+                            // if (result.equals("操作成功")){
+				    		 //
+							// }
                             layer.alert("操作成功", {icon: 6},function () {
                                 // 获得frame索引
                                 var index = parent.layer.getFrameIndex(window.name);

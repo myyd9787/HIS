@@ -26,25 +26,20 @@ public class ManagerServlet extends HttpServlet {
 
         PrintWriter out=response.getWriter();
         if(method.equals("constantList")){//获取常数项列表
-            List<ConstantType> constantTypeList=managerBiz.getConstantTypeList();
-
-            String constantTypeJSON=JSON.toJSONString(constantTypeList);
-//            System.out.print(constantTypeJSON);
-            out.print(constantTypeJSON);
-        }else if(method.equals("searchConstantList")){//执行模糊查询操作
-            String str=request.getParameter("title");
-            List<ConstantType> constantTypeList=managerBiz.getConstantTypeListByConstantTypeCode(str);
-            List<ConstantType> constantTypeList1=managerBiz.getConstantTypeListByConstantTypeName(str);
-            if(method.equals("search")){
-                if(constantTypeList==null){
-                    String constantTypeJSON=JSON.toJSONString(constantTypeList1);
-                    out.print(constantTypeJSON);
-                }else{
-                    String constantTypeJSON=JSON.toJSONString(constantTypeList);
-                    out.print(constantTypeJSON);
-                }
-
+            String constantName=request.getParameter("category");
+            if(constantName!=null){//执行模糊查询
+                List<ConstantType> constantTypeList=managerBiz.getConstantTypeListByConstantTypeName(constantName);
+                String constantTypeJSON=JSON.toJSONString(constantTypeList);
+                out.print(constantTypeJSON);
+            }else{//如果查询条件为空,则默认获取所有常数项信息
+                List<ConstantType> constantTypeList=managerBiz.getConstantTypeList();
+                String constantTypeJSON=JSON.toJSONString(constantTypeList);
+                out.print(constantTypeJSON);
             }
+
+
+
+//            System.out.print(constantTypeJSON);
 
         }else if(method.equals("add")){//执行新增操作
             String constantCode=request.getParameter("constantCode");
