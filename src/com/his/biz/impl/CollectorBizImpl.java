@@ -15,7 +15,7 @@ public class CollectorBizImpl implements CollectorBiz {
         return new CollectorDaoImpl().save(collector);
     }
 
-    @Override
+    @Override//不带分页
     public List<Collector> getCollectorList() {
         try {
             return new CollectorDaoImpl().getCollectorList();
@@ -46,7 +46,7 @@ public class CollectorBizImpl implements CollectorBiz {
     }
 
     @Override//删除
-    public int delCollectorById(int id)  {
+    public int delCollectorById(String id)  {
         try {
             return new CollectorDaoImpl().delCollectorById(id);
         } catch (Exception e) {

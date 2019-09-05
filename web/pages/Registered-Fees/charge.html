@@ -16,40 +16,55 @@
 	<![endif]-->
 </head>
 <body>
-<form class="layui-form layui-col-md12 we-search">
-	<h2>收费信息查询</h2>
-	<div class="demoTable">
-		搜索病历号：
-		<div class="layui-inline">
-			<input class="layui-input" name="id" id="demoReload" autocomplete="off">
-		</div>
-		<button class="layui-btn" data-type="reload">搜索</button>
+<h2>患者查询</h2>
+<div class="demoTable">
+	搜索病历号：
+	<div class="layui-inline">
+		<input class="layui-input" name="id" id="demoReload" autocomplete="off">
 	</div>
-	<table class="layui-hide" id="test"></table>
-</form>
+	<button class="layui-btn" data-type="reload">搜索</button>
+</div>
+<table class="layui-hide" id="test" lay-filter="test"></table>
+
+<script type="text/html" id="toolbarDemo">
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+		<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+		<button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+	</div>
+</script>
+
+<script type="text/html" id="barDemo">
+	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
 <script src="../../lib/layui/layui.js" charset="utf-8"></script>
 <script src="../../static/js/eleDel.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
+<script>
     layui.use('table', function(){
         var table = layui.table;
 
         table.render({
             elem: '#test'
             ,url:'../../CollectorServlet?method=CollectorList'
-            ,cellMinWidth: 80 //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+            ,toolbar: '#toolbarDemo'
+            ,title: '用户数据表'
             ,cols: [[
-                {type:'checkbox'},
-                {field:'', width:150, title: '病历号', sort: true}
-                ,{field:'', width:150, title: '姓名'}
-                ,{field:'', width:150, title: '项目名称'}
-                ,{field:'', width:150, title: '单价'}
-                ,{field:'',width:150, title: '数量'}
-                ,{field:'',width:150, title: '开立时间'}
-                ,{field:'',width:150, title: '看诊状态'}
-
-            ]],
-            page: true
-            ,parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+                {type: 'checkbox', fixed: 'left'}
+                ,{field:'CaseNumber', title:'病历号', width:80, fixed: 'left', unresize: true, sort: true,edit: 'JSON', templet: function(data){
+                        return '<em>'+ data.CaseNumber +'</em>'
+                    }}
+                ,{field:'RealName', title:'姓名', width:80}
+                ,{field:'IDnumber', title:'项目名称', width:200}
+                ,{field:'Age', title:'单价', width:80}
+                ,{field:'HomeAddress', title:'数量', width:150}
+                ,{field:'VisitDate', title:'开立时间', width:120}
+                ,{field:'DeptID', title:'状态', width:100}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+            ]]
+            ,page: true,
+            parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
                 return {
                     "code": 0, //解析接口状态
                     "msg": "", //解析提示文本
@@ -58,10 +73,74 @@
                 };
             }
         });
+
+        //头工具栏事件
+        table.on('toolbar(test)', function(obj){
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch(obj.event){
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：'+ data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选': '未全选');
+                    break;
+            };
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){
+            var data = obj.data;
+            //console.log(obj)
+            if(obj.event === 'del'){
+                layer.confirm('确定退号么', function(index){
+                    $.ajax({
+                        url:"../../CollectorServlet?method=delnumber",
+                        data:{"CaseNumber":data.CaseNumber},
+                        type:"post",
+                        dataType:"JSON",
+                        success:function(data){
+                            if(data==null){
+                                layer.msg(data.CaseNumber);
+                                layer.msg("删除失败", {icon: 5});
+                            }else{
+                                layer.msg(data.CaseNumber)
+                                //删除这一行
+                                obj.del();
+                                //关闭弹窗
+                                layer.close(index);
+                                layer.msg("删除成功", {icon: 6});
+                                layer.closeAll();
+                                parent.location.reload();
+                                load();//删除完需要加载数据
+                            }
+                        },
+                        error:function(){
+                            alert(data);
+                        }
+                    });
+                    obj.del();
+                    layer.close(index);
+                });
+            }else if(obj.event === 'edit'){//编辑
+                layer.prompt({
+                    formType: 2
+                    ,value: data.CaseNumber
+                }, function(value, index){
+                    obj.update({
+                        CaseNumber: value
+                    });
+                    layer.close(index);
+                });
+            }
+        });
         var $ = layui.$, active = {
             reload: function(){
                 var demoReload = $('#demoReload');
-
                 //执行重载
                 table.reload('testReload', {
                     page: {
@@ -75,7 +154,6 @@
                 }, 'data');
             }
         };
-
         $('.demoTable .layui-btn').on('click', function(){
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';

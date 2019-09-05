@@ -2,40 +2,43 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>退号</title>
-	<meta name="renderer" content="webkit">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<link rel="stylesheet" href="../../static/css/font.css">
-	<link rel="stylesheet" href="../../static/css/weadmin.css">
-	<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-	<!--[if lt IE 9]>
-	<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-	<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <meta charset="UTF-8">
+    <title>退号</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../../static/css/font.css">
+    <link rel="stylesheet" href="../../static/css/weadmin.css">
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<h2>患者查询</h2>
+<fieldset class="layui-elem-field layui-field-title" style="margin: 20px;">
+    <legend>患者查询</legend>
+</fieldset>
 <div class="demoTable">
-	搜索病历号：
-	<div class="layui-inline">
-		<input class="layui-input" name="id" id="demoReload" autocomplete="off">
-	</div>
-	<button class="layui-btn" data-type="reload">搜索</button>
+    搜索病历号：
+    <div class="layui-inline">
+        <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+    </div>
+    <button class="layui-btn" data-type="reload">搜索</button>
 </div>
-<table class="layui-hide" id="test" lay-filter="test"></table>
+<table class="layui-hide" id="test" lay-filter="test" ></table>
 
 <script type="text/html" id="toolbarDemo">
-	<div class="layui-btn-container">
-		<button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-		<button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
-		<button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
-	</div>
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+        <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
+        <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
+    </div>
 </script>
 
 <script type="text/html" id="barDemo">
-	<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">退号</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">退号</a>
 </script>
 
 <script src="../../lib/layui/layui.js" charset="utf-8"></script>
@@ -46,9 +49,10 @@
 
         table.render({
             elem: '#test'
-            ,url:'../../CollectorServlet?method=CollectorList'
+            ,url:'../../CollectorServlet?method=CollectorListPage'
             ,toolbar: '#toolbarDemo'
             ,title: '用户数据表'
+            ,height:523
             ,cols: [[
                 {type: 'checkbox', fixed: 'left'}
                 ,{field:'CaseNumber', title:'病历号', width:80, fixed: 'left', unresize: true, sort: true}
@@ -58,18 +62,22 @@
                 ,{field:'HomeAddress', title:'家庭住址', width:150}
                 ,{field:'VisitDate', title:'看诊日期', width:120}
                 ,{field:'DeptID', title:'看诊科室', width:100}
-                ,{field:'VisitState', title:'看诊状态', width:120}
+                ,{field:'VisitState', title:'看诊状态', width:120,edit: 'JSON', templet: function(data){
+                        return '<em>'+ data.VisitState +'</em>'
+                    }}
                 ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
-            ]]
-            ,page: true,
-            parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
+            ]],
+            id:'barDemo',
+            event: true
+            ,page:true,
+           /* parseData: function(res){ //将原始数据解析成 table 组件所规定的数据
                 return {
                     "code": 0, //解析接口状态
                     "msg": "", //解析提示文本
                     "count": res.length, //解析数据长度
                     "data": res //解析数据列表
                 };
-            }
+            }*/
         });
 
         //头工具栏事件
@@ -98,7 +106,7 @@
                 layer.confirm('确定退号么', function(index){
                     $.ajax({
                         url:"../../CollectorServlet?method=delnumber",
-						data:{"CaseNumber":data.CaseNumber},
+                        data:{"CaseNumber":data.CaseNumber},
                         type:"post",
                         dataType:"JSON",
                         success:function(data){
@@ -122,6 +130,16 @@
                         }
                     });
                     obj.del();
+                    layer.close(index);
+                });
+            }else if(obj.event === 'edit'){//编辑
+                layer.prompt({
+                    formType: 2
+                    ,value: data.VisitState
+                }, function(value, index){
+                    obj.update({
+                        VisitState: value
+                    });
                     layer.close(index);
                 });
             }

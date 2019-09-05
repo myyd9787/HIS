@@ -22,29 +22,31 @@ public class UserServlet extends HttpServlet {
         if(method.equals("login")){//执行登录操作
             String userName=request.getParameter("username");
             String passWord=request.getParameter("password");
-            String usertype = request.getParameter("UserType");
-            User user=userBiz.login(userName,passWord);
+            int usertype = Integer.parseInt(request.getParameter("UserType"));
+            User user=userBiz.getUser(userName,passWord,usertype);
             if(user!=null){
                 switch (usertype){
-                    case "0"://进入医院管理员界面
+                    case 1://进入医院管理员界面
                         response.sendRedirect(request.getContextPath()+"/index.html");
                         break;
-                    case "1"://进入挂号收费员界面
-                        response.sendRedirect(request.getContextPath()+"/index.html");
+                    case 2://进入挂号收费员界面
+                        response.sendRedirect(request.getContextPath()+"/index1.html");
                         break;
-                    case "2"://进入门诊医生界面
-                        response.sendRedirect(request.getContextPath()+"/index.html");
+                    case 3://进入门诊医生界面
+                        response.sendRedirect(request.getContextPath()+"/index2.html");
                         break;
-                    case "3"://进入医技处理界面
-                        response.sendRedirect(request.getContextPath()+"/index.html");
+                    case 4://进入医技处理界面
+                        response.sendRedirect(request.getContextPath()+"/index3.html");
                         break;
-                    case "4"://进入药房操作员界面
-                        response.sendRedirect(request.getContextPath()+"/index.html");
+                    case 5://进入药房操作员界面
+                        response.sendRedirect(request.getContextPath()+"/index4.html");
                         break;
-                    case "5"://进入财务管理员界面
-                        response.sendRedirect(request.getContextPath()+"/index.html");
+                    case 6://进入财务管理员界面
+                        response.sendRedirect(request.getContextPath()+"/index5.html");
                         break;
                 }
+            }else{
+                response.sendRedirect(request.getContextPath()+"/login.html");
             }
         }
     }

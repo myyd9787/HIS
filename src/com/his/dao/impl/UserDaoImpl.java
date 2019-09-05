@@ -5,6 +5,8 @@ import com.his.entity.User;
 import com.his.util.DBUtil;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoImpl extends DBUtil implements UserDao {
 
@@ -24,7 +26,7 @@ public class UserDaoImpl extends DBUtil implements UserDao {
     @Override
     public User getUserByUsername(String username, String pwd) throws SQLException {
         String sql = "SELECT `UserName`,`Password`,`RealName`,`UseType`,`DocTitleID`,`IsScheduling`,`DeptID`,`RegistLeID`,`DelMark`" +
-                "FROM `user`  WHERE UserName=? and Password=?";
+                "FROM `user`  WHERE UserName=? and Password=? ";
         User user;
         try {
             rs = executeQuery(sql, username, pwd);
@@ -44,5 +46,22 @@ public class UserDaoImpl extends DBUtil implements UserDao {
             closeAll(conn,pstmt,rs);
         }
         return user;
+    }
+
+    @Override
+    public User getUser(String username,String pwd,int usertype) throws SQLException {
+        User user = new User();
+        String sql="SELECT ID FROM USER where (username = ? and password = ? and usetype = ?)";
+        try {
+            rs = executeQuery(sql,username,pwd,usertype);
+             user = null;
+            while (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("ID"));
+            }
+        }finally {
+            closeAll(conn,pstmt,rs);
+        }
+       return user;
     }
 }
