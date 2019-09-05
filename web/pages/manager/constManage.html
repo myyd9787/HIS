@@ -20,20 +20,23 @@
 		<div id="top">
 
 			<form id="constantForm" action="../../../ManagerServlet?method=searchConstantList" method="post">
-				<input type="text" name="title" placeholder="请输入常数类别编码或名称" class="layui-input">
+				<input type="text" name="title" placeholder="请输入常数类别编码或名称" class="layui-input" style="margin-top: 20px;">
+				<button class="layui-btn layui-btn-radius" id="search" lay-filter="submit1" lay-submit>常数类别查询</button>
 			</form>
-			<button class="layui-btn layui-btn-radius" id="search">常数类别查询</button>
-			<button class="layui-btn layui-btn-radius" id="add">新增常数类别</button>
-			<button class="layui-btn layui-btn-radius" id="constantItemEdit">常数项管理</button>
+			<div id="button">
+				<button class="layui-btn layui-btn-radius" id="add">新增常数类别</button>
+				<button class="layui-btn layui-btn-radius" id="constantItemEdit">常数项管理</button>
+			</div>
+			
 		</div>
 		<div id="content">
 			<table class="layui-table" lay-even lay-skin="nob" id="constant">
 
 			</table>
-			<script type="text/html" id="barDemo">
-				
+			<!--<script type="text/html" id="barDemo">
+
 				<a class="layui-btn layui-btn-danger layui-btn-mini" lay-event="del">删除</a>
-			</script>
+			</script>-->
 		</div>
 
 	</body>
@@ -73,23 +76,33 @@
 						field: 'id',
 						title: 'ID',
 						width: 80
-					},{
-						field: 'right',
-						title: '操作',
-						width: 180,
-						toolbar:"#barDemo"
 					}]
 				]
 			})
+			form.on('submit(submit1)', function(data) {
+				$.ajax({
+					type: 'post',
+					url: '../../../ManagerServlet?method=search',
+					data: $('#constantForm').serialize(),
+					success: function() {
+						layer.msg('提交成功');
+					},
+					error: function() {
+						layer.msg('提交失败');
+					}
+				})
+				console.log(JSON.stringify(data.field));
+				return false; //不跳转
+			});
 
-			$("#search").click(function() {
-				search();
-				alert("1");
-				table.reload("test", {
-					url: '../../../ManagerServlet?method=search'
-				});
-
-			})
+			//			$("#search").click(function() {
+			//				search();
+			//				alert("1");
+			//				table.reload("test", {
+			//					url: '../../../ManagerServlet?method=search'
+			//				});
+			//
+			//			})
 
 		})
 		$("#add").click(function() {
@@ -102,8 +115,8 @@
 
 			});
 		})
-		$("#constantItemEdit").click(function(){
-			
+		$("#constantItemEdit").click(function() {
+
 			layer.open({
 				type: 2,
 				skin: 'layui-layer-rim', //加上边框

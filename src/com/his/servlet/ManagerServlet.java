@@ -3,10 +3,7 @@ package com.his.servlet;
 import com.alibaba.fastjson.JSON;
 import com.his.biz.ManagerBiz;
 import com.his.biz.impl.ManagerBizImpl;
-import com.his.entity.ConstantItem;
-import com.his.entity.ConstantType;
-import com.his.entity.Manager;
-import com.his.entity.UserDetail;
+import com.his.entity.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,10 +61,20 @@ public class ManagerServlet extends HttpServlet {
            String constantItemListJSON=JSON.toJSONString(constantItemList);
            out.print(constantItemListJSON);
         }else if(method.equals("userDetailList")){//获取前端需要显示的用户信息
-            List<UserDetail> userDetailList=managerBiz.getUserDetailList();
+            String userName=request.getParameter("category");
+
+            if(userName!=null){
+                List<UserDetail> userDetailList=managerBiz.getUserDetailListByUserName(userName);
+                String userDetailListJSON=JSON.toJSONString(userDetailList);
+                out.print(userDetailListJSON);
+
+            }else{
+                List<UserDetail> userDetailList=managerBiz.getUserDetailList();
+                String userDetailListJSON=JSON.toJSONString(userDetailList);
+                out.print(userDetailListJSON);
+            }
 //            System.out.print(userDetailList);
-            String userDetailListJSON=JSON.toJSONString(userDetailList);
-            out.print(userDetailListJSON);
+
         }else if(method.equals("constantItemList_edit")){//常数项编辑
             int oldId=Integer.parseInt(request.getParameter("oldid"));
             String constantItemCode=request.getParameter("constantItemCode");
@@ -85,6 +92,21 @@ public class ManagerServlet extends HttpServlet {
 
             }else{//删除失败
 
+            }
+        }else if(method.equals("addUser")){//新增用户
+            String userName=request.getParameter("userName");
+            String password=request.getParameter("password");
+            String realName=request.getParameter("realName");
+            int deptNo=Integer.parseInt(request.getParameter("deptNo"));
+            int userTypeId=Integer.parseInt(request.getParameter("userTypeId"));
+            int docTitleId=Integer.parseInt(request.getParameter("docTitleId"));
+            int registLevelId=Integer.parseInt(request.getParameter("registLevelId"));
+            String IsScheduling=request.getParameter("IsScheduling");
+            User user=new User(userName,password,realName,userTypeId,docTitleId,IsScheduling,deptNo,registLevelId);
+            if(managerBiz.addUser(user)>0){//新增成功
+                out.print("success");
+            }else{
+                out.print("error");
             }
         }
 

@@ -49,7 +49,7 @@ public interface ManagerDao {
     //3.1 查询所有用户信息
     List<UserDetail> getUserDetailList() throws SQLException;
     //3.1.2 根据登陆名称查询用户信息
-    List<User> getUserListByUserName(String userName) throws SQLException;
+    List<UserDetail> getUserDetailListByUserName(String userName) throws SQLException;
     //3.1.3 根据姓名查询用户信息
     List<User> getUserListByRealName(String realName) throws SQLException;
     //3.2 新增用户

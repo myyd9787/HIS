@@ -5,6 +5,7 @@ import com.his.dao.ManagerDao;
 import com.his.dao.impl.ManagerDaoImpl;
 import com.his.entity.ConstantItem;
 import com.his.entity.ConstantType;
+import com.his.entity.User;
 import com.his.entity.UserDetail;
 
 import java.sql.SQLException;
@@ -88,10 +89,33 @@ public class ManagerBizImpl implements ManagerBiz {
             return null;
         }
     }
+
+    @Override
+    //新增用户
+    public int addUser(User user)  {
+        try {
+            return new ManagerDaoImpl().addUser(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
     //获取前台需要显示的所有用户详细信息
     public List<UserDetail> getUserDetailList(){
         try {
             return new ManagerDaoImpl().getUserDetailList();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    //模糊查询前台需要显示的所有用户详细信息
+    public List<UserDetail> getUserDetailListByUserName(String userName) {
+        try {
+            return new ManagerDaoImpl().getUserDetailListByUserName(userName);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
