@@ -12,7 +12,7 @@ public interface ManagerDao {
     //1.1.1 模糊查询所有符合条件的常数类别  当查询条件为constantTypeCode时
     List<ConstantType> getConstantTypeListByConstantTypeCode(String constantTypeCode) throws SQLException;
     //1.1.2模糊查询所有符合条件的常数类别 当查询条件为constantTypeName时
-    List<ConstantType> getConstantTypeListByConstantTypeName(String constantTypeCode) throws SQLException;
+    List<ConstantType> getConstantTypeListByConstantTypeName(String constantTypeName) throws SQLException;
     //1.2 新增常数类别
 
     int addConstantType(ConstantType constantType) throws SQLException;
