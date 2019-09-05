@@ -19,6 +19,8 @@ public interface DrugsBiz {
     int save(Drugs drugs);
     //删除药品
     int delete(int drugsID);
+    //编辑前的渲染
+    Drugs getDrugsByid(int drugsID);
     //编辑药品
-    int updata(Drugs drugs,int drugsID);
+    int updata(Drugs drugs,int id);
 }

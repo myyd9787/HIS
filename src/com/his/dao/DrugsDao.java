@@ -20,6 +20,10 @@ public interface DrugsDao {
     int save(Drugs drugs)throws SQLException;
     //删除药品
     int delete(int drugsID)throws SQLException;
+    //批量删除药品
+    int moreDelete()throws SQLException;
+    //编辑前的渲染
+    Drugs getDrugsByid(int drugsID)throws SQLException;
     //编辑药品
-    int updata(Drugs drugs,int drugsID)throws SQLException;
+    int updata(Drugs drugs,int id)throws SQLException;
 }
