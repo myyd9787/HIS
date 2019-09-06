@@ -139,10 +139,10 @@
 			<label class="layui-form-label">看诊状态</label>
 			<div class="layui-input-inline">
 				<select name="VisitState">
-					<option value="0">已挂号</option>
-					<option value="1">医生接诊</option>
-					<option value="2">看诊结束</option>
-					<option value="3">已退号</option>
+					<option value="1">已挂号</option>
+					<option value="2">医生接诊</option>
+					<option value="3">看诊结束</option>
+					<option value="4">已退号</option>
 				</select>
 			</div>
 		</div>
@@ -151,7 +151,7 @@
 		<div class="layui-inline">
 			<label class="layui-form-label">挂号时间</label>
 			<div class="layui-input-inline">
-				<input type="text" name="RegistTime" id="date2" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+				<input type="text" name="RegistTime" id="date2" lay-verify="datetime" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<label class="layui-form-label">挂号员id</label>
@@ -177,7 +177,10 @@
             elem: '#date1'
         });
         laydate.render({
-            elem: '#date2'
+            elem: '#date2',
+            format:'yyyy-MM-dd HH:mm:ss',
+            type: 'datetime'
+
         });
         //自定义验证规则
         form.verify({

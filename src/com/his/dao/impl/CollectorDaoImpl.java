@@ -21,7 +21,7 @@ public class CollectorDaoImpl extends DBUtil implements CollectorDao {
 //            Date birth = new Date(collector.getBirthDate().getTime());mySql日期转换
             return executeUpdate(sql,collector.getCaseNumber(),collector.getRealName(),collector.getGender(),collector.getIDnumber(),new java.sql.Date(collector.getBirthDate().getTime()),collector.getAge(),
                     collector.getAgeType(),collector.getHomeAddress(),new java.sql.Date(collector.getVisitDate().getTime()),collector.getNoon(),collector.getDeptID(),collector.getUserID(),collector.getRegistLeID(),collector.getSettleID(),collector.getIsBook(),
-                   new java.sql.Date(collector.getRegistTime().getTime()) ,collector.getRegisterID(),collector.getVisitState());
+                   new java.sql.Timestamp(collector.getRegistTime().getTime()) ,collector.getRegisterID(),collector.getVisitState());
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
