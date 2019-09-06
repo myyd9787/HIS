@@ -55,8 +55,8 @@ public class ManagerDaoImpl extends DBUtil implements ManagerDao {
     }
     //模糊查询所有符合条件的常数类别 当查询条件为constantTypeName时
     public List<ConstantType> getConstantTypeListByConstantTypeName(String constantTypeName) throws SQLException {
-        String sql="SELECT `ID`,`ConstantTypeCode`,`ConstantTypeName`,`DelMark` FROM constanttype WHERE ConstantTypeName LIKE '%?%'";
-        rs=executeQuery(sql,constantTypeName);
+        String sql="SELECT `ID`,`ConstantTypeCode`,`ConstantTypeName`,`DelMark` FROM constanttype WHERE ConstantTypeName LIKE ? or ConstantTypeCode like ?";
+        rs=executeQuery(sql,"%"+constantTypeName+"%","%"+constantTypeName+"%");
         List<ConstantType> constantTypeList= new ArrayList<ConstantType>();
         ConstantType constantType=null;
         try {
