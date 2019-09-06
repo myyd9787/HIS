@@ -28,6 +28,7 @@ public class CollectorServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
         DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat hsm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         PrintWriter out = response.getWriter();
         String method = request.getParameter("method");
         CollectorBiz collectorbiz = new CollectorBizImpl();
@@ -56,7 +57,7 @@ public class CollectorServlet extends HttpServlet {
             try {
                 birth = sdf.parse(birthdate);
                 visit = sdf.parse(visitdate);
-                regist = sdf.parse(registtime);
+                regist = hsm.parse(registtime);
                 Collector collector = new Collector(casenumber, realname, gender, idnumber, birth, age, agetype, homeaddress, visit, none, deptid, userid, registleid, setteid, isbook, regist, registerid, visitstate);
                 if (collectorbiz.add(collector) > 0) {//新增成功
                     System.out.println("新增成功");
